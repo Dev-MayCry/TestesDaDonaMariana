@@ -1,4 +1,4 @@
-namespace TesteDaDonaMariana
+namespace TestesDaDonaMariana.WinApp
 {
     internal static class Program
     {

@@ -1,4 +1,4 @@
-namespace TesteDaDonaMariana
+namespace TestesDaDonaMariana.WinApp
 {
     public partial class Form1 : Form
     {
