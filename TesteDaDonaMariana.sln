@@ -14,6 +14,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestesDaDonaMariana.Infra.Dados.Sql", "TestesDaDonaMariana.Infra.Dados.Sql\TestesDaDonaMariana.Infra.Dados.Sql.csproj", "{8F684D73-C31E-473E-A0CE-F4103F1659AD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestesDaDonaMariana.WinApp", "TestesDaDonaMariana.WinApp\TestesDaDonaMariana.WinApp.csproj", "{5677BF27-7EDD-44F0-9D6F-752DBCA4E9FF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8F684D73-C31E-473E-A0CE-F4103F1659AD} = {8F684D73-C31E-473E-A0CE-F4103F1659AD}
+		{B3258BF4-4697-4E41-A5DA-B57389F8189F} = {B3258BF4-4697-4E41-A5DA-B57389F8189F}
+		{EACAB62C-6BCF-4A25-AD9D-A565440AAEEF} = {EACAB62C-6BCF-4A25-AD9D-A565440AAEEF}
+	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TestesDonaMarianaDb", "TestesDonaMarianaDb\TestesDonaMarianaDb.sqlproj", "{B3258BF4-4697-4E41-A5DA-B57389F8189F}"
 EndProject
