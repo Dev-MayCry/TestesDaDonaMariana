@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using TestesDaDonaMariana.Dominio.ModuloDisciplina;
 
 namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina
 {
@@ -133,17 +134,17 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina
             Disciplina disciplina = null;
 
             if (leitorDisciplina.Read())
-                disciplina = ConverterParaDisciplina(leitorDisciplina);
+                //disciplina = ConverterParaDisciplina(leitorDisciplina);
 
             if (disciplina != null)
-                CarregarAlugueis(disciplina);
+                //CarregarAlugueis(disciplina);
 
             //encerra a conexão
             conexaoComBanco.Close();
 
             return disciplina;
         }
-
+        /*
         private void CarregarAlugueis(Disciplina cliente)
         {
             //obter a conexão com o banco e abrir ela
@@ -274,7 +275,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina
             conexaoComBanco.Close();
 
             return clientes;
-        }
+        }*/
 
         private void ConfigurarParametros(SqlCommand comandoInserir, Disciplina novaDisciplina)
         {
