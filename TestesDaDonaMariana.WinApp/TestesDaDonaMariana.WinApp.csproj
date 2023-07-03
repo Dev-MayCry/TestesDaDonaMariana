@@ -18,7 +18,6 @@
   <ItemGroup>
     <ProjectReference Include="..\TestesDaDonaMariana.Dominio\TestesDaDonaMariana.Dominio.csproj" />
     <ProjectReference Include="..\TestesDaDonaMariana.Infra.Dados.Sql\TestesDaDonaMariana.Infra.Dados.Sql.csproj" />
-    <ProjectReference Include="..\TestesDonaMarianaDb\TestesDonaMarianaDb.sqlproj" />
   </ItemGroup>
 
 </Project>
