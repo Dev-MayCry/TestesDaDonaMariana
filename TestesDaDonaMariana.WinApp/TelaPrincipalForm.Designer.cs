@@ -1,6 +1,6 @@
 ﻿namespace TestesDaDonaMariana.WinApp
 {
-    partial class Form1
+    partial class TelaPrincipalForm
     {
         /// <summary>
         ///  Required designer variable.
