@@ -10,6 +10,15 @@ namespace TestesDaDonaMariana.Dominio.ModuloQuestao
         public Disciplina disciplina;
         public Materia materia;
 
+        public Questao(int id, string? enunciado, int numeroAlternativas, Disciplina disciplina, Materia materia)
+        {
+            this.id = id;
+            this.enunciado = enunciado;
+            this.numeroAlternativas = numeroAlternativas;
+            this.disciplina = disciplina;
+            this.materia = materia;
+        }
+
         public override void AtualizarInformacoes(Questao registroAtualizado)
         {
             throw new NotImplementedException();

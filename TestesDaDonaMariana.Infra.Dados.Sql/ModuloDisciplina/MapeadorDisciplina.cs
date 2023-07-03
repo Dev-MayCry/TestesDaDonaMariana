@@ -15,9 +15,9 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina
 
         public override Disciplina ConverterRegistro(SqlDataReader leitorRegistros)
         {
-            int id = Convert.ToInt32(leitorRegistros["CLIENTE_ID"]);
+            int id = Convert.ToInt32(leitorRegistros["DISCIPLINA_ID"]);
 
-            string nome = Convert.ToString(leitorRegistros["CLIENTE_NOME"]);
+            string nome = Convert.ToString(leitorRegistros["DISCIPLINA_NOME"]);
 
             Disciplina disciplina = new Disciplina(id, nome);
 

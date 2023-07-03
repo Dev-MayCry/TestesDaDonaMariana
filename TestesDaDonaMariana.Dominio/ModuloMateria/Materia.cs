@@ -8,6 +8,14 @@ namespace TestesDaDonaMariana.Dominio.ModuloMateria
         public int serie;
         public Disciplina disciplina;
 
+        public Materia(int id, string? nome, int serie, Disciplina disciplina)
+        {
+            this.id = id;
+            this.nome = nome;
+            this.serie = serie;
+            this.disciplina = disciplina;
+        }
+
         public override void AtualizarInformacoes(Materia registroAtualizado)
         {
             throw new NotImplementedException();
