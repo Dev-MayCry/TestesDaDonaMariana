@@ -125,7 +125,7 @@
             this.button3.Text = "Testes";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -137,7 +137,7 @@
             this.Controls.Add(this.btn_Materias);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Disciplinas);
-            this.Name = "Form1";
+            this.Name = "TelaPrincipalForm";
             this.ShowIcon = false;
             this.Text = "Testes da Dona Mariana";
             this.ResumeLayout(false);
