@@ -32,10 +32,17 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
             int numeroAlternativas= Convert.ToInt32(leitorRegistros["QUESTAO_NUMERO_ALTERNATIVAS"]);
             
             Disciplina disciplina= new MapeadorDisciplina().ConverterRegistro(leitorRegistros);
-            
+
+            int serie = Convert.ToInt32(leitorRegistros["QUESTAO_SERIE"]);
+
             Materia materia = new MapeadorMateria().ConverterRegistro(leitorRegistros);
 
-            Questao questao = new Questao(id, enunciado, numeroAlternativas, disciplina, materia);
+            Alternativa aA = new();
+            Alternativa aB = new();
+            Alternativa aC = new();
+            Alternativa aD = new();
+
+            Questao questao = new Questao(id, enunciado, numeroAlternativas, disciplina, serie, materia, aA, aB, aC, aD);
 
             return questao;
         }

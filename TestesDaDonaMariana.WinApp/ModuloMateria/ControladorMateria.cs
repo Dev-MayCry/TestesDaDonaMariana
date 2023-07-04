@@ -1,9 +1,7 @@
-﻿using System.Drawing.Drawing2D;
-using TestesDaDonaMariana.Dominio.ModuloMateria;
+﻿using TestesDaDonaMariana.Dominio.ModuloMateria;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria;
 using TestesDaDonaMariana.WinApp.Compartilhado;
-
 
 namespace TestesDaDonaMariana.WinApp.ModuloMateria {
 

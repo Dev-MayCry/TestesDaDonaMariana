@@ -1,6 +1,4 @@
-﻿
-
-using TestesDaDonaMariana.Dominio.ModuloDisciplina;
+﻿using TestesDaDonaMariana.Dominio.ModuloDisciplina;
 using TestesDaDonaMariana.Dominio.ModuloMateria;
 using TestesDaDonaMariana.WinApp.Compartilhado;
 

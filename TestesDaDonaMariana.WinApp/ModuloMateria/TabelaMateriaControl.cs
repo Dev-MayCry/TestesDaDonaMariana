@@ -1,6 +1,4 @@
-﻿
-
-using TestesDaDonaMariana.Dominio.ModuloMateria;
+﻿using TestesDaDonaMariana.Dominio.ModuloMateria;
 using TestesDaDonaMariana.WinApp.Compartilhado;
 
 namespace TestesDaDonaMariana.WinApp.ModuloMateria {
