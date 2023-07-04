@@ -8,7 +8,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.Compartilhado
        where TMapeador : MapeadorBase<TEntidade>, new()
     {
         protected string enderecoBanco =
-           @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=DonaMarianaDB;Integrated Security=True";
+           @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=TestesDonaMarianaDb;Integrated Security=True";
 
         protected abstract string sqlInserir { get; }
         protected abstract string sqlEditar { get; }

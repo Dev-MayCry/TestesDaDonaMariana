@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[TBMateria] (
-    [ID]            INT          NOT NULL,
+    [ID]            INT          NOT NULL IDENTITY,
     [nome]          VARCHAR (50) NOT NULL,
     [serie]         VARCHAR (50) NOT NULL,
     [ID_Disciplina] INT          NOT NULL,

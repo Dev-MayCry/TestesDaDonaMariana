@@ -10,7 +10,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria
 	            (
 		            [NOME],
 					[SERIE],
-					[DISCIPLINA]
+					[ID_DISCIPLINA]
 	            )
 	            VALUES 
 	            (
@@ -26,7 +26,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria
 	        SET 
 		        [NOME] = @NOME,
 				[SERIE] = @SERIE,
-				[DISCIPLINA] = @DISCIPLINA
+				[ID_DISCIPLINA] = @DISCIPLINA
 	        WHERE 
 		        [ID] = @ID";
 
@@ -41,7 +41,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria
 	            [ID]			MATERIA_ID,
                 [NOME]			MATERIA_NOME,
 				[SERIE]			MATERIA_SERIE,
-				[DISCIPLINA]	MATERIA_DISCIPLINA
+				[ID_DISCIPLINA]	MATERIA_DISCIPLINA
 	
             FROM 
 	            [TBMATERIA]";
@@ -52,7 +52,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria
 	            [ID]			MATERIA_ID,
                 [NOME]			MATERIA_NOME,
 				[SERIE]			MATERIA_SERIE,
-				[DISCIPLINA]	MATERIA_DISCIPLINA
+				[ID_DISCIPLINA]	MATERIA_DISCIPLINA
 	        
             FROM 
 	            [TBMATERIA] 
@@ -60,4 +60,4 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria
                 [ID] = @ID";
     }
 }
-}
+

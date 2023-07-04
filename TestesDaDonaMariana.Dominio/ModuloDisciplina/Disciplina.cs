@@ -19,5 +19,9 @@
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString() {
+            return nome;
+        }
     }
 }

@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestesDaDonaMariana.WinApp"
 		{EACAB62C-6BCF-4A25-AD9D-A565440AAEEF} = {EACAB62C-6BCF-4A25-AD9D-A565440AAEEF}
 	EndProjectSection
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DonaMarianaDB", "DonaMarianaDB\DonaMarianaDB.sqlproj", "{8FB95F5A-EC9E-4623-897C-2A0086E3FE64}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TestesDonaMarianaDb", "DonaMarianaDB\TestesDonaMarianaDb.sqlproj", "{8FB95F5A-EC9E-4623-897C-2A0086E3FE64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

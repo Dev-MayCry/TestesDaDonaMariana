@@ -17,7 +17,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria
 
             comando.Parameters.AddWithValue("SERIE", registro.serie);
 
-            comando.Parameters.AddWithValue("DISCIPLINA", registro.disciplina);
+            comando.Parameters.AddWithValue("ID_DISCIPLINA", registro.disciplina.id);
         }
 
         public override Materia ConverterRegistro(SqlDataReader leitorRegistros)

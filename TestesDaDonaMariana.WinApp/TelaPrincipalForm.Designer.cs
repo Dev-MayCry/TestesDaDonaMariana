@@ -28,130 +28,154 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Disciplinas = new System.Windows.Forms.Button();
-            this.btn_Materias = new System.Windows.Forms.Button();
-            this.btn_Questoes = new System.Windows.Forms.Button();
-            this.btn_Testes = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.tpMenuCadastros = new System.Windows.Forms.ToolStripMenuItem();
+            this.matériasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.matériasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btn_Voltar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_Adicionar = new System.Windows.Forms.ToolStripButton();
+            this.btn_Editar = new System.Windows.Forms.ToolStripButton();
+            this.btn_Excluir = new System.Windows.Forms.ToolStripButton();
+            this.panelRegistros = new System.Windows.Forms.Panel();
+            this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn_Disciplinas
+            // menuStrip1
             // 
-            this.btn_Disciplinas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Disciplinas.Location = new System.Drawing.Point(215, 88);
-            this.btn_Disciplinas.Name = "btn_Disciplinas";
-            this.btn_Disciplinas.Size = new System.Drawing.Size(175, 130);
-            this.btn_Disciplinas.TabIndex = 0;
-            this.btn_Disciplinas.Text = "Disciplinas";
-            this.btn_Disciplinas.UseVisualStyleBackColor = true;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tpMenuCadastros});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // btn_Materias
+            // tpMenuCadastros
             // 
-            this.btn_Materias.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Materias.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Materias.Location = new System.Drawing.Point(396, 88);
-            this.btn_Materias.Name = "btn_Materias";
-            this.btn_Materias.Size = new System.Drawing.Size(175, 130);
-            this.btn_Materias.TabIndex = 1;
-            this.btn_Materias.Text = "Matérias";
-            this.btn_Materias.UseVisualStyleBackColor = true;
+            this.tpMenuCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.matériasToolStripMenuItem,
+            this.matériasToolStripMenuItem1});
+            this.tpMenuCadastros.Name = "tpMenuCadastros";
+            this.tpMenuCadastros.Size = new System.Drawing.Size(71, 20);
+            this.tpMenuCadastros.Text = "Cadastros";
             // 
-            // btn_Questoes
+            // matériasToolStripMenuItem
             // 
-            this.btn_Questoes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Questoes.Location = new System.Drawing.Point(215, 224);
-            this.btn_Questoes.Name = "btn_Questoes";
-            this.btn_Questoes.Size = new System.Drawing.Size(175, 130);
-            this.btn_Questoes.TabIndex = 2;
-            this.btn_Questoes.Text = "Questões";
-            this.btn_Questoes.UseVisualStyleBackColor = true;
+            this.matériasToolStripMenuItem.Name = "matériasToolStripMenuItem";
+            this.matériasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.matériasToolStripMenuItem.Text = "Disciplinas";
             // 
-            // btn_Testes
+            // matériasToolStripMenuItem1
             // 
-            this.btn_Testes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Testes.Location = new System.Drawing.Point(396, 224);
-            this.btn_Testes.Name = "btn_Testes";
-            this.btn_Testes.Size = new System.Drawing.Size(175, 130);
-            this.btn_Testes.TabIndex = 3;
-            this.btn_Testes.Text = "Testes";
-            this.btn_Testes.UseVisualStyleBackColor = true;
+            this.matériasToolStripMenuItem1.Name = "matériasToolStripMenuItem1";
+            this.matériasToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
+            this.matériasToolStripMenuItem1.Text = "Matérias";
+            this.matériasToolStripMenuItem1.Click += new System.EventHandler(this.matériasToolStripMenuItem1_Click);
             // 
-            // button1
+            // toolStrip1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(215, 88);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 130);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Disciplinas";
-            this.button1.UseVisualStyleBackColor = true;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_Voltar,
+            this.toolStripSeparator1,
+            this.btn_Adicionar,
+            this.btn_Editar,
+            this.btn_Excluir});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(784, 47);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // button2
+            // btn_Voltar
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(215, 224);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 130);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Questões";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_Voltar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Voltar.Image = global::TestesDaDonaMariana.WinApp.Properties.Resources.arrow_back_FILL0_wght500_GRAD0_opsz40;
+            this.btn_Voltar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_Voltar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Voltar.Name = "btn_Voltar";
+            this.btn_Voltar.Size = new System.Drawing.Size(44, 44);
+            this.btn_Voltar.Text = "toolStripButton1";
             // 
-            // button3
+            // toolStripSeparator1
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(396, 224);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(175, 130);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Testes";
-            this.button3.UseVisualStyleBackColor = true;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 47);
+            // 
+            // btn_Adicionar
+            // 
+            this.btn_Adicionar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Adicionar.Image = global::TestesDaDonaMariana.WinApp.Properties.Resources.add_box_FILL0_wght500_GRAD0_opsz40;
+            this.btn_Adicionar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_Adicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Adicionar.Name = "btn_Adicionar";
+            this.btn_Adicionar.Size = new System.Drawing.Size(44, 44);
+            this.btn_Adicionar.Text = "toolStripButton2";
+            this.btn_Adicionar.Click += new System.EventHandler(this.btn_Adicionar_Click);
+            // 
+            // btn_Editar
+            // 
+            this.btn_Editar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Editar.Image = global::TestesDaDonaMariana.WinApp.Properties.Resources.edit_FILL0_wght500_GRAD0_opsz40__1_;
+            this.btn_Editar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_Editar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Editar.Name = "btn_Editar";
+            this.btn_Editar.Size = new System.Drawing.Size(44, 44);
+            this.btn_Editar.Text = "toolStripButton3";
+            // 
+            // btn_Excluir
+            // 
+            this.btn_Excluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Excluir.Image = global::TestesDaDonaMariana.WinApp.Properties.Resources.delete_FILL0_wght500_GRAD0_opsz40__1_;
+            this.btn_Excluir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_Excluir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Excluir.Name = "btn_Excluir";
+            this.btn_Excluir.Size = new System.Drawing.Size(44, 44);
+            this.btn_Excluir.Text = "toolStripButton4";
+            // 
+            // panelRegistros
+            // 
+            this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRegistros.Location = new System.Drawing.Point(0, 71);
+            this.panelRegistros.Name = "panelRegistros";
+            this.panelRegistros.Size = new System.Drawing.Size(784, 390);
+            this.panelRegistros.TabIndex = 4;
             // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.btn_Testes);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.btn_Questoes);
-            this.Controls.Add(this.btn_Materias);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btn_Disciplinas);
+            this.Controls.Add(this.panelRegistros);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "TelaPrincipalForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Testes da Dona Mariana";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Button btn_Disciplinas;
-        private Button btn_Materias;
-        private Button btn_Questoes;
-        private Button btn_Testes;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem tpMenuCadastros;
+        private ToolStrip toolStrip1;
+        private ToolStripButton btn_Voltar;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripButton btn_Adicionar;
+        private ToolStripButton btn_Editar;
+        private ToolStripButton btn_Excluir;
+        private Panel panelRegistros;
+        private ToolStripMenuItem matériasToolStripMenuItem;
+        private ToolStripMenuItem matériasToolStripMenuItem1;
     }
 }
