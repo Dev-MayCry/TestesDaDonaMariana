@@ -1,27 +1,37 @@
-﻿namespace TestesDaDonaMariana.Dominio.ModuloDisciplina
+﻿using System.Text.RegularExpressions;
+
+namespace TestesDaDonaMariana.Dominio.ModuloDisciplina
 {
     public class Disciplina : EntidadeBase<Disciplina>
     {
-        public string nome;
+        public string disciplinas;
 
-        public Disciplina(int id, string? nome)
+        public Disciplina()
+        {
+
+        }
+        public Disciplina(int id, string? disciplinas)
         {
             this.id = id;
-            this.nome = nome;
+            this.disciplinas = disciplinas;
         }
-
+        public override string ToString() {
+            return disciplinas;
+        }
         public override void AtualizarInformacoes(Disciplina registroAtualizado)
         {
-            throw new NotImplementedException();
+            this.disciplinas = registroAtualizado.disciplinas;          
         }
+
 
         public override string[] Validar()
         {
-            throw new NotImplementedException();
-        }
+            List<string> erros = new List<string>();
 
-        public override string ToString() {
-            return nome;
+            if (string.IsNullOrEmpty(disciplinas) || disciplinas.Any(char.IsDigit) || !Regex.IsMatch(disciplinas, @"^[a-zA-Z\s]+$") ||disciplinas.Length < 5)
+                erros.Add("O campo 'nome' é obrigatório ou possui caracteres inválidos. Digite um nome válido.");
+
+            return erros.ToArray();
         }
     }
 }
