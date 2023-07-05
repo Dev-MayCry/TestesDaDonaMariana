@@ -24,7 +24,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria
         {
             int id = Convert.ToInt32(leitorRegistros["MATERIA_ID"]);
 
-            string nome = Convert.ToString(leitorRegistros["MATERIA_NOME"]);
+            string? nome = Convert.ToString(leitorRegistros["MATERIA_NOME"]);
 
             int serie = Convert.ToInt32(leitorRegistros["MATERIA_SERIE"]);
 

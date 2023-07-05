@@ -1,4 +1,6 @@
 ﻿using TestesDaDonaMariana.Dominio.ModuloQuestao;
+using TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina;
+using TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao;
 using TestesDaDonaMariana.WinApp.Compartilhado;
 
@@ -8,10 +10,14 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
     {
         private TabelaQuestaoControl tabelaQuestao;
         private RepositorioQuestaoEmSql repositorioQuestao;
+        private RepositorioDisciplinaEmSql repositorioDisciplina;
+        private RepositorioMateriaEmSql repositorioMateria;
 
-        public ControladorQuestao(RepositorioQuestaoEmSql repositorioQuestao)
+        public ControladorQuestao(RepositorioQuestaoEmSql repositorioQuestao, RepositorioDisciplinaEmSql repositorioDisciplina, RepositorioMateriaEmSql repositorioMateria)
         {
             this.repositorioQuestao = repositorioQuestao;
+            this.repositorioDisciplina = repositorioDisciplina;
+            this.repositorioMateria = repositorioMateria;
         }
 
         public override string ToolTipInserir => "Inserir nova Questão";
@@ -22,7 +28,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
         
         public override void Inserir()
         {
-            TelaQuestao telaQuestao = new TelaQuestao();
+            TelaQuestao telaQuestao = new TelaQuestao(repositorioDisciplina.SelecionarTodos(), repositorioMateria.SelecionarTodos());
             DialogResult opcaoEscolhida = telaQuestao.ShowDialog();
             if (opcaoEscolhida == DialogResult.OK)
             {

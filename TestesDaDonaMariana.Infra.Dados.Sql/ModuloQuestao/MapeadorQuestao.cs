@@ -27,7 +27,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
         {
             int id = Convert.ToInt32(leitorRegistros["QUESTAO_ID"]);
 
-            string enunciado = Convert.ToString(leitorRegistros["QUESTAO_ENUNCIADO"]);
+            string? enunciado = Convert.ToString(leitorRegistros["QUESTAO_ENUNCIADO"]);
             
             int numeroAlternativas= Convert.ToInt32(leitorRegistros["QUESTAO_NUMERO_ALTERNATIVAS"]);
             

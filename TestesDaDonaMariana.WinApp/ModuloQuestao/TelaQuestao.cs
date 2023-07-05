@@ -1,18 +1,31 @@
-﻿using TestesDaDonaMariana.Dominio.ModuloDisciplina;
+﻿using System.Collections.Generic;
+using TestesDaDonaMariana.Dominio.ModuloDisciplina;
 using TestesDaDonaMariana.Dominio.ModuloMateria;
 using TestesDaDonaMariana.Dominio.ModuloQuestao;
+using TestesDaDonaMariana.WinApp.Compartilhado;
 
 namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 {
     public partial class TelaQuestao : Form
     {
-        public TelaQuestao()
+        public TelaQuestao(List<Disciplina> disciplinas, List<Materia> materias)
         {
             InitializeComponent();
-            BloqueiaAlternativas();
+            this.ConfigurarDialog();
+            CarregarInformacoes(disciplinas, materias);
+            BloquearAlternativas();
         }
 
-        private void BloqueiaAlternativas()
+        private void CarregarInformacoes(List<Disciplina> disciplinas, List<Materia> materias)
+        {
+            txtListaDisciplinas.Items.Clear();
+            foreach (Disciplina d in disciplinas) txtListaDisciplinas.Items.Add(d);
+            
+            txtListaMaterias.Items.Clear();
+            foreach (Materia m in materias) txtListaMaterias.Items.Add(m);
+        }
+
+        private void BloquearAlternativas()
         {
             alternativaC.Enabled = false;
             alternativaD.Enabled = false;

@@ -10,8 +10,8 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
 	            (
 		            [ENUNCIADO],
 					[NUMERO_ALTERNATIVAS],
-					[DISCIPLINA],
-					[MATERIA]
+					[ID_DISCIPLINA],
+					[ID_MATERIA]
 	            )
 	            VALUES 
 	            (
@@ -28,8 +28,8 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
 	        SET 
 		        [ENUNCIADO] = @ENUNCIADO,
 		        [NUMERO_ALTERNATIVAS] = @NUMERO_ALTERNATIVAS,
-		        [DISCIPLINA] = @DISCIPLINA,
-		        [MATERIA] = @MATERIA
+		        [ID_DISCIPLINA] = @DISCIPLINA,
+		        [ID_MATERIA] = @MATERIA
 	        WHERE 
 		        [ID] = @ID";
 
@@ -44,8 +44,8 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
 	            [ID]					QUESTAO_ID,
                 [ENUNCIADO]				QUESTAO_ENUNCIADO,
                 [NUMERO_ALTERNATIVAS]	QUESTAO_NUMERO_ALTERNATIVAS,
-                [DISCIPLINA]			QUESTAO_DISCIPLINA,
-                [MATERIA]				QUESTAO_MATERIA
+                [ID_DISCIPLINA]			QUESTAO_DISCIPLINA,
+                [ID_MATERIA]			QUESTAO_MATERIA
 	
             FROM 
 	            [TBQUESTAO]";
@@ -56,8 +56,8 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
 	            [ID]					QUESTAO_ID,
                 [ENUNCIADO]				QUESTAO_ENUNCIADO,
                 [NUMERO_ALTERNATIVAS]	QUESTAO_NUMERO_ALTERNATIVAS,
-                [DISCIPLINA]			QUESTAO_DISCIPLINA,
-                [MATERIA]				QUESTAO_MATERIA
+                [ID_DISCIPLINA]			QUESTAO_DISCIPLINA,
+                [ID_MATERIA]			QUESTAO_MATERIA
 	        
             FROM 
 	            [TBQUESTAO] 
