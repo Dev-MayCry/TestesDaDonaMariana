@@ -42,6 +42,9 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
             txtNome.Text = materia.nome;
 
             txtSerie.Text = Convert.ToString(materia.serie);
+
+            txtDisciplina.SelectedItem = materia.disciplina;
+            
         }
     }
 }

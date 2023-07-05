@@ -52,7 +52,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
                     m.id,
                     m.nome,
                     m.serie,
-                    m.disciplina
+                    m.disciplina.nome
                 );
             }
         }

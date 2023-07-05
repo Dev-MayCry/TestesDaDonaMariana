@@ -35,17 +35,55 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
             CarregarMaterias();
         }
 
-        private void CarregarMaterias() {
-            List<Materia> materias = repositorioMateria.SelecionarTodos();
-            tabelaMateria.AtualizarRegistros(materias);
-        }
 
         public override void Editar() {
-            throw new NotImplementedException();
+            Materia materia = ObterMateriaSelecionada();
+
+            if(materia == null) {
+                MessageBox.Show($"Nenhuma matéria selecionada!",
+                    "Edição de Matérias",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaMateria tela = new TelaMateria(repositorioDisciplina.SelecionarTodos());
+            tela.ConfigurarTela(materia);
+
+            DialogResult opcaoEscolhida = tela.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK) {
+                Materia materiaAtualizada = tela.ObterMateria();
+                repositorioMateria.Editar(materiaAtualizada.id, materiaAtualizada);
+            }
+
+            CarregarMaterias();
+
         }
 
+
         public override void Excluir() {
-            throw new NotImplementedException();
+            Materia materia = ObterMateriaSelecionada();
+
+            if (materia == null) {
+                MessageBox.Show($"Nenhuma matéria selecionada!",
+                    "Edição de Matérias",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a matéria {materia.nome}?", "Exclusão de Matérias",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+
+            if (opcaoEscolhida == DialogResult.OK) {
+                repositorioMateria.Excluir(materia);
+            }
+
+            CarregarMaterias();
         }
 
 
@@ -56,6 +94,16 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
             CarregarMaterias();
 
             return tabelaMateria;
+        }
+
+        private Materia ObterMateriaSelecionada() {
+            int id = tabelaMateria.ObterIdSelecionado();
+
+            return repositorioMateria.SelecionarPorId(id);
+        }
+        private void CarregarMaterias() {
+            List<Materia> materias = repositorioMateria.SelecionarTodos();
+            tabelaMateria.AtualizarRegistros(materias);
         }
     }
 }

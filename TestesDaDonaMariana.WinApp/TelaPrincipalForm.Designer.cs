@@ -124,6 +124,7 @@
             this.btn_Editar.Name = "btn_Editar";
             this.btn_Editar.Size = new System.Drawing.Size(44, 44);
             this.btn_Editar.Text = "toolStripButton3";
+            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
             // 
             // btn_Excluir
             // 
@@ -134,6 +135,7 @@
             this.btn_Excluir.Name = "btn_Excluir";
             this.btn_Excluir.Size = new System.Drawing.Size(44, 44);
             this.btn_Excluir.Text = "toolStripButton4";
+            this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
             // 
             // panelRegistros
             // 
