@@ -65,6 +65,12 @@ namespace TestesDaDonaMariana.WinApp
             controlador.Inserir();
         }
 
-        
+        private void btn_Editar_Click(object sender, EventArgs e) {
+            controlador.Editar();
+        }
+
+        private void btn_Excluir_Click(object sender, EventArgs e) {
+            controlador.Excluir();
+        }
     }
 }

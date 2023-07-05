@@ -110,23 +110,25 @@
             // 
             // btn_Editar
             // 
-            btn_Editar.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btn_Editar.Image = Properties.Resources.edit_FILL0_wght500_GRAD0_opsz40__1_;
-            btn_Editar.ImageScaling = ToolStripItemImageScaling.None;
-            btn_Editar.ImageTransparentColor = Color.Magenta;
-            btn_Editar.Name = "btn_Editar";
-            btn_Editar.Size = new Size(44, 44);
-            btn_Editar.Text = "toolStripButton3";
+            this.btn_Editar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Editar.Image = global::TestesDaDonaMariana.WinApp.Properties.Resources.edit_FILL0_wght500_GRAD0_opsz40__1_;
+            this.btn_Editar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_Editar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Editar.Name = "btn_Editar";
+            this.btn_Editar.Size = new System.Drawing.Size(44, 44);
+            this.btn_Editar.Text = "toolStripButton3";
+            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
             // 
             // btn_Excluir
             // 
-            btn_Excluir.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btn_Excluir.Image = Properties.Resources.delete_FILL0_wght500_GRAD0_opsz40__1_;
-            btn_Excluir.ImageScaling = ToolStripItemImageScaling.None;
-            btn_Excluir.ImageTransparentColor = Color.Magenta;
-            btn_Excluir.Name = "btn_Excluir";
-            btn_Excluir.Size = new Size(44, 44);
-            btn_Excluir.Text = "toolStripButton4";
+            this.btn_Excluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Excluir.Image = global::TestesDaDonaMariana.WinApp.Properties.Resources.delete_FILL0_wght500_GRAD0_opsz40__1_;
+            this.btn_Excluir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_Excluir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Excluir.Name = "btn_Excluir";
+            this.btn_Excluir.Size = new System.Drawing.Size(44, 44);
+            this.btn_Excluir.Text = "toolStripButton4";
+            this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
             // 
             // panelRegistros
             // 
