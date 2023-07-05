@@ -1,3 +1,4 @@
+using FestaInfantil.ModuloCliente;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria;
 using TestesDaDonaMariana.WinApp.Compartilhado;
@@ -56,6 +57,13 @@ namespace TestesDaDonaMariana.WinApp
         {
             controlador.Inserir();
         }
+
+        private void DisciplinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorDisciplina(repositorioDisciplina);
+            ConfigurarTelaPrincipal(controlador);
+        }
+
         public static TelaPrincipalForm Instancia
         {
             get
@@ -66,9 +74,9 @@ namespace TestesDaDonaMariana.WinApp
                 return telaPrincipal;
             }
         }
-        public void AtualizarRodape(string mensagem)
-        {
-            lbRodape.Text = mensagem;
-        }
+        //public void AtualizarRodape(string mensagem)
+        //{
+        //    lbRodape.Text = mensagem;
+        //}
     }
 }

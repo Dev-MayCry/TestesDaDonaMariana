@@ -4,7 +4,7 @@ namespace TestesDaDonaMariana.Dominio.ModuloDisciplina
 {
     public class Disciplina : EntidadeBase<Disciplina>
     {
-        public string disciplinas;
+        public string nome;
 
         public Disciplina()
         {
@@ -13,14 +13,14 @@ namespace TestesDaDonaMariana.Dominio.ModuloDisciplina
         public Disciplina(int id, string? disciplinas)
         {
             this.id = id;
-            this.disciplinas = disciplinas;
+            this.nome = disciplinas;
         }
         public override string ToString() {
-            return disciplinas;
+            return nome;
         }
         public override void AtualizarInformacoes(Disciplina registroAtualizado)
         {
-            this.disciplinas = registroAtualizado.disciplinas;          
+            this.nome = registroAtualizado.nome;          
         }
 
 
@@ -28,7 +28,7 @@ namespace TestesDaDonaMariana.Dominio.ModuloDisciplina
         {
             List<string> erros = new List<string>();
 
-            if (string.IsNullOrEmpty(disciplinas) || disciplinas.Any(char.IsDigit) || !Regex.IsMatch(disciplinas, @"^[a-zA-Z\s]+$") ||disciplinas.Length < 5)
+            if (string.IsNullOrEmpty(nome) || nome.Any(char.IsDigit) || !Regex.IsMatch(nome, @"^[a-zA-Z\s]+$") ||nome.Length < 5)
                 erros.Add("O campo 'nome' é obrigatório ou possui caracteres inválidos. Digite um nome válido.");
 
             return erros.ToArray();

@@ -1,14 +1,19 @@
 ﻿
+using e_Agenda.WinApp.ModuloContato;
 using TestesDaDonaMariana.Dominio.ModuloDisciplina;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina;
 using TestesDaDonaMariana.WinApp;
 using TestesDaDonaMariana.WinApp.Compartilhado;
 using TestesDaDonaMariana.WinApp.ModuloDisciplina;
+using TestesDaDonaMariana.WinApp.ModuloMateria;
+
 
 namespace FestaInfantil.ModuloCliente
 {
     public class ControladorDisciplina : ControladorBase
     {
+        private TabelaDisciplinaControl tabelaDisciplina;
+        private RepositorioDisciplinaEmSql repositorioDisciplina;
        
         public ControladorDisciplina(RepositorioDisciplinaEmSql repositorioDisciplina)
         {
@@ -22,7 +27,7 @@ namespace FestaInfantil.ModuloCliente
 
         public override string ToolTipExcluir => "Excluir Disciplina Existente";
 
-        public override string LabelTipoCadastro => "Cadastro De Disciplinas";
+        //  public override string LabelTipoCadastro => "Cadastro De Disciplinas";
 
         public override void Inserir()
         {
@@ -39,7 +44,7 @@ namespace FestaInfantil.ModuloCliente
 
         public override void Editar()
         {
-            Disciplina disciplinaSelecionada = ObterDisciplinaSelecionado();
+            Disciplina disciplinaSelecionada = ObterDisciplinaSelecionada();
 
             if (disciplinaSelecionada == null)
             {
@@ -72,7 +77,7 @@ namespace FestaInfantil.ModuloCliente
                 return;
             }
            
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Excluir a Disciplina {disciplinaSelecionada.disciplinas} ?", "Exclusão de Disciplina", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Excluir a Disciplina {disciplinaSelecionada.nome} ?", "Exclusão de Disciplina", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
@@ -84,8 +89,22 @@ namespace FestaInfantil.ModuloCliente
         {
             List<Disciplina> disciplina = repositorioDisciplina.SelecionarTodos();
             tabelaDisciplina.AtualizarRegistros(disciplina);
-            TelaPrincipalForm.Instancia.AtualizarRodape("Visualizando Disciplinas");
+            //TelaPrincipalForm.Instancia.AtualizarRodape("Visualizando Disciplinas");
         }
-                                   
+        private Disciplina ObterDisciplinaSelecionada()
+        {
+            int id = tabelaDisciplina.ObterIdSelecionado();
+            return repositorioDisciplina.SelecionarPorId(id);
+        }
+
+        public override UserControl ObterListagem()
+        {
+            if (tabelaDisciplina == null)
+                tabelaDisciplina = new TabelaDisciplinaControl();
+
+            CarregarDisciplina();
+
+            return tabelaDisciplina;
+        }
     }
 }

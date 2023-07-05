@@ -1,5 +1,6 @@
 ﻿
 using TestesDaDonaMariana.Dominio.ModuloDisciplina;
+using TestesDaDonaMariana.WinApp.Compartilhado;
 
 namespace e_Agenda.WinApp.ModuloContato
 {
@@ -9,9 +10,9 @@ namespace e_Agenda.WinApp.ModuloContato
         {
             InitializeComponent();
             ConfigurarColunas();
-            gridDisciplina.ConfigurarGridZebrado();
+            grid.ConfigurarGridZebrado();
 
-            gridDisciplina.ConfigurarGridSomenteLeitura();
+            grid.ConfigurarGridSomenteLeitura();
 
         }
 
@@ -31,36 +32,36 @@ namespace e_Agenda.WinApp.ModuloContato
                 },
                 new DataGridViewTextBoxColumn()
                 {
-                   
+
                 },
 
             };
 
-            gridDisciplina.Columns.AddRange(colunas);
+            grid.Columns.AddRange(colunas);
         }
 
         public void AtualizarRegistros(List<Disciplina> disciplinas)
         {
-            gridDisciplina.Rows.Clear();
+            grid.Rows.Clear();
 
             foreach (Disciplina disciplina in disciplinas)
             {
-                gridDisciplina.Rows.Add(disciplina.id, disciplina.disciplinas);
+                grid.Rows.Add(disciplina.id, disciplina.nome);
             }
         }
 
         public int ObterIdSelecionado()
         {
-            if (gridDisciplina.SelectedRows.Count == 0)
+            if (grid.SelectedRows.Count == 0)
                 return -1;
 
-            int id = Convert.ToInt32(gridDisciplina.SelectedRows[0].Cells["id"].Value);
+            int id = Convert.ToInt32(grid.SelectedRows[0].Cells["id"].Value);
 
             return id;
         }
         public DataGridViewRowCollection ObterTodasDisciplinas()
-        {          
-           return  gridDisciplina.Rows;            
+        {
+            return grid.Rows;
         }
     }
 }

@@ -30,7 +30,7 @@
         {
             menuStrip1 = new MenuStrip();
             tpMenuCadastros = new ToolStripMenuItem();
-            matériasToolStripMenuItem = new ToolStripMenuItem();
+            DisciplinaToolStripMenuItem = new ToolStripMenuItem();
             matériasToolStripMenuItem1 = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
             btn_Voltar = new ToolStripButton();
@@ -54,21 +54,22 @@
             // 
             // tpMenuCadastros
             // 
-            tpMenuCadastros.DropDownItems.AddRange(new ToolStripItem[] { matériasToolStripMenuItem, matériasToolStripMenuItem1 });
+            tpMenuCadastros.DropDownItems.AddRange(new ToolStripItem[] { DisciplinaToolStripMenuItem, matériasToolStripMenuItem1 });
             tpMenuCadastros.Name = "tpMenuCadastros";
             tpMenuCadastros.Size = new Size(71, 20);
             tpMenuCadastros.Text = "Cadastros";
             // 
-            // matériasToolStripMenuItem
+            // DisciplinaToolStripMenuItem
             // 
-            matériasToolStripMenuItem.Name = "matériasToolStripMenuItem";
-            matériasToolStripMenuItem.Size = new Size(130, 22);
-            matériasToolStripMenuItem.Text = "Disciplinas";
+            DisciplinaToolStripMenuItem.Name = "DisciplinaToolStripMenuItem";
+            DisciplinaToolStripMenuItem.Size = new Size(180, 22);
+            DisciplinaToolStripMenuItem.Text = "Disciplinas";
+            DisciplinaToolStripMenuItem.Click += DisciplinaToolStripMenuItem_Click;
             // 
             // matériasToolStripMenuItem1
             // 
             matériasToolStripMenuItem1.Name = "matériasToolStripMenuItem1";
-            matériasToolStripMenuItem1.Size = new Size(130, 22);
+            matériasToolStripMenuItem1.Size = new Size(180, 22);
             matériasToolStripMenuItem1.Text = "Matérias";
             matériasToolStripMenuItem1.Click += matériasToolStripMenuItem1_Click;
             // 
@@ -166,7 +167,7 @@
         private ToolStripButton btn_Editar;
         private ToolStripButton btn_Excluir;
         private Panel panelRegistros;
-        private ToolStripMenuItem matériasToolStripMenuItem;
+        private ToolStripMenuItem DisciplinaToolStripMenuItem;
         private ToolStripMenuItem matériasToolStripMenuItem1;
     }
 }
