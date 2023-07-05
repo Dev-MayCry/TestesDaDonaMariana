@@ -22,11 +22,11 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria
 
         public override Materia ConverterRegistro(SqlDataReader leitorRegistros)
         {
-            int id = Convert.ToInt32(leitorRegistros["ID"]);
+            int id = Convert.ToInt32(leitorRegistros["MATERIA_ID"]);
 
             string? nome = Convert.ToString(leitorRegistros["MATERIA_NOME"]);
 
-             int serie = Convert.ToInt32(leitorRegistros["SERIE"]);
+             int serie = Convert.ToInt32(leitorRegistros["MATERIA_SERIE"]);
 
             Disciplina disciplina = new MapeadorDisciplina().ConverterRegistro(leitorRegistros);
 

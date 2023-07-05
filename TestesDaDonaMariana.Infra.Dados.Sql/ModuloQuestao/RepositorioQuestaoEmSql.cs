@@ -10,15 +10,17 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
 	            (
 		            [ENUNCIADO],
 					[NUMERO_ALTERNATIVAS],
-					[ID_DISCIPLINA],
-					[ID_MATERIA]
+					[DISCIPLINA_ID],
+					[MATERIA_ID],
+					[SERIE]
 	            )
 	            VALUES 
 	            (
 		            @ENUNCIADO,
 					@NUMERO_ALTERNATIVAS,
-					@DISCIPLINA,
-					@MATERIA
+					@DISCIPLINA_ID,
+					@MATERIA_ID,
+					@SERIE
 	            );                 
 
             SELECT SCOPE_IDENTITY();";
@@ -28,8 +30,9 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
 	        SET 
 		        [ENUNCIADO] = @ENUNCIADO,
 		        [NUMERO_ALTERNATIVAS] = @NUMERO_ALTERNATIVAS,
-		        [ID_DISCIPLINA] = @DISCIPLINA,
-		        [ID_MATERIA] = @MATERIA
+		        [DISCIPLINA_ID] = @DISCIPLINA_ID,
+		        [MATERIA_ID] = @MATERIA_ID,
+				[SERIE] = @SERIE
 	        WHERE 
 		        [ID] = @ID";
 
@@ -41,27 +44,56 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
         protected override string sqlSelecionarTodos =>
             @"SELECT 
 
-	            [ID]					QUESTAO_ID,
-                [ENUNCIADO]				QUESTAO_ENUNCIADO,
-                [NUMERO_ALTERNATIVAS]	QUESTAO_NUMERO_ALTERNATIVAS,
-                [ID_DISCIPLINA]			QUESTAO_DISCIPLINA,
-                [ID_MATERIA]			QUESTAO_MATERIA
+	            Q.[ID]					QUESTAO_ID,
+                Q.[ENUNCIADO]				QUESTAO_ENUNCIADO,
+                Q.[NUMERO_ALTERNATIVAS]	QUESTAO_NUMERO_ALTERNATIVAS,
+				Q.[SERIE]				QUESTAO_SERIE,
+
+				D.[ID]		DISCIPLINA_ID,
+				D.[NOME]	DISCIPLINA_NOME,
+
+				M.[ID] MATERIA_ID,
+				M.[NOME] MATERIA_NOME,
+				M.[SERIE] MATERIA_SERIE
+
 	
             FROM 
-	            [TBQUESTAO]";
+				[DBO].[TBQUESTAO] AS Q 
+				
+				INNER JOIN [DBO].[TBDISCIPLINA] AS D
+			
+					ON Q.DISCIPLINA_ID = D.ID
+
+				INNER JOIN [DBO].[TBMATERIA] AS M
+					ON Q.MATERIA_ID = M.ID";
 
         protected override string sqlSelecionarPorId =>
             @"SELECT 
 
-	            [ID]					QUESTAO_ID,
-                [ENUNCIADO]				QUESTAO_ENUNCIADO,
-                [NUMERO_ALTERNATIVAS]	QUESTAO_NUMERO_ALTERNATIVAS,
-                [ID_DISCIPLINA]			QUESTAO_DISCIPLINA,
-                [ID_MATERIA]			QUESTAO_MATERIA
-	        
+	            Q.[ID]					QUESTAO_ID,
+                Q.[ENUNCIADO]				QUESTAO_ENUNCIADO,
+                Q.[NUMERO_ALTERNATIVAS]	QUESTAO_NUMERO_ALTERNATIVAS,
+				Q.[SERIE]				QUESTAO_SERIE,
+
+				D.[ID]		DISCIPLINA_ID,
+				D.[NOME]	DISCIPLINA_NOME,
+
+				M.[ID] MATERIA_ID,
+				M.[NOME] MATERIA_NOME,
+				M.[SERIE] MATERIA_SERIE
+
+	
             FROM 
-	            [TBQUESTAO] 
-            WHERE 
-                [ID] = @ID";
+				[DBO].[TBQUESTAO] AS Q 
+				
+				INNER JOIN [DBO].[TBDISCIPLINA] AS D
+			
+					ON Q.DISCIPLINA_ID = D.ID
+
+				INNER JOIN [DBO].[TBMATERIA] AS M
+					ON Q.MATERIA_ID = M.ID
+
+			WHERE 
+					Q.[ID] = @ID";
     }
 }

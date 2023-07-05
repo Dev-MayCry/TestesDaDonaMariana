@@ -10,12 +10,9 @@ namespace TestesDaDonaMariana.Dominio.ModuloQuestao
         public Disciplina disciplina;
         public int serie;
         public Materia materia;
-        public Alternativa alternativaA;
-        public Alternativa alternativaB;
-        public Alternativa alternativaC;
-        public Alternativa alternativaD;
+        public List<Alternativa> alternativas;
 
-        public Questao(int id, string? enunciado, int numeroAlternativas, Disciplina disciplina, int serie, Materia materia, Alternativa alternativaA, Alternativa alternativaB, Alternativa? alternativaC, Alternativa? alternativaD)
+        public Questao(int id, string? enunciado, int numeroAlternativas, Disciplina disciplina, int serie, Materia materia)
         {
             this.id = id;
             this.enunciado = enunciado;
@@ -23,10 +20,7 @@ namespace TestesDaDonaMariana.Dominio.ModuloQuestao
             this.disciplina = disciplina;
             this.serie = serie;
             this.materia = materia;
-            this.alternativaA = alternativaA;
-            this.alternativaB = alternativaB;
-            this.alternativaC = alternativaC;
-            this.alternativaD = alternativaD;
+            this.alternativas = new List<Alternativa>();
         }
 
         public override void AtualizarInformacoes(Questao registroAtualizado)

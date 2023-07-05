@@ -9,11 +9,11 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria
             @"INSERT INTO [dbo].[TBMateria]
                    ([nome]
                    ,[serie]
-                   ,[ID_Disciplina])
+                   ,[Disciplina_ID])
              VALUES
                    (@nome
                    ,@serie
-                   ,@ID_Disciplina)     
+                   ,@Disciplina_ID)     
 
             SELECT SCOPE_IDENTITY();";
 
@@ -22,7 +22,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria
 	        SET 
 		        [nome] = @nome,
 				[serie] = @serie,
-				[ID_Disciplina] = @DISCIPLINA_ID
+				[Disciplina_ID] = @DISCIPLINA_ID
 	        WHERE 
 		        [ID] = @ID";
 
@@ -32,37 +32,36 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria
 		        [ID] = @ID";
 
         protected override string sqlSelecionarTodos =>
-            @"SELECT M.[ID] ""ID""
-					,M.[nome] ""NOME""
-					,M.[serie] ""SERIE""
-					,M.[ID_Disciplina] ""MATERIA_DISCIPLINA_ID""
+            @"SELECT 
+					M.[ID] MATERIA_ID
+					,M.[nome] MATERIA_NOME
+					,M.[serie] MATERIA_SERIE
 
-					,D.[ID] ""DISCIPLINA_ID""
-					,D.[NOME] ""DISCIPLINA_NOME""
+					,D.[ID] DISCIPLINA_ID
+					,D.[NOME] DISCIPLINA_NOME
 
 				  FROM 
 				  [dbo].[TBMateria] AS M INNER JOIN
 				  [DBO].[TBDisciplina] AS D
 
 				  ON
-					M.ID_Disciplina = D.ID";
+					M.DISCIPLINA_ID = D.ID";
 
         protected override string sqlSelecionarPorId =>
 
-            @"SELECT M.[ID] ""ID""
-					,M.[nome] ""NOME""
-					,M.[serie] ""SERIE""
-					,M.[ID_Disciplina] ""MATERIA_DISCIPLINA_ID""
+            @"SELECT M.[ID] MATERIA_ID
+					,M.[nome]	MATERIA_NOME
+					,M.[serie] MATERIA_SERIE
 
-					,D.[ID] ""DISCIPLINA_ID""
-					,D.[NOME] ""DISCIPLINA_NOME""
+					,D.[ID] DISCIPLINA_ID
+					,D.[NOME] DISCIPLINA_NOME
 
 				  FROM 
 				  [dbo].[TBMateria] AS M INNER JOIN
 				  [DBO].[TBDisciplina] AS D
 
 				ON
-					M.ID_Disciplina = D.ID
+					M.DISCIPLINA_ID = D.ID
 
 				WHERE 
 					M.[ID] = @ID";

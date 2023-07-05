@@ -2,22 +2,28 @@
 using TestesDaDonaMariana.Dominio.ModuloMateria;
 using TestesDaDonaMariana.WinApp.Compartilhado;
 
-namespace TestesDaDonaMariana.WinApp.ModuloMateria {
-    public partial class TelaMateria : Form {
-        public TelaMateria(List<Disciplina> disciplinas) {
+namespace TestesDaDonaMariana.WinApp.ModuloMateria
+{
+    public partial class TelaMateria : Form
+    {
+        public TelaMateria(List<Disciplina> disciplinas)
+        {
             InitializeComponent();
             this.ConfigurarDialog();
             CarregarDisciplinas(disciplinas);
         }
 
-        private void CarregarDisciplinas(List<Disciplina> disciplinas) {
+        private void CarregarDisciplinas(List<Disciplina> disciplinas)
+        {
             txtDisciplina.Items.Clear();
-            foreach(Disciplina d in disciplinas) {
+            foreach (Disciplina d in disciplinas)
+            {
                 txtDisciplina.Items.Add(d);
             }
         }
 
-        public Materia ObterMateria() {
+        public Materia ObterMateria()
+        {
             int id = Convert.ToInt32(txtId.Text);
 
             string nome = txtNome.Text;
@@ -34,7 +40,8 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
             return materia;
         }
 
-        public void ConfigurarTela(Materia materia) {
+        public void ConfigurarTela(Materia materia)
+        {
             txtId.Text = materia.id.ToString();
 
             txtNome.Text = materia.nome;
@@ -42,7 +49,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
             txtSerie.Text = Convert.ToString(materia.serie);
 
             txtDisciplina.SelectedItem = materia.disciplina;
-            
+
         }
     }
 }

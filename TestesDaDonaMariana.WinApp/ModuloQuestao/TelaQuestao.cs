@@ -52,7 +52,9 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 
             int numeroAlternativas = 0;
 
-            Questao questao = new Questao(id, enunciado, numeroAlternativas, disciplina, serie, materia, aA, aB, aC, aD);
+            Questao questao = new Questao(id, enunciado, numeroAlternativas, disciplina, serie, materia);
+            questao.alternativas.Add(aA);
+            questao.alternativas.Add(aB);
 
             if (id > 0)
                 questao.id = id;

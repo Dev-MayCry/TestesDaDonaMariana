@@ -17,7 +17,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina
         {
             int id = Convert.ToInt32(leitorRegistros["DISCIPLINA_ID"]);
 
-            string nome = Convert.ToString(leitorRegistros["DISCIPLINA_NOME"]);
+            string? nome = Convert.ToString(leitorRegistros["DISCIPLINA_NOME"]);
 
             Disciplina disciplina = new Disciplina(id, nome);
 
