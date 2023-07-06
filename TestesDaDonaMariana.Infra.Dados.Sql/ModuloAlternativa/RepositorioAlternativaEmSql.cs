@@ -1,50 +1,47 @@
 ﻿using TestesDaDonaMariana.Dominio.ModuloQuestao;
 using TestesDaDonaMariana.Infra.Dados.Sql.Compartilhado;
 
-namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
+namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloAlternativa
 {
-    public class RepositorioQuestaoEmSql : RepositorioEmSqlBase<Questao, MapeadorQuestao>
+    public class RepositorioAlternativaEmSql : RepositorioEmSqlBase<Alternativa, MapeadorAlternativa>
     {
         protected override string sqlInserir =>
-            @"INSERT INTO [TBQUESTAO] 
-	            (
-		            [ENUNCIADO],
-					[NUMERO_ALTERNATIVAS],
-					[DISCIPLINA_ID],
-					[MATERIA_ID],
-					[SERIE]
-	            )
-	            VALUES 
-	            (
-		            @ENUNCIADO,
-					@NUMERO_ALTERNATIVAS,
-					@DISCIPLINA_ID,
-					@MATERIA_ID,
-					@SERIE
-	            );                 
+            @"INSERT INTO [TBALTERNATIVA]
+			(
+				[DESCRICAO],
+				[GABARITO],
+				[QUESTAO_ID]
+			)
+			VALUES
+			(
+				@DESCRICAO,
+				@GABARITO,
+				@QUESTAO_ID
+			);   
 
             SELECT SCOPE_IDENTITY();";
 
         protected override string sqlEditar =>
-            @"UPDATE [TBQUESTAO] 
+            @"UPDATE [TBALTERNATIVA] 
 	        SET 
-		        [ENUNCIADO] = @ENUNCIADO,
-		        [NUMERO_ALTERNATIVAS] = @NUMERO_ALTERNATIVAS,
-		        [DISCIPLINA_ID] = @DISCIPLINA_ID,
-		        [MATERIA_ID] = @MATERIA_ID,
-				[SERIE] = @SERIE
+		        [DESCRICAO] = @DESCRICAO,
+				[GABARITO] = @GABARITO,
+				[QUESTAO_ID] = @QUESTAO_ID
 	        WHERE 
 		        [ID] = @ID";
 
         protected override string sqlExcluir =>
-            @"DELETE FROM [TBQUESTAO]
+            @"DELETE FROM [TBALTERNATIVA]
 	        WHERE 
 		        [ID] = @ID";
 
         protected override string sqlSelecionarTodos =>
             @"SELECT 
+				A.[ID]			ALTERNATIVA_ID,
+				A.[DESCRICAO]	ALTERNATIVA_DESCRICAO,
+				A.[GABARITO]	ALTERNATIVA_GABARITO,
 
-	            Q.[ID]					QUESTAO_ID,
+				Q.[ID]					QUESTAO_ID,
                 Q.[ENUNCIADO]			QUESTAO_ENUNCIADO,
                 Q.[NUMERO_ALTERNATIVAS]	QUESTAO_NUMERO_ALTERNATIVAS,
 				Q.[SERIE]				QUESTAO_SERIE,
@@ -56,9 +53,13 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
 				M.[NOME] MATERIA_NOME,
 				M.[SERIE] MATERIA_SERIE
 
-            FROM 
-				[DBO].[TBQUESTAO] AS Q 
-				
+			FROM 
+				[DBO].[TBALTERNATIVA] AS A 
+
+				INNER JOIN [DBO].[TBQUESTAO] AS Q
+
+					ON A.QUESTAO_ID = Q.ID
+
 				INNER JOIN [DBO].[TBDISCIPLINA] AS D
 			
 					ON Q.DISCIPLINA_ID = D.ID
@@ -69,9 +70,12 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
 
         protected override string sqlSelecionarPorId =>
             @"SELECT 
+				A.[ID]			ALTERNATIVA_ID,
+				A.[DESCRICAO]	ALTERNATIVA_DESCRICAO,
+				A.[GABARITO]	ALTERNATIVA_GABARITO,
 
-	            Q.[ID]					QUESTAO_ID,
-                Q.[ENUNCIADO]				QUESTAO_ENUNCIADO,
+				Q.[ID]					QUESTAO_ID,
+                Q.[ENUNCIADO]			QUESTAO_ENUNCIADO,
                 Q.[NUMERO_ALTERNATIVAS]	QUESTAO_NUMERO_ALTERNATIVAS,
 				Q.[SERIE]				QUESTAO_SERIE,
 
@@ -82,18 +86,22 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
 				M.[NOME] MATERIA_NOME,
 				M.[SERIE] MATERIA_SERIE
 
-	
-            FROM 
-				[DBO].[TBQUESTAO] AS Q 
-				
+			FROM 
+				[DBO].[TBALTERNATIVA] AS A 
+
+				INNER JOIN [DBO].[TBQUESTAO] AS Q
+
+					ON A.QUESTAO_ID = Q.ID
+
 				INNER JOIN [DBO].[TBDISCIPLINA] AS D
 			
 					ON Q.DISCIPLINA_ID = D.ID
 
 				INNER JOIN [DBO].[TBMATERIA] AS M
+
 					ON Q.MATERIA_ID = M.ID
 
-			WHERE 
-					Q.[ID] = @ID";
+				WHERE 
+					A.[ID] = @ID";
     }
 }

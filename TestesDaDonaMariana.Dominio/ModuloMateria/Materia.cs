@@ -33,7 +33,11 @@ namespace TestesDaDonaMariana.Dominio.ModuloMateria
 
         public override bool Equals(object? obj)
         {
-            return nome == ((Materia)obj).nome && serie == ((Materia)obj).serie && id == ((Materia)obj).id;
+            return obj is Materia materia &&
+                   id == materia.id &&
+                   nome == materia.nome &&
+                   serie == materia.serie &&
+                   EqualityComparer<Disciplina>.Default.Equals(disciplina, materia.disciplina);
         }
     }
 }

@@ -1,3 +1,4 @@
+using TestesDaDonaMariana.Infra.Dados.Sql.ModuloAlternativa;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao;
@@ -17,6 +18,7 @@ namespace TestesDaDonaMariana.WinApp
         private RepositorioDisciplinaEmSql repositorioDisciplina = new RepositorioDisciplinaEmSql();
         private RepositorioQuestaoEmSql repositorioQuestao = new RepositorioQuestaoEmSql();
         private RepositorioTesteEmSql repositorioTeste = new RepositorioTesteEmSql();
+        private RepositorioAlternativaEmSql repositorioAlternativa = new RepositorioAlternativaEmSql();
 
         public TelaPrincipalForm()
         {
@@ -31,7 +33,7 @@ namespace TestesDaDonaMariana.WinApp
 
         private void questõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorQuestao(repositorioQuestao, repositorioDisciplina, repositorioMateria);
+            controlador = new ControladorQuestao(repositorioQuestao, repositorioDisciplina, repositorioMateria, repositorioAlternativa);
             ConfigurarTelaPrincipal(controlador);
         }
         private void testesToolStripMenuItem_Click(object sender, EventArgs e) {

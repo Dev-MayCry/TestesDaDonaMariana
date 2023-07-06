@@ -2,15 +2,24 @@
 {
     public class Alternativa : EntidadeBase<Alternativa>
     {
-        public string alternativa;
-        public bool isTrue;
+        public string? descricao;
+        public bool gabarito;
+        public Questao questao;
 
         public Alternativa(){}
 
-        public Alternativa(string alternativa, bool isTrue)
+        public Alternativa(string? descricao, bool gabarito)
         {
-            this.alternativa = alternativa;
-            this.isTrue = isTrue;
+            this.descricao = descricao;
+            this.gabarito = gabarito;
+        }
+
+        public Alternativa(int id, string? descricao, bool gabarito, Questao questao)
+        {
+            this.id = id;
+            this.descricao = descricao;
+            this.gabarito = gabarito;
+            this.questao = questao;
         }
 
         public override void AtualizarInformacoes(Alternativa registroAtualizado)

@@ -26,9 +26,7 @@
 
         public override bool Equals(object? obj)
         {
-            return obj is Disciplina disciplina &&
-                   id == disciplina.id &&
-                   nome == disciplina.nome;
+            return obj is Disciplina disciplina && id == disciplina.id && nome == disciplina.nome;
         }
     }
 }

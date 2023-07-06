@@ -89,7 +89,7 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(395, 168);
+            btnCancelar.Location = new Point(395, 137);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 41);
             btnCancelar.TabIndex = 13;
@@ -100,7 +100,7 @@
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(314, 168);
+            btnGravar.Location = new Point(314, 137);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 12;
@@ -119,7 +119,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(5, 108);
+            label4.Location = new Point(5, 99);
             label4.Name = "label4";
             label4.Size = new Size(38, 15);
             label4.TabIndex = 20;
@@ -127,7 +127,7 @@
             // 
             // txtSerie
             // 
-            txtSerie.Location = new Point(65, 106);
+            txtSerie.Location = new Point(65, 97);
             txtSerie.Maximum = new decimal(new int[] { 9, 0, 0, 0 });
             txtSerie.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             txtSerie.Name = "txtSerie";
@@ -139,7 +139,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(484, 221);
+            ClientSize = new Size(484, 190);
             Controls.Add(txtSerie);
             Controls.Add(label4);
             Controls.Add(txtDisciplina);

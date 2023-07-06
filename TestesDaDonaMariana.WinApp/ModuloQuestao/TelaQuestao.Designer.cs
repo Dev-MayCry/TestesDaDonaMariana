@@ -100,6 +100,7 @@
             txtListaDisciplinas.Name = "txtListaDisciplinas";
             txtListaDisciplinas.Size = new Size(486, 23);
             txtListaDisciplinas.TabIndex = 5;
+            txtListaDisciplinas.SelectedIndexChanged += txtListaDisciplinas_SelectedIndexChanged;
             // 
             // txtListaMaterias
             // 

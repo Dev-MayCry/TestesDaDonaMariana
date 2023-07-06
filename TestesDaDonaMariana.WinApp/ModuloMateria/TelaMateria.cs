@@ -51,7 +51,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria
                 txtDisciplina.Items.Add(d);
             }
 
-            txtDisciplina.SelectedIndex= 0;
+            txtDisciplina.SelectedIndex = 0;
         }
     }
 }
