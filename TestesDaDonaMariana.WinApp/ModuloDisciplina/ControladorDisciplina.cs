@@ -30,8 +30,7 @@ namespace FestaInfantil.ModuloCliente
 
         public override string LabelTipoCadastro => "Cadastro de Disciplina";
 
-       
-
+        public override bool EditarHabilitado { get {  return true; } } 
         public override void Inserir()
         {
 
