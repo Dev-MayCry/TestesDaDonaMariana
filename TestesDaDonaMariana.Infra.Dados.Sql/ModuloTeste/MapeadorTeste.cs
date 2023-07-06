@@ -21,6 +21,8 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloTeste
             comando.Parameters.AddWithValue("MATERIA", registro.materia);
             
             comando.Parameters.AddWithValue("DATA", registro.data);
+
+            comando.Parameters.AddWithValue("TITULO", registro.titulo);
         }
 
         public override Teste ConverterRegistro(SqlDataReader leitorRegistros)
@@ -35,7 +37,9 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloTeste
 
             DateTime data = Convert.ToDateTime(leitorRegistros["TESTE_DATA"]);
 
-            Teste teste = new Teste(id, numeroQuestoes, disciplina, materia, data);
+            string titulo = Convert.ToString(leitorRegistros["TESTE_TITULO"]);
+
+            Teste teste = new Teste(id, numeroQuestoes, disciplina, materia, data,titulo);
 
             return teste;
         }

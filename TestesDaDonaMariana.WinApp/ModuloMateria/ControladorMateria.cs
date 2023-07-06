@@ -28,6 +28,8 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
 
         public override string LabelTipoCadastro => "Cadastro De Matérias";
 
+        public override bool EditarHabilitado { get { return true; } }
+
         public override void Inserir() {
             if (VerificarDisciplinas())
                 return;
@@ -106,8 +108,8 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
         }
 
         public bool VerificarQuestoes(Materia materia) {   //verifica se a matéria está sendo usada em alguma questão
-            if (repositorioQuestao.SelecionarTodos().Any(q => q.materia == materia)) {
-                MessageBox.Show($"Não é possível Excluir uma matéria que esteja cadastrada em uma questão!", "Exlcuir Matéria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            if (repositorioQuestao.SelecionarTodos().Any(q => q.materia.nome == materia.nome)) {
+                MessageBox.Show($"Não é possível Excluir uma matéria que esteja cadastrada em uma questão!", "Excluir Matéria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return true;
             } else return false;
         }

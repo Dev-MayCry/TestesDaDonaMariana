@@ -1,9 +1,11 @@
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao;
+using TestesDaDonaMariana.Infra.Dados.Sql.ModuloTeste;
 using TestesDaDonaMariana.WinApp.Compartilhado;
 using TestesDaDonaMariana.WinApp.ModuloMateria;
 using TestesDaDonaMariana.WinApp.ModuloQuestao;
+using TestesDaDonaMariana.WinApp.ModuloTeste;
 
 namespace TestesDaDonaMariana.WinApp
 {
@@ -14,6 +16,7 @@ namespace TestesDaDonaMariana.WinApp
         private RepositorioMateriaEmSql repositorioMateria = new RepositorioMateriaEmSql();
         private RepositorioDisciplinaEmSql repositorioDisciplina = new RepositorioDisciplinaEmSql();
         private RepositorioQuestaoEmSql repositorioQuestao = new RepositorioQuestaoEmSql();
+        private RepositorioTesteEmSql repositorioTeste = new RepositorioTesteEmSql();
 
         public TelaPrincipalForm()
         {
@@ -29,6 +32,10 @@ namespace TestesDaDonaMariana.WinApp
         private void questõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorQuestao(repositorioQuestao, repositorioDisciplina, repositorioMateria);
+            ConfigurarTelaPrincipal(controlador);
+        }
+        private void testesToolStripMenuItem_Click(object sender, EventArgs e) {
+            controlador = new ControladorTeste(repositorioMateria, repositorioDisciplina, repositorioQuestao,repositorioTeste);
             ConfigurarTelaPrincipal(controlador);
         }
 
@@ -78,5 +85,6 @@ namespace TestesDaDonaMariana.WinApp
         private void btn_Excluir_Click(object sender, EventArgs e) {
             controlador.Excluir();
         }
+
     }
 }

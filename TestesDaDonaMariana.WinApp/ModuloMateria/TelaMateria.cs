@@ -13,16 +13,6 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria
             CarregarDisciplinas(disciplinas);
         }
 
-        private void CarregarDisciplinas(List<Disciplina> disciplinas)
-        {
-            txtDisciplina.Items.Clear();
-            foreach (Disciplina d in disciplinas)
-            {
-                txtDisciplina.Items.Add(d);
-            }
-
-            txtDisciplina.SelectedIndex= 0;
-        }
 
         public Materia ObterMateria()
         {
@@ -52,6 +42,16 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria
 
             txtDisciplina.SelectedItem = materia.disciplina;
 
+        }
+        private void CarregarDisciplinas(List<Disciplina> disciplinas)
+        {
+            txtDisciplina.Items.Clear();
+            foreach (Disciplina d in disciplinas)
+            {
+                txtDisciplina.Items.Add(d);
+            }
+
+            txtDisciplina.SelectedIndex= 0;
         }
     }
 }

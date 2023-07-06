@@ -47,6 +47,7 @@
             this.btn_Imprimir = new System.Windows.Forms.ToolStripButton();
             this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
             this.panelRegistros = new System.Windows.Forms.Panel();
+            this.testesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +67,8 @@
             this.tpMenuCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.matériasToolStripMenuItem,
             this.matériasToolStripMenuItem1,
-            this.questõesToolStripMenuItem});
+            this.questõesToolStripMenuItem,
+            this.testesToolStripMenuItem});
             this.tpMenuCadastros.Name = "tpMenuCadastros";
             this.tpMenuCadastros.Size = new System.Drawing.Size(71, 20);
             this.tpMenuCadastros.Text = "Cadastros";
@@ -74,20 +76,20 @@
             // matériasToolStripMenuItem
             // 
             this.matériasToolStripMenuItem.Name = "matériasToolStripMenuItem";
-            this.matériasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.matériasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.matériasToolStripMenuItem.Text = "Disciplinas";
             // 
             // matériasToolStripMenuItem1
             // 
             this.matériasToolStripMenuItem1.Name = "matériasToolStripMenuItem1";
-            this.matériasToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
+            this.matériasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.matériasToolStripMenuItem1.Text = "Matérias";
             this.matériasToolStripMenuItem1.Click += new System.EventHandler(this.matériasToolStripMenuItem1_Click);
             // 
             // questõesToolStripMenuItem
             // 
             this.questõesToolStripMenuItem.Name = "questõesToolStripMenuItem";
-            this.questõesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.questõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.questõesToolStripMenuItem.Text = "Questões";
             this.questõesToolStripMenuItem.Click += new System.EventHandler(this.questõesToolStripMenuItem_Click);
             // 
@@ -213,6 +215,13 @@
             this.panelRegistros.Size = new System.Drawing.Size(784, 390);
             this.panelRegistros.TabIndex = 4;
             // 
+            // testesToolStripMenuItem
+            // 
+            this.testesToolStripMenuItem.Name = "testesToolStripMenuItem";
+            this.testesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testesToolStripMenuItem.Text = "Testes";
+            this.testesToolStripMenuItem.Click += new System.EventHandler(this.testesToolStripMenuItem_Click);
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -255,5 +264,6 @@
         private ToolStripButton btn_Duplicar;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripButton btn_Imprimir;
+        private ToolStripMenuItem testesToolStripMenuItem;
     }
 }

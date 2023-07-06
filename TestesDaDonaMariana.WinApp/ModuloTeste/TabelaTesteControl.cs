@@ -1,11 +1,11 @@
-﻿using TestesDaDonaMariana.Dominio.ModuloQuestao;
+﻿
+using TestesDaDonaMariana.Dominio.ModuloMateria;
+using TestesDaDonaMariana.Dominio.ModuloTeste;
 using TestesDaDonaMariana.WinApp.Compartilhado;
-namespace TestesDaDonaMariana.WinApp.ModuloQuestao
-{
-    public partial class TabelaQuestaoControl : UserControl
-    {
-        public TabelaQuestaoControl()
-        {
+
+namespace TestesDaDonaMariana.WinApp.ModuloTeste {
+    public partial class TabelaTesteControl : UserControl {
+        public TabelaTesteControl() {
             InitializeComponent();
 
             ConfigurarColunas();
@@ -15,8 +15,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             grid.ConfigurarGridSomenteLeitura();
         }
 
-        private void ConfigurarColunas()
-        {
+        private void ConfigurarColunas() {
             DataGridViewColumn[] colunas = new DataGridViewColumn[]
             {
                 new DataGridViewTextBoxColumn()
@@ -26,54 +25,45 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
                 },
                 new DataGridViewTextBoxColumn()
                 {
-                    Name = "disciplina",
-                    HeaderText = "Disciplina"
+                    Name = "titulo",
+                    HeaderText = "Título"
                 },
                 new DataGridViewTextBoxColumn()
                 {
-                    Name = "serie",
-                    HeaderText = "Série"
+                    Name = "disciplina",
+                    HeaderText = "Disciplina"
                 },
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "materia",
                     HeaderText = "Matéria"
                 },
-                
                 new DataGridViewTextBoxColumn()
                 {
-                    Name = "enunciado",
-                    HeaderText = "Enunciado"
+                    Name = "numeroQuestoes",
+                    HeaderText = "Número de Questões"
                 },
-                new DataGridViewTextBoxColumn()
-                {
-                    Name = "numeroAlternativas",
-                    HeaderText = "Número de Alternativas"
-                }
             };
 
             grid.Columns.AddRange(colunas);
         }
-        public void AtualizarRegistros(List<Questao> questoes)
-        {
+
+        public void AtualizarRegistros(List<Teste> testes) {
             grid.Rows.Clear();
 
-            foreach (Questao q in questoes)
-            {
+            foreach (Teste t in testes) {
 
                 grid.Rows.Add(
-                    q.id,
-                    q.disciplina.nome,
-                    q.serie,
-                    q.materia.nome,
-                    q.enunciado,
-                    q.numeroAlternativas
+                    t.id,
+                    t.titulo,
+                    t.disciplina.nome,
+                    t.materia.nome,
+                    t.numeroQuestoes
                 );
             }
         }
 
-        public int ObterIdSelecionado()
-        {
+        public int ObterIdSelecionado() {
             if (grid.SelectedRows.Count == 0)
                 return -1;
 

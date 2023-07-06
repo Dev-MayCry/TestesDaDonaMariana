@@ -27,6 +27,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 
         public override string LabelTipoCadastro => "Cadastro De Questões";
 
+        public override bool EditarHabilitado { get { return true; } }
         public override bool VisualizarHabilitado { get { return true; } }
 
         public override void Inserir()

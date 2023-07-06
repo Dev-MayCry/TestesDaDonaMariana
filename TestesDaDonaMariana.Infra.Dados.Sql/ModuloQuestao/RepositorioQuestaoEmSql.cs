@@ -45,7 +45,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
             @"SELECT 
 
 	            Q.[ID]					QUESTAO_ID,
-                Q.[ENUNCIADO]				QUESTAO_ENUNCIADO,
+                Q.[ENUNCIADO]			QUESTAO_ENUNCIADO,
                 Q.[NUMERO_ALTERNATIVAS]	QUESTAO_NUMERO_ALTERNATIVAS,
 				Q.[SERIE]				QUESTAO_SERIE,
 
@@ -65,6 +65,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
 					ON Q.DISCIPLINA_ID = D.ID
 
 				INNER JOIN [DBO].[TBMATERIA] AS M
+
 					ON Q.MATERIA_ID = M.ID";
 
         protected override string sqlSelecionarPorId =>
