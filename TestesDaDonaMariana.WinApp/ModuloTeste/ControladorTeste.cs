@@ -56,6 +56,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
                 Teste teste = telaTeste.ObterTeste();
 
                 repositorioTeste.Inserir(teste);
+
             }
             CarregarTestes();
         }

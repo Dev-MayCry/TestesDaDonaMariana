@@ -6,19 +6,19 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloTeste
     public class RepositorioTesteEmSql : RepositorioEmSqlBase<Teste, MapeadorTeste>
     {
         protected override string sqlInserir =>
-            @"INSERT INTO [TBTESTE] 
+            @"INSERT INTO [DBO].[TBTESTE] 
 	            (
 		            [NUMERO_QUESTOES],
-		            [DISCIPLINA],
-		            [MATERIA],
+		            [DISCIPLINA_ID],
+		            [MATERIA_ID],
 		            [DATA],
 					[TITULO]
 	            )
 	            VALUES 
 	            (
 		            @NUMERO_QUESTOES,
-		            @DISCIPLINA,
-		            @MATERIA,
+		            @DISCIPLINA_ID,
+		            @MATERIA_ID,
 		            @DATA,
 					@TITULO
 	            );                 
@@ -29,8 +29,8 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloTeste
             @"UPDATE [TBTESTE] 
 	        SET 
 		        [NUMERO_QUESTOES] = @NUMERO_QUESTOES,
-		        [DISCIPLINA] = @DISCIPLINA,
-		        [MATERIA] = @MATERIA,
+		        [DISCIPLINA_ID] = @DISCIPLINA_ID,
+		        [MATERIA_ID] = @MATERIA_ID,
 		        [DATA] = @DATA,
 				[TITULO] = @TITULO
 	        WHERE 
