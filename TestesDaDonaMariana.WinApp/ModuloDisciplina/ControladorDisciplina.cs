@@ -1,6 +1,7 @@
 ﻿
 using e_Agenda.WinApp.ModuloContato;
 using TestesDaDonaMariana.Dominio.ModuloDisciplina;
+using TestesDaDonaMariana.Dominio.ModuloMateria;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina;
 using TestesDaDonaMariana.WinApp;
 using TestesDaDonaMariana.WinApp.Compartilhado;
@@ -27,44 +28,79 @@ namespace FestaInfantil.ModuloCliente
 
         public override string ToolTipExcluir => "Excluir Disciplina Existente";
 
-        //  public override string LabelTipoCadastro => "Cadastro De Disciplinas";
+        public override string LabelTipoCadastro => "Cadastro de Disciplina";
+
+       
 
         public override void Inserir()
         {
-            TelaDisciplinaForm telaDisciplina = new TelaDisciplinaForm();
-            DialogResult opcaoEscolhida = telaDisciplina.ShowDialog();
 
-            if (opcaoEscolhida == DialogResult.OK)
+            TelaDisciplinaForm telaDisciplina = new TelaDisciplinaForm(repositorioDisciplina);
+            DialogResult opcaoEscolhida = telaDisciplina.ShowDialog();
+            while (opcaoEscolhida == DialogResult.OK)
             {
-               Disciplina novaDisciplina = telaDisciplina.ObterDisciplina();
-                repositorioDisciplina.Inserir(novaDisciplina);
-                CarregarDisciplina();
+                Disciplina disciplina = telaDisciplina.ObterDisciplina();
+                if (ValidarAtributos(disciplina))
+                {
+                    opcaoEscolhida = telaDisciplina.ShowDialog();
+                    continue;
+                }
+                repositorioDisciplina.Inserir(disciplina);
+                break;
             }
+
+            CarregarDisciplina();
+        }
+
+        private bool ValidarAtributos(Disciplina disciplina)
+        {
+            if (repositorioDisciplina.SelecionarTodos().Any(m => m.nome == disciplina.nome))
+            {
+                MessageBox.Show($"Disciplina já cadastrada!", "Nova Disciplina", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+            else if (disciplina.nome.Length < 5)
+            {
+                MessageBox.Show($"O nome da Disciplina não pode ser menor que 5 caracteres!", "Nova Disciplina", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+
+            return false;
         }
 
         public override void Editar()
         {
-            Disciplina disciplinaSelecionada = ObterDisciplinaSelecionada();
+            Disciplina disciplina = ObterDisciplinaSelecionada();
 
-            if (disciplinaSelecionada == null)
+            if (disciplina == null)
             {
-                MessageBox.Show("Nenhuma Disciplina Selecionada!", "Editar Disciplina", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show($"Nenhuma disciplina selecionada!",
+                    "Edição de Disciplina",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
                 return;
             }
 
-            TelaDisciplinaForm telaDisciplina = new TelaDisciplinaForm(repositorioDisciplina);
-            telaDisciplina.ConfigurarTela(disciplinaSelecionada);
+            TelaDisciplinaForm tela = new TelaDisciplinaForm(repositorioDisciplina);
+            tela.ConfigurarTela(disciplina);
 
-            DialogResult opcaoEscolhida = telaDisciplina.ShowDialog();
+            DialogResult opcaoEscolhida = tela.ShowDialog();
 
-            if (opcaoEscolhida == DialogResult.OK)
+            while (opcaoEscolhida == DialogResult.OK)
             {
-                Disciplina disciplina = telaDisciplina.ObterDisciplina();
-
-                repositorioDisciplina.Editar(disciplina.id, disciplina);
-
-                CarregarDisciplina();
+                Disciplina disciplinaAtualizada = tela.ObterDisciplina();
+                if (ValidarAtributos(disciplinaAtualizada))
+                {
+                    opcaoEscolhida = tela.ShowDialog();
+                    continue;
+                }
+                repositorioDisciplina.Editar(disciplinaAtualizada.id, disciplinaAtualizada);
+                break;
             }
+
+            CarregarDisciplina();
+
         }
 
         public override void Excluir()
@@ -89,7 +125,7 @@ namespace FestaInfantil.ModuloCliente
         {
             List<Disciplina> disciplina = repositorioDisciplina.SelecionarTodos();
             tabelaDisciplina.AtualizarRegistros(disciplina);
-            //TelaPrincipalForm.Instancia.AtualizarRodape("Visualizando Disciplinas");
+           
         }
         private Disciplina ObterDisciplinaSelecionada()
         {
@@ -106,5 +142,6 @@ namespace FestaInfantil.ModuloCliente
 
             return tabelaDisciplina;
         }
+
     }
 }

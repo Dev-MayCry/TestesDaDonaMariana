@@ -46,7 +46,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
                 break;
             }
 
-            CarregarMaterias();
+            CarregarMaterias ();
         }
 
 

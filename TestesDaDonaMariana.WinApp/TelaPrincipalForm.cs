@@ -18,6 +18,7 @@ namespace TestesDaDonaMariana.WinApp
         private RepositorioDisciplinaEmSql repositorioDisciplina = new RepositorioDisciplinaEmSql();
         private RepositorioQuestaoEmSql repositorioQuestao = new RepositorioQuestaoEmSql();
         private RepositorioTesteEmSql repositorioTeste = new RepositorioTesteEmSql();
+        private TelaPrincipalForm telaPrincipal;
 
         public TelaPrincipalForm()
         {
@@ -27,7 +28,7 @@ namespace TestesDaDonaMariana.WinApp
 
         private void matériasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorMateria(repositorioMateria, repositorioDisciplina,repositorioQuestao);
+            controlador = new ControladorMateria(repositorioMateria, repositorioDisciplina, repositorioQuestao);
             ConfigurarTelaPrincipal(controlador);
         }
 
@@ -36,8 +37,9 @@ namespace TestesDaDonaMariana.WinApp
             controlador = new ControladorQuestao(repositorioQuestao, repositorioDisciplina, repositorioMateria);
             ConfigurarTelaPrincipal(controlador);
         }
-        private void testesToolStripMenuItem_Click(object sender, EventArgs e) {
-            controlador = new ControladorTeste(repositorioMateria, repositorioDisciplina, repositorioQuestao,repositorioTeste);
+        private void testesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorTeste(repositorioMateria, repositorioDisciplina, repositorioQuestao, repositorioTeste);
             ConfigurarTelaPrincipal(controlador);
         }
 
@@ -66,7 +68,7 @@ namespace TestesDaDonaMariana.WinApp
             btn_Duplicar.ToolTipText = controlador.ToolTipDuplicar;
             btn_Imprimir.ToolTipText = controlador.ToolTipImprimir;
 
-            
+
             btn_Adicionar.Enabled = controlador.InserirHabilitado;
             btn_Editar.Enabled = controlador.EditarHabilitado;
             btn_Excluir.Enabled = controlador.ExcluirHabilitado;
@@ -74,41 +76,31 @@ namespace TestesDaDonaMariana.WinApp
             btn_Duplicar.Enabled = controlador.DuplicarHabilitado;
             btn_Imprimir.Enabled = controlador.ImprimirHabilitado;
         }
-
-        private void btn_Adicionar_Click(object sender, EventArgs e)
-        {
-            controlador.Inserir();
-        }
-
         private void DisciplinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorDisciplina(repositorioDisciplina);
             ConfigurarTelaPrincipal(controlador);
         }
 
-        public static TelaPrincipalForm Instancia
+        private void btn_Adicionar_Click(object sender, EventArgs e)
         {
-            get
-            {
-                if (telaPrincipal == null)
-                    telaPrincipal = new TelaPrincipalForm();
-
-                return telaPrincipal;
-            }
+            controlador.Inserir();
         }
-        //public void AtualizarRodape(string mensagem)
-        //{
-        //    lbRodape.Text = mensagem;
-        //}
-    }
 
-        private void btn_Editar_Click(object sender, EventArgs e) {
+     
+
+        private void btn_Editar_Click(object sender, EventArgs e)
+        {
             controlador.Editar();
         }
 
-        private void btn_Excluir_Click(object sender, EventArgs e) {
+        private void btn_Excluir_Click(object sender, EventArgs e)
+        {
             controlador.Excluir();
         }
 
+
     }
+
+
 }

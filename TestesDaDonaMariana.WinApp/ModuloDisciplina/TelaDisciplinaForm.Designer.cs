@@ -38,6 +38,7 @@
             // 
             // btnSalvar
             // 
+            btnSalvar.DialogResult = DialogResult.OK;
             btnSalvar.Location = new Point(109, 67);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(75, 48);
@@ -47,6 +48,7 @@
             // 
             // button2
             // 
+            button2.DialogResult = DialogResult.Cancel;
             button2.Location = new Point(190, 67);
             button2.Name = "button2";
             button2.Size = new Size(75, 48);
@@ -81,10 +83,13 @@
             // 
             // txtId
             // 
+            txtId.Enabled = false;
             txtId.Location = new Point(294, 33);
             txtId.Name = "txtId";
+            txtId.ReadOnly = true;
             txtId.Size = new Size(24, 23);
             txtId.TabIndex = 5;
+            txtId.Text = "0";
             // 
             // TelaDisciplinaForm
             // 
@@ -98,7 +103,9 @@
             Controls.Add(button2);
             Controls.Add(btnSalvar);
             Name = "TelaDisciplinaForm";
-            Text = "TelaDisciplinaForm";
+            ShowIcon = false;
+            Text = "Cadastro de Disciplina";
+            Click += btnSalvar_Click;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.tpMenuCadastros = new System.Windows.Forms.ToolStripMenuItem();
-            this.matériasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.matériasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.questõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btn_Voltar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btn_Adicionar = new System.Windows.Forms.ToolStripButton();
-            this.btn_Editar = new System.Windows.Forms.ToolStripButton();
-            this.btn_Excluir = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btn_Visualizar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btn_Duplicar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.btn_Imprimir = new System.Windows.Forms.ToolStripButton();
-            this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
-            this.panelRegistros = new System.Windows.Forms.Panel();
-            this.testesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.SuspendLayout();
+            menuStrip1 = new MenuStrip();
+            tpMenuCadastros = new ToolStripMenuItem();
+            matériasToolStripMenuItem1 = new ToolStripMenuItem();
+            questõesToolStripMenuItem = new ToolStripMenuItem();
+            testesToolStripMenuItem = new ToolStripMenuItem();
+            DisciplinasToolStripMenuItem = new ToolStripMenuItem();
+            toolStrip1 = new ToolStrip();
+            btn_Voltar = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
+            btn_Adicionar = new ToolStripButton();
+            btn_Editar = new ToolStripButton();
+            btn_Excluir = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
+            btn_Visualizar = new ToolStripButton();
+            toolStripSeparator3 = new ToolStripSeparator();
+            btn_Duplicar = new ToolStripButton();
+            toolStripSeparator4 = new ToolStripSeparator();
+            btn_Imprimir = new ToolStripButton();
+            labelTipoCadastro = new ToolStripLabel();
+            panelRegistros = new Panel();
+            menuStrip1.SuspendLayout();
+            toolStrip1.SuspendLayout();
+            SuspendLayout();
             // 
             // menuStrip1
             // 
@@ -63,69 +63,57 @@
             // 
             // tpMenuCadastros
             // 
-            this.tpMenuCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.matériasToolStripMenuItem,
-            this.matériasToolStripMenuItem1,
-            this.questõesToolStripMenuItem,
-            this.testesToolStripMenuItem});
-            this.tpMenuCadastros.Name = "tpMenuCadastros";
-            this.tpMenuCadastros.Size = new System.Drawing.Size(71, 20);
-            this.tpMenuCadastros.Text = "Cadastros";
-            // 
-            // DisciplinaToolStripMenuItem
-            // 
-            this.matériasToolStripMenuItem.Name = "matériasToolStripMenuItem";
-            this.matériasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.matériasToolStripMenuItem.Text = "Disciplinas";
-            DisciplinaToolStripMenuItem.Name = "DisciplinaToolStripMenuItem";
-            DisciplinaToolStripMenuItem.Size = new Size(180, 22);
-            DisciplinaToolStripMenuItem.Text = "Disciplinas";
-            DisciplinaToolStripMenuItem.Click += DisciplinaToolStripMenuItem_Click;
+            tpMenuCadastros.DropDownItems.AddRange(new ToolStripItem[] { matériasToolStripMenuItem1, questõesToolStripMenuItem, testesToolStripMenuItem, DisciplinasToolStripMenuItem });
+            tpMenuCadastros.Name = "tpMenuCadastros";
+            tpMenuCadastros.Size = new Size(71, 20);
+            tpMenuCadastros.Text = "Cadastros";
             // 
             // matériasToolStripMenuItem1
             // 
-            this.matériasToolStripMenuItem1.Name = "matériasToolStripMenuItem1";
-            this.matériasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.matériasToolStripMenuItem1.Text = "Matérias";
-            this.matériasToolStripMenuItem1.Click += new System.EventHandler(this.matériasToolStripMenuItem1_Click);
+            matériasToolStripMenuItem1.Name = "matériasToolStripMenuItem1";
+            matériasToolStripMenuItem1.Size = new Size(180, 22);
+            matériasToolStripMenuItem1.Text = "Matérias";
+            matériasToolStripMenuItem1.Click += matériasToolStripMenuItem1_Click;
             // 
             // questõesToolStripMenuItem
             // 
-            this.questõesToolStripMenuItem.Name = "questõesToolStripMenuItem";
-            this.questõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.questõesToolStripMenuItem.Text = "Questões";
-            this.questõesToolStripMenuItem.Click += new System.EventHandler(this.questõesToolStripMenuItem_Click);
+            questõesToolStripMenuItem.Name = "questõesToolStripMenuItem";
+            questõesToolStripMenuItem.Size = new Size(180, 22);
+            questõesToolStripMenuItem.Text = "Questões";
+            questõesToolStripMenuItem.Click += questõesToolStripMenuItem_Click;
+            // 
+            // testesToolStripMenuItem
+            // 
+            testesToolStripMenuItem.Name = "testesToolStripMenuItem";
+            testesToolStripMenuItem.Size = new Size(180, 22);
+            testesToolStripMenuItem.Text = "Testes";
+            testesToolStripMenuItem.Click += testesToolStripMenuItem_Click;
+            // 
+            // DisciplinasToolStripMenuItem
+            // 
+            DisciplinasToolStripMenuItem.Name = "DisciplinasToolStripMenuItem";
+            DisciplinasToolStripMenuItem.Size = new Size(180, 22);
+            DisciplinasToolStripMenuItem.Text = "Disciplinas";
+            DisciplinasToolStripMenuItem.Click += DisciplinaToolStripMenuItem_Click;
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Enabled = false;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_Voltar,
-            this.toolStripSeparator1,
-            this.btn_Adicionar,
-            this.btn_Editar,
-            this.btn_Excluir,
-            this.toolStripSeparator2,
-            this.btn_Visualizar,
-            this.toolStripSeparator3,
-            this.btn_Duplicar,
-            this.toolStripSeparator4,
-            this.btn_Imprimir,
-            this.labelTipoCadastro});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(784, 47);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
+            toolStrip1.Enabled = false;
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btn_Voltar, toolStripSeparator1, btn_Adicionar, btn_Editar, btn_Excluir, toolStripSeparator2, btn_Visualizar, toolStripSeparator3, btn_Duplicar, toolStripSeparator4, btn_Imprimir, labelTipoCadastro });
+            toolStrip1.Location = new Point(0, 24);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(784, 47);
+            toolStrip1.TabIndex = 3;
+            toolStrip1.Text = "toolStrip1";
             // 
             // btn_Voltar
             // 
-            this.btn_Voltar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Voltar.Image = global::TestesDaDonaMariana.WinApp.Properties.Resources.arrow_back_FILL0_wght500_GRAD0_opsz40;
-            this.btn_Voltar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Voltar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Voltar.Name = "btn_Voltar";
-            this.btn_Voltar.Size = new System.Drawing.Size(44, 44);
+            btn_Voltar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btn_Voltar.Image = Properties.Resources.arrow_back_FILL0_wght500_GRAD0_opsz40;
+            btn_Voltar.ImageScaling = ToolStripItemImageScaling.None;
+            btn_Voltar.ImageTransparentColor = Color.Magenta;
+            btn_Voltar.Name = "btn_Voltar";
+            btn_Voltar.Size = new Size(44, 44);
             // 
             // toolStripSeparator1
             // 
@@ -134,81 +122,81 @@
             // 
             // btn_Adicionar
             // 
-            this.btn_Adicionar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Adicionar.Image = global::TestesDaDonaMariana.WinApp.Properties.Resources.add_box_FILL0_wght500_GRAD0_opsz40;
-            this.btn_Adicionar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Adicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Adicionar.Name = "btn_Adicionar";
-            this.btn_Adicionar.Size = new System.Drawing.Size(44, 44);
-            this.btn_Adicionar.Click += new System.EventHandler(this.btn_Adicionar_Click);
+            btn_Adicionar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btn_Adicionar.Image = Properties.Resources.add_box_FILL0_wght500_GRAD0_opsz40;
+            btn_Adicionar.ImageScaling = ToolStripItemImageScaling.None;
+            btn_Adicionar.ImageTransparentColor = Color.Magenta;
+            btn_Adicionar.Name = "btn_Adicionar";
+            btn_Adicionar.Size = new Size(44, 44);
+            btn_Adicionar.Click += btn_Adicionar_Click;
             // 
             // btn_Editar
             // 
-            this.btn_Editar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Editar.Image = global::TestesDaDonaMariana.WinApp.Properties.Resources.edit_FILL0_wght500_GRAD0_opsz40__1_;
-            this.btn_Editar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Editar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Editar.Name = "btn_Editar";
-            this.btn_Editar.Size = new System.Drawing.Size(44, 44);
-            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
+            btn_Editar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btn_Editar.Image = Properties.Resources.edit_FILL0_wght500_GRAD0_opsz40__1_;
+            btn_Editar.ImageScaling = ToolStripItemImageScaling.None;
+            btn_Editar.ImageTransparentColor = Color.Magenta;
+            btn_Editar.Name = "btn_Editar";
+            btn_Editar.Size = new Size(44, 44);
+            btn_Editar.Click += btn_Editar_Click;
             // 
             // btn_Excluir
             // 
-            this.btn_Excluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Excluir.Image = global::TestesDaDonaMariana.WinApp.Properties.Resources.delete_FILL0_wght500_GRAD0_opsz40__1_;
-            this.btn_Excluir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Excluir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Excluir.Name = "btn_Excluir";
-            this.btn_Excluir.Size = new System.Drawing.Size(44, 44);
-            this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
+            btn_Excluir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btn_Excluir.Image = Properties.Resources.delete_FILL0_wght500_GRAD0_opsz40__1_;
+            btn_Excluir.ImageScaling = ToolStripItemImageScaling.None;
+            btn_Excluir.ImageTransparentColor = Color.Magenta;
+            btn_Excluir.Name = "btn_Excluir";
+            btn_Excluir.Size = new Size(44, 44);
+            btn_Excluir.Click += btn_Excluir_Click;
             // 
             // toolStripSeparator2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 47);
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 47);
             // 
             // btn_Visualizar
             // 
-            this.btn_Visualizar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Visualizar.Image = global::TestesDaDonaMariana.WinApp.Properties.Resources.preview_FILL0_wght500_GRAD0_opsz40;
-            this.btn_Visualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Visualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Visualizar.Name = "btn_Visualizar";
-            this.btn_Visualizar.Size = new System.Drawing.Size(44, 44);
+            btn_Visualizar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btn_Visualizar.Image = Properties.Resources.preview_FILL0_wght500_GRAD0_opsz40;
+            btn_Visualizar.ImageScaling = ToolStripItemImageScaling.None;
+            btn_Visualizar.ImageTransparentColor = Color.Magenta;
+            btn_Visualizar.Name = "btn_Visualizar";
+            btn_Visualizar.Size = new Size(44, 44);
             // 
             // toolStripSeparator3
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 47);
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(6, 47);
             // 
             // btn_Duplicar
             // 
-            this.btn_Duplicar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Duplicar.Image = global::TestesDaDonaMariana.WinApp.Properties.Resources.library_add_FILL0_wght500_GRAD0_opsz40__1_;
-            this.btn_Duplicar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Duplicar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Duplicar.Name = "btn_Duplicar";
-            this.btn_Duplicar.Size = new System.Drawing.Size(44, 44);
+            btn_Duplicar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btn_Duplicar.Image = Properties.Resources.library_add_FILL0_wght500_GRAD0_opsz40__1_;
+            btn_Duplicar.ImageScaling = ToolStripItemImageScaling.None;
+            btn_Duplicar.ImageTransparentColor = Color.Magenta;
+            btn_Duplicar.Name = "btn_Duplicar";
+            btn_Duplicar.Size = new Size(44, 44);
             // 
             // toolStripSeparator4
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 47);
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(6, 47);
             // 
             // btn_Imprimir
             // 
-            this.btn_Imprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_Imprimir.Image = global::TestesDaDonaMariana.WinApp.Properties.Resources.print_FILL0_wght500_GRAD0_opsz40;
-            this.btn_Imprimir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Imprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Imprimir.Name = "btn_Imprimir";
-            this.btn_Imprimir.Size = new System.Drawing.Size(44, 44);
+            btn_Imprimir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btn_Imprimir.Image = Properties.Resources.print_FILL0_wght500_GRAD0_opsz40;
+            btn_Imprimir.ImageScaling = ToolStripItemImageScaling.None;
+            btn_Imprimir.ImageTransparentColor = Color.Magenta;
+            btn_Imprimir.Name = "btn_Imprimir";
+            btn_Imprimir.Size = new Size(44, 44);
             // 
             // labelTipoCadastro
             // 
-            this.labelTipoCadastro.Name = "labelTipoCadastro";
-            this.labelTipoCadastro.Size = new System.Drawing.Size(55, 44);
-            this.labelTipoCadastro.Text = "                ";
+            labelTipoCadastro.Name = "labelTipoCadastro";
+            labelTipoCadastro.Size = new Size(55, 44);
+            labelTipoCadastro.Text = "                ";
             // 
             // panelRegistros
             // 
@@ -217,13 +205,6 @@
             panelRegistros.Name = "panelRegistros";
             panelRegistros.Size = new Size(784, 390);
             panelRegistros.TabIndex = 4;
-            // 
-            // testesToolStripMenuItem
-            // 
-            this.testesToolStripMenuItem.Name = "testesToolStripMenuItem";
-            this.testesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.testesToolStripMenuItem.Text = "Testes";
-            this.testesToolStripMenuItem.Click += new System.EventHandler(this.testesToolStripMenuItem_Click);
             // 
             // TelaPrincipalForm
             // 
@@ -267,5 +248,6 @@
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripButton btn_Imprimir;
         private ToolStripMenuItem testesToolStripMenuItem;
+        private ToolStripMenuItem DisciplinasToolStripMenuItem;
     }
 }
