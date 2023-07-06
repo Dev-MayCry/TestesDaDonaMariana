@@ -22,7 +22,7 @@ namespace TestesDaDonaMariana.WinApp
 
         private void matériasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorMateria(repositorioMateria, repositorioDisciplina);
+            controlador = new ControladorMateria(repositorioMateria, repositorioDisciplina,repositorioQuestao);
             ConfigurarTelaPrincipal(controlador);
         }
 
@@ -34,7 +34,7 @@ namespace TestesDaDonaMariana.WinApp
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador)
         {
-
+            labelTipoCadastro.Text = controlador.LabelTipoCadastro;
             toolStrip1.Enabled = true;
             ConfigurarToolTips(controlador);
             ConfigurarListagem(controlador);
@@ -53,11 +53,17 @@ namespace TestesDaDonaMariana.WinApp
             btn_Adicionar.ToolTipText = controlador.ToolTipInserir;
             btn_Editar.ToolTipText = controlador.ToolTipEditar;
             btn_Excluir.ToolTipText = controlador.ToolTipExcluir;
+            btn_Visualizar.ToolTipText = controlador.ToolTipVisualizar;
+            btn_Duplicar.ToolTipText = controlador.ToolTipDuplicar;
+            btn_Imprimir.ToolTipText = controlador.ToolTipImprimir;
 
-
+            
             btn_Adicionar.Enabled = controlador.InserirHabilitado;
             btn_Editar.Enabled = controlador.EditarHabilitado;
             btn_Excluir.Enabled = controlador.ExcluirHabilitado;
+            btn_Visualizar.Enabled = controlador.VisualizarHabilitado;
+            btn_Duplicar.Enabled = controlador.DuplicarHabilitado;
+            btn_Imprimir.Enabled = controlador.ImprimirHabilitado;
         }
 
         private void btn_Adicionar_Click(object sender, EventArgs e)

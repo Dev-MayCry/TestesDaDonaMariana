@@ -49,7 +49,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
                 grid.Rows.Add(
                     m.id,
                     m.nome,
-                    m.serie,
+                    m.serie+"ª",
                     m.disciplina.nome
                 );
             }

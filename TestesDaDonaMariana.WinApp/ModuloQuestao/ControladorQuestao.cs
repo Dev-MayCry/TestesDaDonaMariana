@@ -21,11 +21,14 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
         }
 
         public override string ToolTipInserir => "Inserir nova Questão";
-
         public override string ToolTipEditar => "Editar Questão Existente";
-
         public override string ToolTipExcluir => "Excluir Questão Existente";
-        
+        public override string ToolTipVisualizar => "Visualizar Questão Existente";
+
+        public override string LabelTipoCadastro => "Cadastro De Questões";
+
+        public override bool VisualizarHabilitado { get { return true; } }
+
         public override void Inserir()
         {
             TelaQuestao telaQuestao = new TelaQuestao(repositorioDisciplina.SelecionarTodos(), repositorioMateria.SelecionarTodos());

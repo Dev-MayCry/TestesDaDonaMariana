@@ -20,6 +20,8 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria
             {
                 txtDisciplina.Items.Add(d);
             }
+
+            txtDisciplina.SelectedIndex= 0;
         }
 
         public Materia ObterMateria()
