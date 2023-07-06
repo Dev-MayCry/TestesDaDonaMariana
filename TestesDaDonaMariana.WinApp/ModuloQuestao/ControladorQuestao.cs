@@ -89,7 +89,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
                 repositorioQuestao.Editar(questaoAtualizada.id, questaoAtualizada);
                 foreach (Alternativa a in questaoAtualizada.alternativas)
                 {
-                    repositorioAlternativa.Inserir(a);
+                    repositorioAlternativa.Editar(a.id, a);
                 }
                 break;
             }
@@ -119,6 +119,10 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
                     repositorioAlternativa.Excluir(a);
                 }
                 repositorioQuestao.Excluir(questao);
+                foreach (Alternativa a in questao.alternativas)
+                {
+                    repositorioAlternativa.Excluir(a);
+                }
             }
 
             CarregarQuestoes();

@@ -41,10 +41,6 @@
             txtId = new TextBox();
             label6 = new Label();
             groupBox1 = new GroupBox();
-            alternativaD = new CheckBox();
-            alternativaC = new CheckBox();
-            alternativaB = new CheckBox();
-            alternativaA = new CheckBox();
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
@@ -53,6 +49,10 @@
             txtAlternativaC = new TextBox();
             txtAlternativaB = new TextBox();
             txtAlternativaA = new TextBox();
+            alternativaA = new RadioButton();
+            alternativaB = new RadioButton();
+            alternativaC = new RadioButton();
+            alternativaD = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)txtSerie).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -169,9 +169,9 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(alternativaD);
-            groupBox1.Controls.Add(alternativaC);
-            groupBox1.Controls.Add(alternativaB);
             groupBox1.Controls.Add(alternativaA);
+            groupBox1.Controls.Add(alternativaB);
+            groupBox1.Controls.Add(alternativaC);
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label7);
@@ -186,46 +186,6 @@
             groupBox1.TabIndex = 18;
             groupBox1.TabStop = false;
             groupBox1.Text = "Alternativas";
-            // 
-            // alternativaD
-            // 
-            alternativaD.AutoSize = true;
-            alternativaD.Location = new Point(602, 113);
-            alternativaD.Name = "alternativaD";
-            alternativaD.Size = new Size(15, 14);
-            alternativaD.TabIndex = 11;
-            alternativaD.UseVisualStyleBackColor = true;
-            alternativaD.CheckedChanged += checkBox4_CheckedChanged;
-            // 
-            // alternativaC
-            // 
-            alternativaC.AutoSize = true;
-            alternativaC.Location = new Point(602, 84);
-            alternativaC.Name = "alternativaC";
-            alternativaC.Size = new Size(15, 14);
-            alternativaC.TabIndex = 10;
-            alternativaC.UseVisualStyleBackColor = true;
-            alternativaC.CheckedChanged += checkBox3_CheckedChanged;
-            // 
-            // alternativaB
-            // 
-            alternativaB.AutoSize = true;
-            alternativaB.Location = new Point(602, 55);
-            alternativaB.Name = "alternativaB";
-            alternativaB.Size = new Size(15, 14);
-            alternativaB.TabIndex = 9;
-            alternativaB.UseVisualStyleBackColor = true;
-            alternativaB.CheckedChanged += checkBox2_CheckedChanged_1;
-            // 
-            // alternativaA
-            // 
-            alternativaA.AutoSize = true;
-            alternativaA.Location = new Point(602, 26);
-            alternativaA.Name = "alternativaA";
-            alternativaA.Size = new Size(15, 14);
-            alternativaA.TabIndex = 8;
-            alternativaA.UseVisualStyleBackColor = true;
-            alternativaA.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // label9
             // 
@@ -293,6 +253,46 @@
             txtAlternativaA.Size = new Size(566, 23);
             txtAlternativaA.TabIndex = 0;
             // 
+            // alternativaA
+            // 
+            alternativaA.AutoSize = true;
+            alternativaA.Location = new Point(602, 27);
+            alternativaA.Name = "alternativaA";
+            alternativaA.Size = new Size(14, 13);
+            alternativaA.TabIndex = 8;
+            alternativaA.TabStop = true;
+            alternativaA.UseVisualStyleBackColor = true;
+            // 
+            // alternativaB
+            // 
+            alternativaB.AutoSize = true;
+            alternativaB.Location = new Point(602, 56);
+            alternativaB.Name = "alternativaB";
+            alternativaB.Size = new Size(14, 13);
+            alternativaB.TabIndex = 9;
+            alternativaB.TabStop = true;
+            alternativaB.UseVisualStyleBackColor = true;
+            // 
+            // alternativaC
+            // 
+            alternativaC.AutoSize = true;
+            alternativaC.Location = new Point(602, 85);
+            alternativaC.Name = "alternativaC";
+            alternativaC.Size = new Size(14, 13);
+            alternativaC.TabIndex = 19;
+            alternativaC.TabStop = true;
+            alternativaC.UseVisualStyleBackColor = true;
+            // 
+            // alternativaD
+            // 
+            alternativaD.AutoSize = true;
+            alternativaD.Location = new Point(602, 114);
+            alternativaD.Name = "alternativaD";
+            alternativaD.Size = new Size(14, 13);
+            alternativaD.TabIndex = 20;
+            alternativaD.TabStop = true;
+            alternativaD.UseVisualStyleBackColor = true;
+            // 
             // TelaQuestao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -338,10 +338,6 @@
         private TextBox txtId;
         private Label label6;
         private GroupBox groupBox1;
-        private CheckBox alternativaD;
-        private CheckBox alternativaC;
-        private CheckBox alternativaB;
-        private CheckBox alternativaA;
         private Label label9;
         private Label label8;
         private Label label7;
@@ -350,5 +346,9 @@
         private TextBox txtAlternativaC;
         private TextBox txtAlternativaB;
         private TextBox txtAlternativaA;
+        private RadioButton alternativaD;
+        private RadioButton alternativaA;
+        private RadioButton alternativaB;
+        private RadioButton alternativaC;
     }
 }
