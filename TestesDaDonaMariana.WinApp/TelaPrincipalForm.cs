@@ -1,3 +1,4 @@
+using FestaInfantil.ModuloCliente;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloAlternativa;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria;
@@ -23,7 +24,6 @@ namespace TestesDaDonaMariana.WinApp
         public TelaPrincipalForm()
         {
             InitializeComponent();
-            telaPrincipal = this;
         }
 
         private void matériasToolStripMenuItem1_Click(object sender, EventArgs e)
