@@ -25,5 +25,15 @@ namespace TestesDaDonaMariana.Dominio.ModuloMateria
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            return nome;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return nome == ((Materia)obj).nome && serie == ((Materia)obj).serie && id == ((Materia)obj).id;
+        }
     }
 }

@@ -1,5 +1,7 @@
-﻿namespace TestesDaDonaMariana.WinApp.ModuloMateria {
-    partial class TelaMateria {
+﻿namespace TestesDaDonaMariana.WinApp.ModuloMateria
+{
+    partial class TelaMateria
+    {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -9,8 +11,10 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing) {
-            if (disposing && (components != null)) {
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -22,146 +26,135 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGravar = new System.Windows.Forms.Button();
-            this.txtDisciplina = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtSerie = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSerie)).BeginInit();
-            this.SuspendLayout();
+        private void InitializeComponent()
+        {
+            label3 = new Label();
+            txtNome = new TextBox();
+            label2 = new Label();
+            txtId = new TextBox();
+            label1 = new Label();
+            btnCancelar = new Button();
+            btnGravar = new Button();
+            txtDisciplina = new ComboBox();
+            label4 = new Label();
+            txtSerie = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)txtSerie).BeginInit();
+            SuspendLayout();
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 15);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Disciplina:";
+            label3.AutoSize = true;
+            label3.Location = new Point(5, 71);
+            label3.Name = "label3";
+            label3.Size = new Size(61, 15);
+            label3.TabIndex = 18;
+            label3.Text = "Disciplina:";
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(65, 39);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(395, 23);
-            this.txtNome.TabIndex = 17;
+            txtNome.Location = new Point(65, 39);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(395, 23);
+            txtNome.TabIndex = 17;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 15);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Nome:";
+            label2.AutoSize = true;
+            label2.Location = new Point(5, 42);
+            label2.Name = "label2";
+            label2.Size = new Size(43, 15);
+            label2.TabIndex = 16;
+            label2.Text = "Nome:";
             // 
             // txtId
             // 
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(65, 9);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(63, 23);
-            this.txtId.TabIndex = 15;
-            this.txtId.Text = "0";
+            txtId.Enabled = false;
+            txtId.Location = new Point(65, 9);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(63, 23);
+            txtId.TabIndex = 15;
+            txtId.Text = "0";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 15);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Id:";
+            label1.AutoSize = true;
+            label1.Location = new Point(5, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(20, 15);
+            label1.TabIndex = 14;
+            label1.Text = "Id:";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(395, 168);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 41);
-            this.btnCancelar.TabIndex = 13;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.DialogResult = DialogResult.Cancel;
+            btnCancelar.Location = new Point(395, 168);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(75, 41);
+            btnCancelar.TabIndex = 13;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnGravar
             // 
-            this.btnGravar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(314, 168);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(75, 41);
-            this.btnGravar.TabIndex = 12;
-            this.btnGravar.Text = "Gravar";
-            this.btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.Location = new Point(314, 168);
+            btnGravar.Name = "btnGravar";
+            btnGravar.Size = new Size(75, 41);
+            btnGravar.TabIndex = 12;
+            btnGravar.Text = "Gravar";
+            btnGravar.UseVisualStyleBackColor = true;
             // 
             // txtDisciplina
             // 
-            this.txtDisciplina.FormattingEnabled = true;
-            this.txtDisciplina.Location = new System.Drawing.Point(65, 68);
-            this.txtDisciplina.Name = "txtDisciplina";
-            this.txtDisciplina.Size = new System.Drawing.Size(395, 23);
-            this.txtDisciplina.TabIndex = 19;
+            txtDisciplina.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtDisciplina.FormattingEnabled = true;
+            txtDisciplina.Location = new Point(65, 68);
+            txtDisciplina.Name = "txtDisciplina";
+            txtDisciplina.Size = new Size(395, 23);
+            txtDisciplina.TabIndex = 19;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 108);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 15);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Série: ";
+            label4.AutoSize = true;
+            label4.Location = new Point(5, 108);
+            label4.Name = "label4";
+            label4.Size = new Size(38, 15);
+            label4.TabIndex = 20;
+            label4.Text = "Série: ";
             // 
             // txtSerie
             // 
-            this.txtSerie.Location = new System.Drawing.Point(65, 106);
-            this.txtSerie.Maximum = new decimal(new int[] {
-            9,
-            0,
-            0,
-            0});
-            this.txtSerie.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtSerie.Name = "txtSerie";
-            this.txtSerie.Size = new System.Drawing.Size(63, 23);
-            this.txtSerie.TabIndex = 22;
-            this.txtSerie.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            txtSerie.Location = new Point(65, 106);
+            txtSerie.Maximum = new decimal(new int[] { 9, 0, 0, 0 });
+            txtSerie.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            txtSerie.Name = "txtSerie";
+            txtSerie.Size = new Size(63, 23);
+            txtSerie.TabIndex = 22;
+            txtSerie.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // TelaMateria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 221);
-            this.Controls.Add(this.txtSerie);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtDisciplina);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGravar);
-            this.Name = "TelaMateria";
-            this.Text = "TelaMateria";
-            ((System.ComponentModel.ISupportInitialize)(this.txtSerie)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(484, 221);
+            Controls.Add(txtSerie);
+            Controls.Add(label4);
+            Controls.Add(txtDisciplina);
+            Controls.Add(label3);
+            Controls.Add(txtNome);
+            Controls.Add(label2);
+            Controls.Add(txtId);
+            Controls.Add(label1);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnGravar);
+            Name = "TelaMateria";
+            Text = "TelaMateria";
+            ((System.ComponentModel.ISupportInitialize)txtSerie).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

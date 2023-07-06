@@ -1,9 +1,11 @@
-﻿using TestesDaDonaMariana.Dominio.ModuloMateria;
+﻿
+using TestesDaDonaMariana.Dominio.ModuloMateria;
+using TestesDaDonaMariana.Dominio.ModuloTeste;
 using TestesDaDonaMariana.WinApp.Compartilhado;
 
-namespace TestesDaDonaMariana.WinApp.ModuloMateria {
-    public partial class TabelaMateriaControl : UserControl {
-        public TabelaMateriaControl() {
+namespace TestesDaDonaMariana.WinApp.ModuloTeste {
+    public partial class TabelaTesteControl : UserControl {
+        public TabelaTesteControl() {
             InitializeComponent();
 
             ConfigurarColunas();
@@ -23,34 +25,40 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
                 },
                 new DataGridViewTextBoxColumn()
                 {
-                    Name = "nome",
-                    HeaderText = "Nome"
-                },
-                new DataGridViewTextBoxColumn()
-                {
-                    Name = "serie",
-                    HeaderText = "Série"
+                    Name = "titulo",
+                    HeaderText = "Título"
                 },
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "disciplina",
                     HeaderText = "Disciplina"
-                }
+                },
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "materia",
+                    HeaderText = "Matéria"
+                },
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "numeroQuestoes",
+                    HeaderText = "Número de Questões"
+                },
             };
 
             grid.Columns.AddRange(colunas);
         }
 
-        public void AtualizarRegistros(List<Materia> materias) {
+        public void AtualizarRegistros(List<Teste> testes) {
             grid.Rows.Clear();
 
-            foreach (Materia m in materias) {
+            foreach (Teste t in testes) {
 
                 grid.Rows.Add(
-                    m.id,
-                    m.nome,
-                    m.serie+"ª",
-                    m.disciplina.nome
+                    t.id,
+                    t.titulo,
+                    t.disciplina.nome,
+                    t.materia.nome,
+                    t.numeroQuestoes
                 );
             }
         }
@@ -64,6 +72,4 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
             return id;
         }
     }
-
-    
 }

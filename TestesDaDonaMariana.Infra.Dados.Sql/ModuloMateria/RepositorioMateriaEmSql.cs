@@ -6,27 +6,23 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria
     public class RepositorioMateriaEmSql : RepositorioEmSqlBase<Materia, MapeadorMateria>
     {
         protected override string sqlInserir =>
-            @"INSERT INTO [TBMATERIA] 
-	            (
-		            [NOME],
-					[SERIE],
-					[ID_DISCIPLINA]
-	            )
-	            VALUES 
-	            (
-		            @NOME, 
-					@SERIE,
-					@DISCIPLINA
-	            );                 
+            @"INSERT INTO [dbo].[TBMateria]
+                   ([nome]
+                   ,[serie]
+                   ,[Disciplina_ID])
+             VALUES
+                   (@nome
+                   ,@serie
+                   ,@Disciplina_ID)     
 
             SELECT SCOPE_IDENTITY();";
 
         protected override string sqlEditar =>
-            @"UPDATE [TBMATERIA] 
+            @"UPDATE [dbo].[TBMATERIA] 
 	        SET 
-		        [NOME] = @NOME,
-				[SERIE] = @SERIE,
-				[ID_DISCIPLINA] = @DISCIPLINA
+		        [nome] = @nome,
+				[serie] = @serie,
+				[Disciplina_ID] = @DISCIPLINA_ID
 	        WHERE 
 		        [ID] = @ID";
 
@@ -37,27 +33,38 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria
 
         protected override string sqlSelecionarTodos =>
             @"SELECT 
+					M.[ID] MATERIA_ID
+					,M.[nome] MATERIA_NOME
+					,M.[serie] MATERIA_SERIE
 
-	            [ID]			MATERIA_ID,
-                [NOME]			MATERIA_NOME,
-				[SERIE]			MATERIA_SERIE,
-				[ID_DISCIPLINA]	MATERIA_DISCIPLINA
-	
-            FROM 
-	            [TBMATERIA]";
+					,D.[ID] DISCIPLINA_ID
+					,D.[NOME] DISCIPLINA_NOME
+
+				  FROM 
+				  [dbo].[TBMateria] AS M INNER JOIN
+				  [DBO].[TBDisciplina] AS D
+
+				  ON
+					M.DISCIPLINA_ID = D.ID";
 
         protected override string sqlSelecionarPorId =>
-            @"SELECT 
 
-	            [ID]			MATERIA_ID,
-                [NOME]			MATERIA_NOME,
-				[SERIE]			MATERIA_SERIE,
-				[ID_DISCIPLINA]	MATERIA_DISCIPLINA
-	        
-            FROM 
-	            [TBMATERIA] 
-            WHERE 
-                [ID] = @ID";
+            @"SELECT M.[ID] MATERIA_ID
+					,M.[nome]	MATERIA_NOME
+					,M.[serie] MATERIA_SERIE
+
+					,D.[ID] DISCIPLINA_ID
+					,D.[NOME] DISCIPLINA_NOME
+
+				  FROM 
+				  [dbo].[TBMateria] AS M INNER JOIN
+				  [DBO].[TBDisciplina] AS D
+
+				ON
+					M.DISCIPLINA_ID = D.ID
+
+				WHERE 
+					M.[ID] = @ID";
     }
 }
 

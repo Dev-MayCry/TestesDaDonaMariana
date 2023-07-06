@@ -11,14 +11,16 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloTeste
 		            [NUMERO_QUESTOES],
 		            [DISCIPLINA],
 		            [MATERIA],
-		            [DATA]
+		            [DATA],
+					[TITULO]
 	            )
 	            VALUES 
 	            (
 		            @NUMERO_QUESTOES,
 		            @DISCIPLINA,
 		            @MATERIA,
-		            @DATA
+		            @DATA,
+					@TITULO
 	            );                 
 
             SELECT SCOPE_IDENTITY();";
@@ -29,7 +31,8 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloTeste
 		        [NUMERO_QUESTOES] = @NUMERO_QUESTOES,
 		        [DISCIPLINA] = @DISCIPLINA,
 		        [MATERIA] = @MATERIA,
-		        [DATA] = @DATA
+		        [DATA] = @DATA,
+				[TITULO] = @TITULO
 	        WHERE 
 		        [ID] = @ID";
 
@@ -41,14 +44,28 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloTeste
         protected override string sqlSelecionarTodos =>
             @"SELECT 
 
-	            [ID]				TESTE_ID,
-                [NUMERO_QUESTOES]	TESTE_NUMERO_QUESTOES,
-                [DISCIPLINA]		TESTE_DISCIPLINA,
-                [MATERIA]			TESTE_MATERIA,
-                [DATA]				TESTE_DATA
+	            T.[ID]				TESTE_ID,
+                T.[NUMERO_QUESTOES]	TESTE_NUMERO_QUESTOES,
+                T.[DATA_CRIACAO]	TESTE_DATA,
+				T.[TITULO]			TESTE_TITULO,
+
+				D.[ID]		DISCIPLINA_ID,
+				D.[NOME]	DISCIPLINA_NOME,
+
+				M.[ID] MATERIA_ID,
+				M.[NOME] MATERIA_NOME,
+				M.[SERIE] MATERIA_SERIE
 				
             FROM 
-	            [TBTESTE]";
+	            [DBO].[TBTESTE] AS T
+
+				INNER JOIN [DBO].[TBDISCIPLINA] AS D
+
+					ON T.DISCIPLINA_ID = D.ID
+
+				INNER JOIN [DBO].[TBMATERIA] AS M
+
+					ON T.MATERIA_ID = M.ID";
 
         protected override string sqlSelecionarPorId =>
             @"SELECT 
@@ -57,7 +74,8 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloTeste
                 [NUMERO_QUESTOES]	TESTE_NUMERO_QUESTOES,
                 [DISCIPLINA]		TESTE_DISCIPLINA,
                 [MATERIA]			TESTE_MATERIA,
-                [DATA]				TESTE_DATA
+                [DATA]				TESTE_DATA,
+				[TITULO]			TESTE_TITULO
 	        
             FROM 
 	            [TBTESTE] 

@@ -33,5 +33,12 @@ namespace TestesDaDonaMariana.Dominio.ModuloDisciplina
 
             return erros.ToArray();
         }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Disciplina disciplina &&
+                   id == disciplina.id &&
+                   nome == disciplina.nome;
+        }
     }
 }
