@@ -31,8 +31,7 @@ namespace TestesDaDonaMariana.Dominio.ModuloMateria
             return nome;
         }
 
-        public override bool Equals(object? obj)
-        {
+        public override bool Equals(object? obj) {
             return obj is Materia materia &&
                    id == materia.id &&
                    nome == materia.nome &&

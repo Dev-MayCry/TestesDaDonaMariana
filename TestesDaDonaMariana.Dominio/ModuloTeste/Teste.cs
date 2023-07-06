@@ -1,5 +1,6 @@
 ﻿using TestesDaDonaMariana.Dominio.ModuloDisciplina;
 using TestesDaDonaMariana.Dominio.ModuloMateria;
+using TestesDaDonaMariana.Dominio.ModuloQuestao;
 
 namespace TestesDaDonaMariana.Dominio.ModuloTeste
 {
@@ -10,6 +11,7 @@ namespace TestesDaDonaMariana.Dominio.ModuloTeste
         public Materia materia;
         public DateTime data;
         public string titulo;
+        
 
         public Teste(int id, int numeroQuestoes, Disciplina disciplina, Materia materia, DateTime data, string titulo)
         {
@@ -19,6 +21,7 @@ namespace TestesDaDonaMariana.Dominio.ModuloTeste
             this.materia = materia;
             this.data = data;
             this.titulo = titulo;
+            
         }
 
         public override void AtualizarInformacoes(Teste registroAtualizado)

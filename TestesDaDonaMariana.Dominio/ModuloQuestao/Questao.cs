@@ -32,5 +32,9 @@ namespace TestesDaDonaMariana.Dominio.ModuloQuestao
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString() {
+            return enunciado;
+        }
     }
 }

@@ -31,7 +31,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkRecuperacao = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,11 +39,10 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnSortear = new System.Windows.Forms.Button();
-            this.grid = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
+            this.listQuestoes = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtSerie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroQuestoes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
             // txtId
@@ -68,6 +67,16 @@
             // txtSerie
             // 
             this.txtSerie.Location = new System.Drawing.Point(515, 54);
+            this.txtSerie.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.txtSerie.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(53, 23);
             this.txtSerie.TabIndex = 24;
@@ -76,6 +85,7 @@
             0,
             0,
             0});
+            this.txtSerie.ValueChanged += new System.EventHandler(this.txtSerie_ValueChanged);
             // 
             // txtListaMaterias
             // 
@@ -84,6 +94,7 @@
             this.txtListaMaterias.Name = "txtListaMaterias";
             this.txtListaMaterias.Size = new System.Drawing.Size(332, 23);
             this.txtListaMaterias.TabIndex = 23;
+            this.txtListaMaterias.SelectedValueChanged += new System.EventHandler(this.txtListaMaterias_SelectedValueChanged);
             // 
             // txtListaDisciplinas
             // 
@@ -92,6 +103,7 @@
             this.txtListaDisciplinas.Name = "txtListaDisciplinas";
             this.txtListaDisciplinas.Size = new System.Drawing.Size(332, 23);
             this.txtListaDisciplinas.TabIndex = 22;
+            this.txtListaDisciplinas.SelectedValueChanged += new System.EventHandler(this.txtListaDisciplinas_SelectedValueChanged);
             // 
             // label5
             // 
@@ -120,15 +132,16 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Disciplina:";
             // 
-            // checkBox1
+            // checkRecuperacao
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(474, 83);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(94, 19);
-            this.checkBox1.TabIndex = 28;
-            this.checkBox1.Text = "Recuperação";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkRecuperacao.AutoSize = true;
+            this.checkRecuperacao.Location = new System.Drawing.Point(474, 83);
+            this.checkRecuperacao.Name = "checkRecuperacao";
+            this.checkRecuperacao.Size = new System.Drawing.Size(94, 19);
+            this.checkRecuperacao.TabIndex = 28;
+            this.checkRecuperacao.Text = "Recuperação";
+            this.checkRecuperacao.UseVisualStyleBackColor = true;
+            this.checkRecuperacao.CheckedChanged += new System.EventHandler(this.checkRecuperacao_CheckedChanged);
             // 
             // label4
             // 
@@ -172,7 +185,7 @@
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(537, 523);
+            this.btnCancelar.Location = new System.Drawing.Point(520, 523);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 50);
             this.btnCancelar.TabIndex = 34;
@@ -183,7 +196,7 @@
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(456, 523);
+            this.btnOK.Location = new System.Drawing.Point(434, 523);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 50);
             this.btnOK.TabIndex = 33;
@@ -192,7 +205,6 @@
             // 
             // btnSortear
             // 
-            this.btnSortear.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSortear.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSortear.Location = new System.Drawing.Point(236, 123);
             this.btnSortear.Name = "btnSortear";
@@ -200,15 +212,7 @@
             this.btnSortear.TabIndex = 35;
             this.btnSortear.Text = "Sortear Questões";
             this.btnSortear.UseVisualStyleBackColor = true;
-            // 
-            // grid
-            // 
-            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Location = new System.Drawing.Point(26, 210);
-            this.grid.Name = "grid";
-            this.grid.RowTemplate.Height = 25;
-            this.grid.Size = new System.Drawing.Size(569, 307);
-            this.grid.TabIndex = 36;
+            this.btnSortear.Click += new System.EventHandler(this.btnSortear_Click);
             // 
             // label7
             // 
@@ -219,13 +223,22 @@
             this.label7.TabIndex = 37;
             this.label7.Text = "Questões Sorteadas:";
             // 
+            // listQuestoes
+            // 
+            this.listQuestoes.FormattingEnabled = true;
+            this.listQuestoes.ItemHeight = 15;
+            this.listQuestoes.Location = new System.Drawing.Point(30, 210);
+            this.listQuestoes.Name = "listQuestoes";
+            this.listQuestoes.Size = new System.Drawing.Size(565, 304);
+            this.listQuestoes.TabIndex = 38;
+            // 
             // TelaTeste
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 585);
+            this.Controls.Add(this.listQuestoes);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.grid);
             this.Controls.Add(this.btnSortear);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnOK);
@@ -233,7 +246,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtTitulo);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkRecuperacao);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtSerie);
@@ -246,7 +259,6 @@
             this.Text = "Cadastro de Testes";
             ((System.ComponentModel.ISupportInitialize)(this.txtSerie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroQuestoes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,7 +274,7 @@
         private Label label5;
         private Label label2;
         private Label label1;
-        private CheckBox checkBox1;
+        private CheckBox checkRecuperacao;
         private Label label4;
         private TextBox txtTitulo;
         private Label label3;
@@ -270,7 +282,7 @@
         private Button btnCancelar;
         private Button btnOK;
         private Button btnSortear;
-        private DataGridView grid;
         private Label label7;
+        private ListBox listQuestoes;
     }
 }
