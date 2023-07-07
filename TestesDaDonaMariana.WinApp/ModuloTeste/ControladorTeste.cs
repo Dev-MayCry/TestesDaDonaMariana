@@ -1,6 +1,5 @@
 ﻿using PdfSharp.Drawing;
 using PdfSharp.Pdf;
-using System.Diagnostics;
 using TestesDaDonaMariana.Dominio.ModuloQuestao;
 using TestesDaDonaMariana.Dominio.ModuloTeste;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloAlternativa;
@@ -157,7 +156,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
             DialogResult opcaoEscolhida = tela.ShowDialog();
             if (opcaoEscolhida == DialogResult.OK) {
-
+ 
 
             }
             CarregarTestes();
@@ -207,13 +206,6 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
                     gfx = XGraphics.FromPdfPage(page);
                 }
             }
-
-            //page = document.AddPage();
-            //gfx = XGraphics.FromPdfPage(page);
-
-            //gfx.DrawString($"a) {teste.questoes[0].alternativas[0].descricao}", fonteTexto, XBrushes.Black, new XRect(0, 150, page.Width, page.Height), XStringFormats.Center);
-            //gfx.DrawString($"b) {teste.questoes[0].alternativas[1].descricao}", fonteTexto, XBrushes.Black, new XRect(0, 200, page.Width, page.Height), XStringFormats.Center);
-            //gfx.DrawString($"c) {teste.questoes[0].alternativas[2].descricao}", fonteTexto, XBrushes.Black, new XRect(0, 250, page.Width, page.Height), XStringFormats.Center);
 
         }
 
