@@ -197,6 +197,14 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
                 MessageBox.Show($"É necessário ao menos 2 alternativas para salvar a questão!", "Nova Questão", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return true;
             }
+            for(int i = 1; i < questao.alternativas.Count; i++)
+            {
+                if (questao.alternativas[i].descricao == questao.alternativas[i - 1].descricao)
+                {
+                    MessageBox.Show($"Não podem existir 2 alternativas iguais!", "Nova Questão", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return true;
+                }
+            }
             return false;
         }
     }
