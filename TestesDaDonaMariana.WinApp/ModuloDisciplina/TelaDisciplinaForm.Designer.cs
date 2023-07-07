@@ -43,7 +43,7 @@
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(75, 48);
             btnSalvar.TabIndex = 0;
-            btnSalvar.Text = "Salvar";
+            btnSalvar.Text = "OK";
             btnSalvar.UseVisualStyleBackColor = true;
             // 
             // button2

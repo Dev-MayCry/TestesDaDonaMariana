@@ -1,13 +1,10 @@
-﻿
-using e_Agenda.WinApp.ModuloContato;
+﻿using e_Agenda.WinApp.ModuloContato;
 using TestesDaDonaMariana.Dominio.ModuloDisciplina;
 using TestesDaDonaMariana.Dominio.ModuloMateria;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina;
-using TestesDaDonaMariana.WinApp;
+using TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria;
 using TestesDaDonaMariana.WinApp.Compartilhado;
 using TestesDaDonaMariana.WinApp.ModuloDisciplina;
-using TestesDaDonaMariana.WinApp.ModuloMateria;
-
 
 namespace FestaInfantil.ModuloCliente
 {
@@ -15,14 +12,16 @@ namespace FestaInfantil.ModuloCliente
     {
         private TabelaDisciplinaControl tabelaDisciplina;
         private RepositorioDisciplinaEmSql repositorioDisciplina;
+        private RepositorioMateriaEmSql repositorioMateria;
        
-        public ControladorDisciplina(RepositorioDisciplinaEmSql repositorioDisciplina)
+        public ControladorDisciplina(RepositorioDisciplinaEmSql repositorioDisciplina, RepositorioMateriaEmSql repositorioMateria)
         {
             this.repositorioDisciplina = repositorioDisciplina;
+            this.repositorioMateria = repositorioMateria;
           
         }
 
-        public override string ToolTipInserir => "Inserir nova Disciplina";
+        public override string ToolTipInserir => "Inserir Nova Disciplina";
 
         public override string ToolTipEditar => "Editar Disciplina Existente";
 
@@ -111,7 +110,9 @@ namespace FestaInfantil.ModuloCliente
                 MessageBox.Show("Nenhuma Disciplina Selecionada!", "Excluir Disciplina", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-           
+
+            if (VerificarMaterias(disciplinaSelecionada)) return;
+
             DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Excluir a Disciplina {disciplinaSelecionada.nome} ?", "Exclusão de Disciplina", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
@@ -119,7 +120,18 @@ namespace FestaInfantil.ModuloCliente
                 repositorioDisciplina.Excluir(disciplinaSelecionada);
                 CarregarDisciplina();
             }
-        }                    
+        }
+
+        public bool VerificarMaterias(Disciplina disciplina)
+        {   //verifica se a matéria está sendo usada em alguma questão
+            if (repositorioMateria.SelecionarTodos().Any(m => m.disciplina.id == disciplina.id))
+            {
+                MessageBox.Show($"Não é possível Excluir uma disciplina que esteja cadastrada em matéria!", "Excluir Disciplina", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+            else return false;
+        }
+
         private void CarregarDisciplina()
         {
             List<Disciplina> disciplina = repositorioDisciplina.SelecionarTodos();

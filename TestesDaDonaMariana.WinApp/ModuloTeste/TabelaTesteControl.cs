@@ -52,14 +52,26 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
             grid.Rows.Clear();
 
             foreach (Teste t in testes) {
+                if (t.recuperacao) {
+                    grid.Rows.Add(
+                    t.id,
+                    t.titulo,
+                    t.disciplina.nome,
+                    "Recuperação",
+                    t.numeroQuestoes
+                );
 
-                grid.Rows.Add(
+                } 
+                else {
+                    grid.Rows.Add(
                     t.id,
                     t.titulo,
                     t.disciplina.nome,
                     t.materia.nome,
                     t.numeroQuestoes
                 );
+                }
+                
             }
         }
 

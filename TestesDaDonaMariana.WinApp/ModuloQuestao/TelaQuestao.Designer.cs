@@ -41,10 +41,10 @@
             txtId = new TextBox();
             label6 = new Label();
             groupBox1 = new GroupBox();
-            alternativaD = new CheckBox();
-            alternativaC = new CheckBox();
-            alternativaB = new CheckBox();
-            alternativaA = new CheckBox();
+            alternativaD = new RadioButton();
+            alternativaA = new RadioButton();
+            alternativaB = new RadioButton();
+            alternativaC = new RadioButton();
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
@@ -169,9 +169,9 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(alternativaD);
-            groupBox1.Controls.Add(alternativaC);
-            groupBox1.Controls.Add(alternativaB);
             groupBox1.Controls.Add(alternativaA);
+            groupBox1.Controls.Add(alternativaB);
+            groupBox1.Controls.Add(alternativaC);
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label7);
@@ -190,42 +190,42 @@
             // alternativaD
             // 
             alternativaD.AutoSize = true;
-            alternativaD.Location = new Point(602, 113);
+            alternativaD.Location = new Point(602, 114);
             alternativaD.Name = "alternativaD";
-            alternativaD.Size = new Size(15, 14);
-            alternativaD.TabIndex = 11;
+            alternativaD.Size = new Size(14, 13);
+            alternativaD.TabIndex = 20;
+            alternativaD.TabStop = true;
             alternativaD.UseVisualStyleBackColor = true;
-            alternativaD.CheckedChanged += checkBox4_CheckedChanged;
-            // 
-            // alternativaC
-            // 
-            alternativaC.AutoSize = true;
-            alternativaC.Location = new Point(602, 84);
-            alternativaC.Name = "alternativaC";
-            alternativaC.Size = new Size(15, 14);
-            alternativaC.TabIndex = 10;
-            alternativaC.UseVisualStyleBackColor = true;
-            alternativaC.CheckedChanged += checkBox3_CheckedChanged;
-            // 
-            // alternativaB
-            // 
-            alternativaB.AutoSize = true;
-            alternativaB.Location = new Point(602, 55);
-            alternativaB.Name = "alternativaB";
-            alternativaB.Size = new Size(15, 14);
-            alternativaB.TabIndex = 9;
-            alternativaB.UseVisualStyleBackColor = true;
-            alternativaB.CheckedChanged += checkBox2_CheckedChanged_1;
             // 
             // alternativaA
             // 
             alternativaA.AutoSize = true;
-            alternativaA.Location = new Point(602, 26);
+            alternativaA.Location = new Point(602, 27);
             alternativaA.Name = "alternativaA";
-            alternativaA.Size = new Size(15, 14);
+            alternativaA.Size = new Size(14, 13);
             alternativaA.TabIndex = 8;
+            alternativaA.TabStop = true;
             alternativaA.UseVisualStyleBackColor = true;
-            alternativaA.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // alternativaB
+            // 
+            alternativaB.AutoSize = true;
+            alternativaB.Location = new Point(602, 56);
+            alternativaB.Name = "alternativaB";
+            alternativaB.Size = new Size(14, 13);
+            alternativaB.TabIndex = 9;
+            alternativaB.TabStop = true;
+            alternativaB.UseVisualStyleBackColor = true;
+            // 
+            // alternativaC
+            // 
+            alternativaC.AutoSize = true;
+            alternativaC.Location = new Point(602, 85);
+            alternativaC.Name = "alternativaC";
+            alternativaC.Size = new Size(14, 13);
+            alternativaC.TabIndex = 19;
+            alternativaC.TabStop = true;
+            alternativaC.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -269,6 +269,7 @@
             txtAlternativaD.Name = "txtAlternativaD";
             txtAlternativaD.Size = new Size(566, 23);
             txtAlternativaD.TabIndex = 3;
+            txtAlternativaD.EnabledChanged += txtAlternativaD_TextChanged;
             txtAlternativaD.TextChanged += txtAlternativaD_TextChanged;
             // 
             // txtAlternativaC
@@ -277,6 +278,7 @@
             txtAlternativaC.Name = "txtAlternativaC";
             txtAlternativaC.Size = new Size(566, 23);
             txtAlternativaC.TabIndex = 2;
+            txtAlternativaC.EnabledChanged += txtAlternativaC_TextChanged;
             txtAlternativaC.TextChanged += txtAlternativaC_TextChanged;
             // 
             // txtAlternativaB
@@ -285,6 +287,8 @@
             txtAlternativaB.Name = "txtAlternativaB";
             txtAlternativaB.Size = new Size(566, 23);
             txtAlternativaB.TabIndex = 1;
+            txtAlternativaB.EnabledChanged += txtAlternativaB_TextChanged;
+            txtAlternativaB.TextChanged += txtAlternativaB_TextChanged;
             // 
             // txtAlternativaA
             // 
@@ -292,6 +296,7 @@
             txtAlternativaA.Name = "txtAlternativaA";
             txtAlternativaA.Size = new Size(566, 23);
             txtAlternativaA.TabIndex = 0;
+            txtAlternativaA.TextChanged += txtAlternativaA_TextChanged;
             // 
             // TelaQuestao
             // 
@@ -315,7 +320,7 @@
             MinimizeBox = false;
             Name = "TelaQuestao";
             ShowIcon = false;
-            Text = "Testes Dona Mariana";
+            Text = "Cadastro de Questão";
             ((System.ComponentModel.ISupportInitialize)txtSerie).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -338,10 +343,6 @@
         private TextBox txtId;
         private Label label6;
         private GroupBox groupBox1;
-        private CheckBox alternativaD;
-        private CheckBox alternativaC;
-        private CheckBox alternativaB;
-        private CheckBox alternativaA;
         private Label label9;
         private Label label8;
         private Label label7;
@@ -350,5 +351,9 @@
         private TextBox txtAlternativaC;
         private TextBox txtAlternativaB;
         private TextBox txtAlternativaA;
+        private RadioButton alternativaD;
+        private RadioButton alternativaA;
+        private RadioButton alternativaB;
+        private RadioButton alternativaC;
     }
 }

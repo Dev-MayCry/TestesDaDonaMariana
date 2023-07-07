@@ -30,13 +30,11 @@
         {
             menuStrip1 = new MenuStrip();
             tpMenuCadastros = new ToolStripMenuItem();
-            matériasToolStripMenuItem1 = new ToolStripMenuItem();
-            questõesToolStripMenuItem = new ToolStripMenuItem();
+            materiasToolStripMenuItem = new ToolStripMenuItem();
+            questoesToolStripMenuItem = new ToolStripMenuItem();
             testesToolStripMenuItem = new ToolStripMenuItem();
-            DisciplinasToolStripMenuItem = new ToolStripMenuItem();
+            disciplinasToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
-            btn_Voltar = new ToolStripButton();
-            toolStripSeparator1 = new ToolStripSeparator();
             btn_Adicionar = new ToolStripButton();
             btn_Editar = new ToolStripButton();
             btn_Excluir = new ToolStripButton();
@@ -63,24 +61,24 @@
             // 
             // tpMenuCadastros
             // 
-            tpMenuCadastros.DropDownItems.AddRange(new ToolStripItem[] { matériasToolStripMenuItem1, questõesToolStripMenuItem, testesToolStripMenuItem, DisciplinasToolStripMenuItem });
+            tpMenuCadastros.DropDownItems.AddRange(new ToolStripItem[] { disciplinasToolStripMenuItem, materiasToolStripMenuItem, questoesToolStripMenuItem, testesToolStripMenuItem });
             tpMenuCadastros.Name = "tpMenuCadastros";
             tpMenuCadastros.Size = new Size(71, 20);
             tpMenuCadastros.Text = "Cadastros";
             // 
-            // matériasToolStripMenuItem1
+            // materiasToolStripMenuItem
             // 
-            matériasToolStripMenuItem1.Name = "matériasToolStripMenuItem1";
-            matériasToolStripMenuItem1.Size = new Size(180, 22);
-            matériasToolStripMenuItem1.Text = "Matérias";
-            matériasToolStripMenuItem1.Click += matériasToolStripMenuItem1_Click;
+            materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
+            materiasToolStripMenuItem.Size = new Size(180, 22);
+            materiasToolStripMenuItem.Text = "Matérias";
+            materiasToolStripMenuItem.Click += matériasToolStripMenuItem1_Click;
             // 
-            // questõesToolStripMenuItem
+            // questoesToolStripMenuItem
             // 
-            questõesToolStripMenuItem.Name = "questõesToolStripMenuItem";
-            questõesToolStripMenuItem.Size = new Size(180, 22);
-            questõesToolStripMenuItem.Text = "Questões";
-            questõesToolStripMenuItem.Click += questõesToolStripMenuItem_Click;
+            questoesToolStripMenuItem.Name = "questoesToolStripMenuItem";
+            questoesToolStripMenuItem.Size = new Size(180, 22);
+            questoesToolStripMenuItem.Text = "Questões";
+            questoesToolStripMenuItem.Click += questõesToolStripMenuItem_Click;
             // 
             // testesToolStripMenuItem
             // 
@@ -89,36 +87,22 @@
             testesToolStripMenuItem.Text = "Testes";
             testesToolStripMenuItem.Click += testesToolStripMenuItem_Click;
             // 
-            // DisciplinasToolStripMenuItem
+            // disciplinasToolStripMenuItem
             // 
-            DisciplinasToolStripMenuItem.Name = "DisciplinasToolStripMenuItem";
-            DisciplinasToolStripMenuItem.Size = new Size(180, 22);
-            DisciplinasToolStripMenuItem.Text = "Disciplinas";
-            DisciplinasToolStripMenuItem.Click += DisciplinaToolStripMenuItem_Click;
+            disciplinasToolStripMenuItem.Name = "disciplinasToolStripMenuItem";
+            disciplinasToolStripMenuItem.Size = new Size(180, 22);
+            disciplinasToolStripMenuItem.Text = "Disciplinas";
+            disciplinasToolStripMenuItem.Click += DisciplinaToolStripMenuItem_Click;
             // 
             // toolStrip1
             // 
             toolStrip1.Enabled = false;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btn_Voltar, toolStripSeparator1, btn_Adicionar, btn_Editar, btn_Excluir, toolStripSeparator2, btn_Visualizar, toolStripSeparator3, btn_Duplicar, toolStripSeparator4, btn_Imprimir, labelTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btn_Adicionar, btn_Editar, btn_Excluir, toolStripSeparator2, btn_Visualizar, toolStripSeparator3, btn_Duplicar, toolStripSeparator4, btn_Imprimir, labelTipoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(784, 47);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
-            // 
-            // btn_Voltar
-            // 
-            btn_Voltar.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btn_Voltar.Image = Properties.Resources.arrow_back_FILL0_wght500_GRAD0_opsz40;
-            btn_Voltar.ImageScaling = ToolStripItemImageScaling.None;
-            btn_Voltar.ImageTransparentColor = Color.Magenta;
-            btn_Voltar.Name = "btn_Voltar";
-            btn_Voltar.Size = new Size(44, 44);
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 47);
             // 
             // btn_Adicionar
             // 
@@ -163,6 +147,7 @@
             btn_Visualizar.ImageTransparentColor = Color.Magenta;
             btn_Visualizar.Name = "btn_Visualizar";
             btn_Visualizar.Size = new Size(44, 44);
+            btn_Visualizar.Click += btn_Visualizar_Click;
             // 
             // toolStripSeparator3
             // 
@@ -177,6 +162,7 @@
             btn_Duplicar.ImageTransparentColor = Color.Magenta;
             btn_Duplicar.Name = "btn_Duplicar";
             btn_Duplicar.Size = new Size(44, 44);
+            btn_Duplicar.Click += btn_Duplicar_Click;
             // 
             // toolStripSeparator4
             // 
@@ -231,15 +217,13 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem tpMenuCadastros;
         private ToolStrip toolStrip1;
-        private ToolStripButton btn_Voltar;
-        private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton btn_Adicionar;
         private ToolStripButton btn_Editar;
         private ToolStripButton btn_Excluir;
         private Panel panelRegistros;
         private ToolStripMenuItem DisciplinaToolStripMenuItem;
-        private ToolStripMenuItem matériasToolStripMenuItem1;
-        private ToolStripMenuItem questõesToolStripMenuItem;
+        private ToolStripMenuItem materiasToolStripMenuItem;
+        private ToolStripMenuItem questoesToolStripMenuItem;
         private ToolStripLabel labelTipoCadastro;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripButton btn_Visualizar;
@@ -248,6 +232,6 @@
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripButton btn_Imprimir;
         private ToolStripMenuItem testesToolStripMenuItem;
-        private ToolStripMenuItem DisciplinasToolStripMenuItem;
+        private ToolStripMenuItem disciplinasToolStripMenuItem;
     }
 }

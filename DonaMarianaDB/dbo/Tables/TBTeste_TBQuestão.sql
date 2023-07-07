@@ -1,5 +1,7 @@
 ﻿CREATE TABLE [dbo].[TBTeste_TBQuestão] (
-    [ID_Teste]   INT NULL,
-    [ID_Questao] INT NULL
+    [TESTE_ID]   INT NOT NULL,
+    [QUESTAO_ID] INT NOT NULL
 );
+
+
 

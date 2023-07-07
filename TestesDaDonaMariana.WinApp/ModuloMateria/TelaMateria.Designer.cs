@@ -104,7 +104,7 @@
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 41);
             btnGravar.TabIndex = 12;
-            btnGravar.Text = "Gravar";
+            btnGravar.Text = "OK";
             btnGravar.UseVisualStyleBackColor = true;
             // 
             // txtDisciplina

@@ -4,7 +4,7 @@ namespace TestesDaDonaMariana.Dominio.ModuloMateria
 {
     public class Materia : EntidadeBase<Materia>
     {
-        public string nome;
+        public string? nome;
         public int serie;
         public Disciplina disciplina;
 
