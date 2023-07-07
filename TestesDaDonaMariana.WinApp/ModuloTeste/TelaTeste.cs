@@ -88,9 +88,18 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
             //txtSerie.Text = Convert.ToString(teste.serie);
 
-            txtSerie.Enabled = false; 
+            txtSerie.Enabled = false;
 
-            txtListaMaterias.SelectedItem = teste.materia;
+            if (teste.recuperacao)
+            {
+                checkRecuperacao.Checked = true;
+                txtListaMaterias.Text = "Recuperação"; //algum erro aqui, quando debuga não dá erro
+            }
+            else
+            {
+                txtListaMaterias.SelectedItem = teste.materia;
+            }
+
             txtListaMaterias.Enabled= false;
 
             txtNumeroQuestoes.Text = Convert.ToString(teste.numeroQuestoes);
@@ -104,6 +113,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
             btnSortear.Enabled = false;
             
+            checkRecuperacao.Enabled = false;
         }
 
 

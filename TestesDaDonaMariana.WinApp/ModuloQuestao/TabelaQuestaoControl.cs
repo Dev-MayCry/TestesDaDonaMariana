@@ -64,7 +64,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
                 grid.Rows.Add(
                     q.id,
                     q.disciplina.nome,
-                    q.serie,
+                    q.serie+"ª",
                     q.materia.nome,
                     q.enunciado,
                     q.numeroAlternativas

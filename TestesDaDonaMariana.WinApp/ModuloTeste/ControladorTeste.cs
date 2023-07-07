@@ -1,16 +1,10 @@
-﻿
-
-using System.Drawing.Drawing2D;
-using TestesDaDonaMariana.Dominio.ModuloMateria;
-using TestesDaDonaMariana.Dominio.ModuloQuestao;
+﻿using TestesDaDonaMariana.Dominio.ModuloQuestao;
 using TestesDaDonaMariana.Dominio.ModuloTeste;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloTeste;
 using TestesDaDonaMariana.WinApp.Compartilhado;
-using TestesDaDonaMariana.WinApp.ModuloMateria;
-using TestesDaDonaMariana.WinApp.ModuloQuestao;
 
 namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
@@ -69,7 +63,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
             DialogResult opcaoEscolhida = telaTeste.ShowDialog();
 
             while (opcaoEscolhida == DialogResult.OK) {
-                    Teste teste = telaTeste.ObterTeste();
+                Teste teste = telaTeste.ObterTeste();
                 if (ValidarNome(teste)) {
 
                     opcaoEscolhida = telaTeste.ShowDialog();
@@ -78,11 +72,11 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
                 repositorioTeste.Inserir(teste);
 
-               foreach (Questao q in teste.questoes) {
+                foreach (Questao q in teste.questoes) {
 
-               repositorioTeste.InserirQuestoes(teste.id, q.id);
+                    repositorioTeste.InserirQuestoes(teste.id, q.id);
 
-               }
+                }
                 break;
                 
             }

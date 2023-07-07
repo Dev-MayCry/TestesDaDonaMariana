@@ -61,8 +61,24 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
         private void BloquearAlternativas()
         {
             alternativaA.Checked = true;
+            txtAlternativaB.Enabled = false;
+            alternativaB.Enabled = false;
+            txtAlternativaC.Enabled = false;
+            alternativaC.Enabled = false;
+            txtAlternativaD.Enabled = false;
+            alternativaD.Enabled = false;
+        }
+
+        private void BloquearTodasAsAlternativas()
+        {
+            alternativaA.Enabled = false;
+            alternativaB.Enabled = false;
             alternativaC.Enabled = false;
             alternativaD.Enabled = false;
+            txtAlternativaA.Enabled = false;
+            txtAlternativaB.Enabled = false;
+            txtAlternativaC.Enabled = false;
+            txtAlternativaD.Enabled = false;
         }
 
         public Questao ObterQuestao()
@@ -78,17 +94,22 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             string enunciado = txtEnunciado.Text;
 
             Alternativa aA = new(txtAlternativaA.Text, alternativaA.Checked);
-            Alternativa aB = new(txtAlternativaB.Text, alternativaB.Checked);
+            Alternativa aB = new();
             Alternativa aC = new();
             Alternativa aD = new();
-            if (txtAlternativaC.Text != "")
+            if (txtAlternativaB.Enabled)
             {
-                aC.descricao = txtAlternativaC.Text; 
+                aB.descricao = txtAlternativaC.Text;
+                aB.gabarito = alternativaC.Checked;
+            }
+            if (txtAlternativaC.Enabled)
+            {
+                aC.descricao = txtAlternativaC.Text;
                 aC.gabarito = alternativaC.Checked;
             }
-            if (txtAlternativaD.Text != "")
+            if (txtAlternativaD.Enabled)
             {
-                aD.descricao = txtAlternativaD.Text; 
+                aD.descricao = txtAlternativaD.Text;
                 aD.gabarito = alternativaC.Checked;
             }
 
@@ -96,15 +117,19 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 
             Questao questao = new Questao(id, enunciado, numeroAlternativas, disciplina, serie, materia);
             questao.alternativas.Add(aA); questao.alternativas[0].questao = questao;
-            questao.alternativas.Add(aB); questao.alternativas[1].questao = questao;
-            if (txtAlternativaC.Text != "")
+            if (txtAlternativaB.Enabled && txtAlternativaB.Text != "")
             {
-                questao.alternativas.Add(aC); 
+                questao.alternativas.Add(aB);
+                questao.alternativas[1].questao = questao;
+            }
+            if (txtAlternativaC.Enabled && txtAlternativaC.Text != "")
+            {
+                questao.alternativas.Add(aC);
                 questao.alternativas[2].questao = questao;
             }
-            if (txtAlternativaD.Text != "")
+            if (txtAlternativaD.Enabled && txtAlternativaD.Text != "")
             {
-                questao.alternativas.Add(aD); 
+                questao.alternativas.Add(aD);
                 questao.alternativas[3].questao = questao;
             }
 
@@ -150,6 +175,45 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             }
         }
 
+        public void ConfigurarTelaLeitura(Questao questao)
+        {
+            txtId.Text = questao.id.ToString();
+
+            txtListaDisciplinas.SelectedItem = questao.disciplina;
+            txtListaDisciplinas.Enabled = false;
+
+            txtSerie.Text = Convert.ToString(questao.serie);
+            txtSerie.Enabled = false;
+
+            txtListaMaterias.SelectedItem = questao.materia;
+            txtListaMaterias.Enabled = false;
+            
+            txtEnunciado.Text = questao.enunciado;
+            txtEnunciado.Enabled = false;
+
+            foreach (Alternativa a in listaAlternativas)
+            {
+                if (a.questao.id == questao.id)
+                    questao.alternativas.Add(a);
+            }
+
+            txtAlternativaA.Text = questao.alternativas[0].descricao;
+            alternativaA.Checked = questao.alternativas[0].gabarito;
+            txtAlternativaB.Text = questao.alternativas[1].descricao;
+            alternativaB.Checked = questao.alternativas[1].gabarito;
+            if (questao.numeroAlternativas >= 3)
+            {
+                txtAlternativaC.Text = questao.alternativas[2].descricao;
+                alternativaC.Checked = questao.alternativas[2].gabarito;
+            }
+            if (questao.numeroAlternativas == 4)
+            {
+                txtAlternativaD.Text = questao.alternativas[3].descricao;
+                alternativaD.Checked = questao.alternativas[3].gabarito;
+            }
+            BloquearTodasAsAlternativas();
+        }
+
         private void txtSerie_ValueChanged(object sender, EventArgs e)
         {
             if (txtSerie.Value < 1) txtSerie.Value = 1;
@@ -157,28 +221,73 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             CarregarMaterias();
         }
 
+        private void txtAlternativaA_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAlternativaA.Text != "")
+            {
+                txtAlternativaB.Enabled = true;
+            }
+            else
+            {
+                alternativaB.Enabled = false;
+                alternativaC.Enabled = false;
+                alternativaD.Enabled = false;
+                txtAlternativaB.Enabled = false;
+                txtAlternativaC.Enabled = false;
+                txtAlternativaD.Enabled = false;
+
+                if (alternativaB.Checked || alternativaC.Checked || alternativaD.Checked)
+                    alternativaA.Checked = true;
+            }
+        }
+
+        private void txtAlternativaB_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAlternativaB.Text != "" && txtAlternativaB.Enabled)
+            {
+                alternativaB.Enabled = true;
+                txtAlternativaC.Enabled = true;
+            }
+            else
+            {
+                alternativaB.Enabled = false;
+                alternativaC.Enabled = false;
+                alternativaD.Enabled = false;
+                txtAlternativaC.Enabled = false;
+                txtAlternativaD.Enabled = false;
+
+                if (alternativaB.Checked || alternativaC.Checked || alternativaD.Checked)
+                    alternativaA.Checked = true;
+            }
+        }
+
         private void txtAlternativaC_TextChanged(object sender, EventArgs e)
         {
-            if(txtAlternativaC.Text != "")
+            if (txtAlternativaC.Text != "" && txtAlternativaC.Enabled)
+            {
                 alternativaC.Enabled = true;
+                txtAlternativaD.Enabled = true;
+            }
             else
             {
                 alternativaC.Enabled = false;
+                alternativaD.Enabled = false;
+                txtAlternativaD.Enabled = false;
 
-                if (alternativaC.Checked)
+                if (alternativaC.Checked || alternativaD.Checked)
                     alternativaA.Checked = true;
             }
         }
 
         private void txtAlternativaD_TextChanged(object sender, EventArgs e)
         {
-            if (txtAlternativaD.Text != "")
+            if (txtAlternativaD.Text != "" && txtAlternativaD.Enabled)
                 alternativaD.Enabled = true;
             else
             {
                 alternativaD.Enabled = false;
 
-                if(alternativaD.Checked) 
+                if (alternativaD.Checked)
                     alternativaA.Checked = true;
             }
         }

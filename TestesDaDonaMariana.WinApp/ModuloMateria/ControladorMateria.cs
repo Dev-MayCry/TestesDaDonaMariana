@@ -20,7 +20,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
             this.repositorioQuestao = repositorioQuestao;
         }
 
-        public override string ToolTipInserir => "Inserir nova Matéria";
+        public override string ToolTipInserir => "Inserir Nova Matéria";
 
         public override string ToolTipEditar => "Editar Matéria Existente";
 
@@ -97,9 +97,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
             }
             if (VerificarQuestoes(materia)) return;
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a matéria {materia.nome}?", "Exclusão de Matérias",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a matéria {materia.nome}?", "Exclusão de Matérias", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK) {
                 repositorioMateria.Excluir(materia);
@@ -110,7 +108,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
         }
 
         public bool VerificarQuestoes(Materia materia) {   //verifica se a matéria está sendo usada em alguma questão
-            if (repositorioQuestao.SelecionarTodos().Any(q => q.materia.nome == materia.nome)) {
+            if (repositorioQuestao.SelecionarTodos().Any(q => q.materia.id == materia.id)) {
                 MessageBox.Show($"Não é possível Excluir uma matéria que esteja cadastrada em uma questão!", "Excluir Matéria", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return true;
             } else return false;

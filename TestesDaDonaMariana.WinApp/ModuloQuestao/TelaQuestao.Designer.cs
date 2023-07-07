@@ -41,6 +41,10 @@
             txtId = new TextBox();
             label6 = new Label();
             groupBox1 = new GroupBox();
+            alternativaD = new RadioButton();
+            alternativaA = new RadioButton();
+            alternativaB = new RadioButton();
+            alternativaC = new RadioButton();
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
@@ -49,10 +53,6 @@
             txtAlternativaC = new TextBox();
             txtAlternativaB = new TextBox();
             txtAlternativaA = new TextBox();
-            alternativaA = new RadioButton();
-            alternativaB = new RadioButton();
-            alternativaC = new RadioButton();
-            alternativaD = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)txtSerie).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -187,6 +187,46 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Alternativas";
             // 
+            // alternativaD
+            // 
+            alternativaD.AutoSize = true;
+            alternativaD.Location = new Point(602, 114);
+            alternativaD.Name = "alternativaD";
+            alternativaD.Size = new Size(14, 13);
+            alternativaD.TabIndex = 20;
+            alternativaD.TabStop = true;
+            alternativaD.UseVisualStyleBackColor = true;
+            // 
+            // alternativaA
+            // 
+            alternativaA.AutoSize = true;
+            alternativaA.Location = new Point(602, 27);
+            alternativaA.Name = "alternativaA";
+            alternativaA.Size = new Size(14, 13);
+            alternativaA.TabIndex = 8;
+            alternativaA.TabStop = true;
+            alternativaA.UseVisualStyleBackColor = true;
+            // 
+            // alternativaB
+            // 
+            alternativaB.AutoSize = true;
+            alternativaB.Location = new Point(602, 56);
+            alternativaB.Name = "alternativaB";
+            alternativaB.Size = new Size(14, 13);
+            alternativaB.TabIndex = 9;
+            alternativaB.TabStop = true;
+            alternativaB.UseVisualStyleBackColor = true;
+            // 
+            // alternativaC
+            // 
+            alternativaC.AutoSize = true;
+            alternativaC.Location = new Point(602, 85);
+            alternativaC.Name = "alternativaC";
+            alternativaC.Size = new Size(14, 13);
+            alternativaC.TabIndex = 19;
+            alternativaC.TabStop = true;
+            alternativaC.UseVisualStyleBackColor = true;
+            // 
             // label9
             // 
             label9.AutoSize = true;
@@ -229,6 +269,7 @@
             txtAlternativaD.Name = "txtAlternativaD";
             txtAlternativaD.Size = new Size(566, 23);
             txtAlternativaD.TabIndex = 3;
+            txtAlternativaD.EnabledChanged += txtAlternativaD_TextChanged;
             txtAlternativaD.TextChanged += txtAlternativaD_TextChanged;
             // 
             // txtAlternativaC
@@ -237,6 +278,7 @@
             txtAlternativaC.Name = "txtAlternativaC";
             txtAlternativaC.Size = new Size(566, 23);
             txtAlternativaC.TabIndex = 2;
+            txtAlternativaC.EnabledChanged += txtAlternativaC_TextChanged;
             txtAlternativaC.TextChanged += txtAlternativaC_TextChanged;
             // 
             // txtAlternativaB
@@ -245,6 +287,8 @@
             txtAlternativaB.Name = "txtAlternativaB";
             txtAlternativaB.Size = new Size(566, 23);
             txtAlternativaB.TabIndex = 1;
+            txtAlternativaB.EnabledChanged += txtAlternativaB_TextChanged;
+            txtAlternativaB.TextChanged += txtAlternativaB_TextChanged;
             // 
             // txtAlternativaA
             // 
@@ -252,46 +296,7 @@
             txtAlternativaA.Name = "txtAlternativaA";
             txtAlternativaA.Size = new Size(566, 23);
             txtAlternativaA.TabIndex = 0;
-            // 
-            // alternativaA
-            // 
-            alternativaA.AutoSize = true;
-            alternativaA.Location = new Point(602, 27);
-            alternativaA.Name = "alternativaA";
-            alternativaA.Size = new Size(14, 13);
-            alternativaA.TabIndex = 8;
-            alternativaA.TabStop = true;
-            alternativaA.UseVisualStyleBackColor = true;
-            // 
-            // alternativaB
-            // 
-            alternativaB.AutoSize = true;
-            alternativaB.Location = new Point(602, 56);
-            alternativaB.Name = "alternativaB";
-            alternativaB.Size = new Size(14, 13);
-            alternativaB.TabIndex = 9;
-            alternativaB.TabStop = true;
-            alternativaB.UseVisualStyleBackColor = true;
-            // 
-            // alternativaC
-            // 
-            alternativaC.AutoSize = true;
-            alternativaC.Location = new Point(602, 85);
-            alternativaC.Name = "alternativaC";
-            alternativaC.Size = new Size(14, 13);
-            alternativaC.TabIndex = 19;
-            alternativaC.TabStop = true;
-            alternativaC.UseVisualStyleBackColor = true;
-            // 
-            // alternativaD
-            // 
-            alternativaD.AutoSize = true;
-            alternativaD.Location = new Point(602, 114);
-            alternativaD.Name = "alternativaD";
-            alternativaD.Size = new Size(14, 13);
-            alternativaD.TabIndex = 20;
-            alternativaD.TabStop = true;
-            alternativaD.UseVisualStyleBackColor = true;
+            txtAlternativaA.TextChanged += txtAlternativaA_TextChanged;
             // 
             // TelaQuestao
             // 
@@ -315,7 +320,7 @@
             MinimizeBox = false;
             Name = "TelaQuestao";
             ShowIcon = false;
-            Text = "Testes Dona Mariana";
+            Text = "Cadastro de Questão";
             ((System.ComponentModel.ISupportInitialize)txtSerie).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

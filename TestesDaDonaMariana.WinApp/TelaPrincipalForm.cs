@@ -34,7 +34,7 @@ namespace TestesDaDonaMariana.WinApp
 
         private void questõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorQuestao(repositorioQuestao, repositorioDisciplina, repositorioMateria, repositorioAlternativa);
+            controlador = new ControladorQuestao(repositorioQuestao, repositorioDisciplina, repositorioMateria, repositorioAlternativa, repositorioTeste);
             ConfigurarTelaPrincipal(controlador);
         }
         private void testesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -78,7 +78,7 @@ namespace TestesDaDonaMariana.WinApp
         }
         private void DisciplinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorDisciplina(repositorioDisciplina);
+            controlador = new ControladorDisciplina(repositorioDisciplina, repositorioMateria);
             ConfigurarTelaPrincipal(controlador);
         }
 
@@ -98,11 +98,13 @@ namespace TestesDaDonaMariana.WinApp
             controlador.Excluir();
         }
 
-        private void btn_Duplicar_Click(object sender, EventArgs e) {
+        private void btn_Duplicar_Click(object sender, EventArgs e)
+        {
             controlador.Duplicar();
         }
 
-        private void btn_Visualizar_Click(object sender, EventArgs e) {
+        private void btn_Visualizar_Click(object sender, EventArgs e)
+        {
             controlador.Visualizar();
         }
     }
