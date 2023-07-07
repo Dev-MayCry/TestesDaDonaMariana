@@ -61,13 +61,13 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 60);
             label1.Name = "label1";
-            label1.Size = new Size(58, 15);
+            label1.Size = new Size(61, 15);
             label1.TabIndex = 2;
-            label1.Text = "Disciplina";
+            label1.Text = "Disciplina:";
             // 
             // txtDisciplina
             // 
-            txtDisciplina.Location = new Point(76, 57);
+            txtDisciplina.Location = new Point(79, 57);
             txtDisciplina.Name = "txtDisciplina";
             txtDisciplina.Size = new Size(189, 23);
             txtDisciplina.TabIndex = 3;
@@ -75,16 +75,16 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(52, 28);
+            label2.Location = new Point(12, 31);
             label2.Name = "label2";
-            label2.Size = new Size(18, 15);
+            label2.Size = new Size(20, 15);
             label2.TabIndex = 4;
-            label2.Text = "ID";
+            label2.Text = "Id:";
             // 
             // txtId
             // 
             txtId.Enabled = false;
-            txtId.Location = new Point(76, 28);
+            txtId.Location = new Point(79, 28);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(45, 23);
@@ -95,7 +95,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(333, 156);
+            ClientSize = new Size(334, 161);
             Controls.Add(txtId);
             Controls.Add(label2);
             Controls.Add(txtDisciplina);
@@ -103,7 +103,9 @@
             Controls.Add(button2);
             Controls.Add(btnSalvar);
             MaximizeBox = false;
+            MaximumSize = new Size(350, 200);
             MinimizeBox = false;
+            MinimumSize = new Size(350, 200);
             Name = "TelaDisciplinaForm";
             ShowIcon = false;
             Text = "Cadastro de Disciplina";

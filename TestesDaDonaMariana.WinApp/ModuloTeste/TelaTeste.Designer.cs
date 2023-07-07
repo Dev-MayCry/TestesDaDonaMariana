@@ -178,7 +178,7 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(520, 523);
+            btnCancelar.Location = new Point(512, 529);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 50);
             btnCancelar.TabIndex = 34;
@@ -189,7 +189,7 @@
             // 
             btnOK.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnOK.DialogResult = DialogResult.OK;
-            btnOK.Location = new Point(434, 523);
+            btnOK.Location = new Point(426, 529);
             btnOK.Name = "btnOK";
             btnOK.Size = new Size(75, 50);
             btnOK.TabIndex = 33;
@@ -229,7 +229,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(622, 585);
+            ClientSize = new Size(614, 591);
             Controls.Add(listQuestoes);
             Controls.Add(label7);
             Controls.Add(btnSortear);
@@ -248,6 +248,8 @@
             Controls.Add(label5);
             Controls.Add(label2);
             Controls.Add(label1);
+            MaximumSize = new Size(630, 630);
+            MinimumSize = new Size(630, 630);
             Name = "TelaTeste";
             ShowIcon = false;
             Text = "Cadastro de Testes";

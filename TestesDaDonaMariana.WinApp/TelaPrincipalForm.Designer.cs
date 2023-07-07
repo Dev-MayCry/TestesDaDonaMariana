@@ -30,10 +30,10 @@
         {
             menuStrip1 = new MenuStrip();
             tpMenuCadastros = new ToolStripMenuItem();
+            disciplinasToolStripMenuItem = new ToolStripMenuItem();
             materiasToolStripMenuItem = new ToolStripMenuItem();
             questoesToolStripMenuItem = new ToolStripMenuItem();
             testesToolStripMenuItem = new ToolStripMenuItem();
-            disciplinasToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
             btn_Adicionar = new ToolStripButton();
             btn_Editar = new ToolStripButton();
@@ -55,7 +55,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { tpMenuCadastros });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(784, 24);
+            menuStrip1.Size = new Size(1264, 24);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -66,33 +66,33 @@
             tpMenuCadastros.Size = new Size(71, 20);
             tpMenuCadastros.Text = "Cadastros";
             // 
+            // disciplinasToolStripMenuItem
+            // 
+            disciplinasToolStripMenuItem.Name = "disciplinasToolStripMenuItem";
+            disciplinasToolStripMenuItem.Size = new Size(130, 22);
+            disciplinasToolStripMenuItem.Text = "Disciplinas";
+            disciplinasToolStripMenuItem.Click += DisciplinaToolStripMenuItem_Click;
+            // 
             // materiasToolStripMenuItem
             // 
             materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
-            materiasToolStripMenuItem.Size = new Size(180, 22);
+            materiasToolStripMenuItem.Size = new Size(130, 22);
             materiasToolStripMenuItem.Text = "Matérias";
             materiasToolStripMenuItem.Click += matériasToolStripMenuItem1_Click;
             // 
             // questoesToolStripMenuItem
             // 
             questoesToolStripMenuItem.Name = "questoesToolStripMenuItem";
-            questoesToolStripMenuItem.Size = new Size(180, 22);
+            questoesToolStripMenuItem.Size = new Size(130, 22);
             questoesToolStripMenuItem.Text = "Questões";
             questoesToolStripMenuItem.Click += questõesToolStripMenuItem_Click;
             // 
             // testesToolStripMenuItem
             // 
             testesToolStripMenuItem.Name = "testesToolStripMenuItem";
-            testesToolStripMenuItem.Size = new Size(180, 22);
+            testesToolStripMenuItem.Size = new Size(130, 22);
             testesToolStripMenuItem.Text = "Testes";
             testesToolStripMenuItem.Click += testesToolStripMenuItem_Click;
-            // 
-            // disciplinasToolStripMenuItem
-            // 
-            disciplinasToolStripMenuItem.Name = "disciplinasToolStripMenuItem";
-            disciplinasToolStripMenuItem.Size = new Size(180, 22);
-            disciplinasToolStripMenuItem.Text = "Disciplinas";
-            disciplinasToolStripMenuItem.Click += DisciplinaToolStripMenuItem_Click;
             // 
             // toolStrip1
             // 
@@ -100,7 +100,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { btn_Adicionar, btn_Editar, btn_Excluir, toolStripSeparator2, btn_Visualizar, toolStripSeparator3, btn_Duplicar, toolStripSeparator4, btn_Imprimir, labelTipoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(784, 47);
+            toolStrip1.Size = new Size(1264, 47);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -189,17 +189,21 @@
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.Location = new Point(0, 71);
             panelRegistros.Name = "panelRegistros";
-            panelRegistros.Size = new Size(784, 390);
+            panelRegistros.Size = new Size(1264, 610);
             panelRegistros.TabIndex = 4;
             // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 461);
+            ClientSize = new Size(1264, 681);
             Controls.Add(panelRegistros);
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
+            MaximizeBox = false;
+            MaximumSize = new Size(1280, 720);
+            MinimizeBox = false;
+            MinimumSize = new Size(1280, 720);
             Name = "TelaPrincipalForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;

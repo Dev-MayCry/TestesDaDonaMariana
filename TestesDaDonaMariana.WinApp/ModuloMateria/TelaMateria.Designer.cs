@@ -89,7 +89,7 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(395, 138);
+            btnCancelar.Location = new Point(395, 139);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 50);
             btnCancelar.TabIndex = 13;
@@ -100,7 +100,7 @@
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(314, 138);
+            btnGravar.Location = new Point(314, 139);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 50);
             btnGravar.TabIndex = 12;
@@ -140,7 +140,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(484, 190);
+            ClientSize = new Size(484, 191);
             Controls.Add(txtSerie);
             Controls.Add(label4);
             Controls.Add(txtDisciplina);
@@ -152,7 +152,9 @@
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
             MaximizeBox = false;
+            MaximumSize = new Size(500, 230);
             MinimizeBox = false;
+            MinimumSize = new Size(500, 230);
             Name = "TelaMateria";
             ShowIcon = false;
             Text = "Cadastro de Materia";
