@@ -23,6 +23,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
         {
             txtListaDisciplinas.Items.Clear();
             foreach (Disciplina d in disciplinas) txtListaDisciplinas.Items.Add(d);
+            txtListaDisciplinas.SelectedIndex = 0;
 
             txtListaMaterias.Enabled = false;
         }
@@ -44,13 +45,22 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             }
 
             txtListaMaterias.Enabled = true;
-            
-            if(txtListaMaterias.Items.Count > 0)
+
+            if (txtListaMaterias.Items.Count > 0)
                 txtListaMaterias.SelectedIndex = 0;
+
+            if (txtListaMaterias.Items.Count == 0)
+            {
+                txtListaMaterias.Items.Clear();
+                txtListaMaterias.Text = "Nenhuma matéria cadastrada na série selecionada.";
+                txtListaMaterias.Enabled = false;
+            }
+
         }
 
         private void BloquearAlternativas()
         {
+            alternativaA.Checked = true;
             alternativaC.Enabled = false;
             alternativaD.Enabled = false;
         }
@@ -73,11 +83,13 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             Alternativa aD = new();
             if (txtAlternativaC.Text != "")
             {
-                aC.descricao = txtAlternativaC.Text; aC.gabarito = alternativaC.Checked;
+                aC.descricao = txtAlternativaC.Text; 
+                aC.gabarito = alternativaC.Checked;
             }
             if (txtAlternativaD.Text != "")
             {
-                aD.descricao = txtAlternativaD.Text; aD.gabarito = alternativaC.Checked;
+                aD.descricao = txtAlternativaD.Text; 
+                aD.gabarito = alternativaC.Checked;
             }
 
             int numeroAlternativas = 0;
@@ -85,13 +97,15 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             Questao questao = new Questao(id, enunciado, numeroAlternativas, disciplina, serie, materia);
             questao.alternativas.Add(aA); questao.alternativas[0].questao = questao;
             questao.alternativas.Add(aB); questao.alternativas[1].questao = questao;
-            if (txtAlternativaC.Text != "") 
+            if (txtAlternativaC.Text != "")
             {
-                questao.alternativas.Add(aC); questao.alternativas[2].questao = questao; 
+                questao.alternativas.Add(aC); 
+                questao.alternativas[2].questao = questao;
             }
             if (txtAlternativaD.Text != "")
             {
-                questao.alternativas.Add(aD); questao.alternativas[3].questao = questao;
+                questao.alternativas.Add(aD); 
+                questao.alternativas[3].questao = questao;
             }
 
             questao.numeroAlternativas = questao.alternativas.Count;
@@ -116,7 +130,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 
             foreach (Alternativa a in listaAlternativas)
             {
-                if(a.questao.id == questao.id)
+                if (a.questao.id == questao.id)
                     questao.alternativas.Add(a);
             }
 
@@ -124,12 +138,12 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             alternativaA.Checked = questao.alternativas[0].gabarito;
             txtAlternativaB.Text = questao.alternativas[1].descricao;
             alternativaB.Checked = questao.alternativas[1].gabarito;
-            if (questao.numeroAlternativas == 3)
+            if (questao.numeroAlternativas >= 3)
             {
                 txtAlternativaC.Text = questao.alternativas[2].descricao;
                 alternativaC.Checked = questao.alternativas[2].gabarito;
             }
-            else if(questao.numeroAlternativas == 4)
+            if (questao.numeroAlternativas == 4)
             {
                 txtAlternativaD.Text = questao.alternativas[3].descricao;
                 alternativaD.Checked = questao.alternativas[3].gabarito;
@@ -143,34 +157,30 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             CarregarMaterias();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            alternativaB.Checked = false; alternativaC.Checked = false; alternativaD.Checked = false;
-        }
-
-        private void checkBox2_CheckedChanged_1(object sender, EventArgs e)
-        {
-            alternativaA.Checked = false; alternativaC.Checked = false; alternativaD.Checked = false;
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-            alternativaA.Checked = false; alternativaB.Checked = false; alternativaD.Checked = false;
-        }
-
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
-        {
-            alternativaA.Checked = false; alternativaB.Checked = false; alternativaC.Checked = false;
-        }
-
         private void txtAlternativaC_TextChanged(object sender, EventArgs e)
         {
-            alternativaC.Enabled = true;
+            if(txtAlternativaC.Text != "")
+                alternativaC.Enabled = true;
+            else
+            {
+                alternativaC.Enabled = false;
+
+                if (alternativaC.Checked)
+                    alternativaA.Checked = true;
+            }
         }
 
         private void txtAlternativaD_TextChanged(object sender, EventArgs e)
         {
-            alternativaD.Enabled = true;
+            if (txtAlternativaD.Text != "")
+                alternativaD.Enabled = true;
+            else
+            {
+                alternativaD.Enabled = false;
+
+                if(alternativaD.Checked) 
+                    alternativaA.Checked = true;
+            }
         }
     }
 }
