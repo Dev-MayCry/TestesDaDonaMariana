@@ -23,10 +23,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloDisciplina
         public Disciplina ObterDisciplina()
         {
             int id = Convert.ToInt32(txtId.Text);
-            string nome = txtDisciplina.Text;
-            txtDisciplina.Text = txtDisciplina.Text.ToUpper();
-
-
+            string nome = txtDisciplina.Text;          
             Disciplina disciplina = new Disciplina(id, nome);
 
             if (id > 0)

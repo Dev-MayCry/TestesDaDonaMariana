@@ -33,7 +33,6 @@ namespace FestaInfantil.ModuloCliente
         public override bool EditarHabilitado { get {  return true; } } 
         public override void Inserir()
         {
-
             TelaDisciplinaForm telaDisciplina = new TelaDisciplinaForm(repositorioDisciplina);
             DialogResult opcaoEscolhida = telaDisciplina.ShowDialog();
             while (opcaoEscolhida == DialogResult.OK)
