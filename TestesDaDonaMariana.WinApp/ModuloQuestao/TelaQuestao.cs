@@ -25,7 +25,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             foreach (Disciplina d in disciplinas) txtListaDisciplinas.Items.Add(d);
             txtListaDisciplinas.SelectedIndex = 0;
 
-            txtListaMaterias.Enabled = false;
+            txtListaMaterias.Enabled = true;
         }
 
         private void txtListaDisciplinas_SelectedIndexChanged(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 
         private void BloquearAlternativas()
         {
-            alternativaA.Checked = true;
+            alternativaA.Checked = false;
             txtAlternativaB.Enabled = false;
             alternativaB.Enabled = false;
             txtAlternativaC.Enabled = false;
@@ -99,8 +99,8 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             Alternativa aD = new();
             if (txtAlternativaB.Enabled)
             {
-                aB.descricao = txtAlternativaC.Text;
-                aB.gabarito = alternativaC.Checked;
+                aB.descricao = txtAlternativaB.Text;
+                aB.gabarito = alternativaB.Checked;
             }
             if (txtAlternativaC.Enabled)
             {
@@ -110,13 +110,15 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             if (txtAlternativaD.Enabled)
             {
                 aD.descricao = txtAlternativaD.Text;
-                aD.gabarito = alternativaC.Checked;
+                aD.gabarito = alternativaD.Checked;
             }
 
             int numeroAlternativas = 0;
 
             Questao questao = new Questao(id, enunciado, numeroAlternativas, disciplina, serie, materia);
+
             questao.alternativas.Add(aA); questao.alternativas[0].questao = questao;
+
             if (txtAlternativaB.Enabled && txtAlternativaB.Text != "")
             {
                 questao.alternativas.Add(aB);

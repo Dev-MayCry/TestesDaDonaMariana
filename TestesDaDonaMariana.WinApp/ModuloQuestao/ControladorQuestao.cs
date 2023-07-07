@@ -1,4 +1,5 @@
-﻿using TestesDaDonaMariana.Dominio.ModuloMateria;
+﻿using System.Drawing.Drawing2D;
+using TestesDaDonaMariana.Dominio.ModuloMateria;
 using TestesDaDonaMariana.Dominio.ModuloQuestao;
 using TestesDaDonaMariana.Dominio.ModuloTeste;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloAlternativa;
@@ -91,6 +92,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
                     continue;
                 }
                 repositorioQuestao.Editar(questaoAtualizada.id, questaoAtualizada);
+
                 foreach (Alternativa a in questaoAtualizada.alternativas)
                 {
                     repositorioAlternativa.Editar(a.id, a);
@@ -131,14 +133,22 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             CarregarQuestoes();
         }
 
-        public bool VerificarTestes(Questao questao)
-        {   //verifica se a matéria está sendo usada em alguma questão
-            if (repositorioTeste.SelecionarTodos().Any(t => t.questoes.Any(q => q.id == questao.id)))
-            {
-                MessageBox.Show($"Não é possível Excluir uma questão que esteja cadastrada em um teste!", "Excluir Questão", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return true;
+        public bool VerificarTestes(Questao questao) { 
+
+            List<Teste> testes = repositorioTeste.SelecionarTodos();
+
+            foreach (Teste teste in testes) {
+
+                repositorioTeste.CarregarQuestoes(teste);
+                if (teste.questoes.Any(t => t.id == questao.id)) 
+                {
+                    MessageBox.Show($"Não é possível Excluir uma questão que esteja cadastrada em um teste!", "Excluir Questão", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return true;
+                }
+
             }
-            else return false;
+            return false;
+            
         }
 
         public override void Visualizar()
