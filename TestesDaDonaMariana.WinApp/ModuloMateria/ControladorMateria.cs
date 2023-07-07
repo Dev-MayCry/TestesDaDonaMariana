@@ -37,6 +37,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
             TelaMateria telaMateria = new TelaMateria(repositorioDisciplina.SelecionarTodos());
             DialogResult opcaoEscolhida = telaMateria.ShowDialog();
             while (opcaoEscolhida == DialogResult.OK) {
+
                 Materia materia = telaMateria.ObterMateria();
                 if (ValidarAtributos(materia)) {
                     opcaoEscolhida = telaMateria.ShowDialog();
@@ -102,6 +103,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloMateria {
 
             if (opcaoEscolhida == DialogResult.OK) {
                 repositorioMateria.Excluir(materia);
+
             }
 
             CarregarMaterias();

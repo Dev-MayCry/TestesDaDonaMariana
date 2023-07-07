@@ -10,19 +10,15 @@ namespace TestesDaDonaMariana.Dominio.ModuloDisciplina
         {
 
         }
-        public Disciplina(int id, string? disciplinas)
+        public Disciplina(int id, string? nome)
         {
             this.id = id;
-            this.nome = disciplinas;
+            this.nome = nome;
         }
         public override string ToString() {
             return nome;
         }
-        public override void AtualizarInformacoes(Disciplina registroAtualizado)
-        {
-            this.nome = registroAtualizado.nome;          
-        }
-
+        
 
         public override string[] Validar()
         {
@@ -34,9 +30,14 @@ namespace TestesDaDonaMariana.Dominio.ModuloDisciplina
             return erros.ToArray();
         }
 
-        public override bool Equals(object? obj)
-        {
-            return obj is Disciplina disciplina && id == disciplina.id && nome == disciplina.nome;
+        public override bool Equals(object? obj) {
+            return obj is Disciplina disciplina &&
+                   id == disciplina.id &&
+                   nome == disciplina.nome;
+        }
+
+        public override void AtualizarInformacoes(Disciplina registroAtualizado) {
+            throw new NotImplementedException();
         }
     }
 }

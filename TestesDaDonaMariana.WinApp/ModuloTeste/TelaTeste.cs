@@ -10,7 +10,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
         List<Materia> materias;
         List<Questao> questoes;
-        List<Questao> listaDeSorteio = new List<Questao>();
+        
         public TelaTeste(List<Disciplina> disciplinas, List<Materia> materias, List<Questao> questoes) {
             InitializeComponent();
             this.ConfigurarDialog();
@@ -30,17 +30,80 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
             Materia materia = (Materia)txtListaMaterias.SelectedItem;
 
+            bool recuperacao = false;
+
+            if (checkRecuperacao.Checked == true) 
+                recuperacao = true;
+            
             int numeroQuestoes = Convert.ToInt32(txtNumeroQuestoes.Text);
-
-            Teste teste = new Teste(id, numeroQuestoes, disciplina, materia, DateTime.Now, titulo);
-
+            
             List<Questao> questoesSorteadas = ObterQuestoesSorteadas();
 
+            Teste teste = new Teste(id, numeroQuestoes, disciplina,materia, DateTime.Now, titulo,recuperacao,serie);
+
+            teste.questoes = questoesSorteadas;
+
+            
 
             if (id > 0)
-                materia.id = id;
+                teste.id = id;
 
             return teste;
+        }
+
+        public void ConfigurarTela(Teste teste) {
+            
+            txtTitulo.Text = teste.titulo.ToString();
+
+            txtListaDisciplinas.SelectedItem = teste.disciplina;
+
+            txtSerie.Text = Convert.ToString(teste.serie);
+
+            
+
+            txtNumeroQuestoes.Text = Convert.ToString(teste.numeroQuestoes);
+
+            foreach (Questao q in teste.questoes) {
+                listQuestoes.Items.Add(q);
+            }
+
+            if (teste.recuperacao) {
+
+                checkRecuperacao.Checked = true;
+                txtListaMaterias.Enabled = false;
+                txtListaMaterias.Text = "Recuperação";
+            } 
+            else {
+                txtListaMaterias.SelectedItem = teste.materia;
+            }
+
+        }
+
+        public void ConfigurarTelaLeitura(Teste teste) {
+            txtTitulo.Text = teste.titulo.ToString();
+            txtTitulo.Enabled = false;
+
+            txtListaDisciplinas.SelectedItem = teste.disciplina;
+            txtListaDisciplinas.Enabled= false;
+
+            //txtSerie.Text = Convert.ToString(teste.serie);
+
+            txtSerie.Enabled = false; 
+
+            txtListaMaterias.SelectedItem = teste.materia;
+            txtListaMaterias.Enabled= false;
+
+            txtNumeroQuestoes.Text = Convert.ToString(teste.numeroQuestoes);
+            txtNumeroQuestoes.Enabled = false;
+
+            foreach (Questao q in teste.questoes) {
+                listQuestoes.Items.Add(q);
+            }
+
+            listQuestoes.Enabled = false;
+
+            btnSortear.Enabled = false;
+            
         }
 
 
@@ -64,13 +127,10 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
         }
 
 
-        private void txtSerie_ValueChanged(object sender, EventArgs e) {
-
-             
+        private void txtSerie_ValueChanged(object sender, EventArgs e) { 
             CarregarMaterias();
             DefinirListaQuestoesSorteio();
-            
-
+  
         }
 
         private void txtListaMaterias_SelectedValueChanged(object sender, EventArgs e) {
@@ -107,8 +167,6 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
             return listaSorteio;
 
         }
-        
-
 
         private void CarregarMaterias() {
 
@@ -147,6 +205,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
         private void checkRecuperacao_CheckedChanged(object sender, EventArgs e) {
             if(checkRecuperacao.Checked == true) {
 
+                
                 txtListaMaterias.Enabled = false;
                 txtListaMaterias.Text = "Recuperação";
             } else {

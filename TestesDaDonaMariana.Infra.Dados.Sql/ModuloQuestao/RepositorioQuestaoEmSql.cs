@@ -1,4 +1,5 @@
-﻿using TestesDaDonaMariana.Dominio.ModuloQuestao;
+﻿using Microsoft.Data.SqlClient;
+using TestesDaDonaMariana.Dominio.ModuloQuestao;
 using TestesDaDonaMariana.Infra.Dados.Sql.Compartilhado;
 
 namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
@@ -71,7 +72,7 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
             @"SELECT 
 
 	            Q.[ID]					QUESTAO_ID,
-                Q.[ENUNCIADO]				QUESTAO_ENUNCIADO,
+                Q.[ENUNCIADO]			QUESTAO_ENUNCIADO,
                 Q.[NUMERO_ALTERNATIVAS]	QUESTAO_NUMERO_ALTERNATIVAS,
 				Q.[SERIE]				QUESTAO_SERIE,
 
@@ -95,5 +96,8 @@ namespace TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao
 
 			WHERE 
 					Q.[ID] = @ID";
+
+
+        
     }
 }

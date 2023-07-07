@@ -88,7 +88,6 @@ namespace TestesDaDonaMariana.WinApp
         }
 
 
-
         private void btn_Editar_Click(object sender, EventArgs e)
         {
             controlador.Editar();
@@ -99,7 +98,13 @@ namespace TestesDaDonaMariana.WinApp
             controlador.Excluir();
         }
 
+        private void btn_Duplicar_Click(object sender, EventArgs e) {
+            controlador.Duplicar();
+        }
 
+        private void btn_Visualizar_Click(object sender, EventArgs e) {
+            controlador.Visualizar();
+        }
     }
 
 
