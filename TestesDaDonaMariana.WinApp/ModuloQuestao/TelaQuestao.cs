@@ -9,7 +9,8 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
     {
         List<Materia> listaMaterias;
         List<Alternativa> listaAlternativas;
-        public TelaQuestao(List<Disciplina> disciplinas, List<Materia> materias, List<Alternativa> alternativas)
+        bool visualizar = false;
+        public TelaQuestao(List<Disciplina> disciplinas, List<Materia> materias, List<Alternativa> alternativas, bool visualizar)
         {
             InitializeComponent();
             listaMaterias = materias;
@@ -17,6 +18,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             this.ConfigurarDialog();
             CarregarDisciplinas(disciplinas);
             BloquearAlternativas();
+            this.visualizar = visualizar;
         }
 
         private void CarregarDisciplinas(List<Disciplina> disciplinas)
@@ -60,7 +62,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 
         private void BloquearAlternativas()
         {
-            alternativaA.Checked = false;
+            alternativaA.Checked = true;
             txtAlternativaB.Enabled = false;
             alternativaB.Enabled = false;
             txtAlternativaC.Enabled = false;
@@ -199,6 +201,8 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
                     questao.alternativas.Add(a);
             }
 
+            BloquearTodasAsAlternativas();
+
             txtAlternativaA.Text = questao.alternativas[0].descricao;
             alternativaA.Checked = questao.alternativas[0].gabarito;
             txtAlternativaB.Text = questao.alternativas[1].descricao;
@@ -213,7 +217,6 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
                 txtAlternativaD.Text = questao.alternativas[3].descricao;
                 alternativaD.Checked = questao.alternativas[3].gabarito;
             }
-            BloquearTodasAsAlternativas();
         }
 
         private void txtSerie_ValueChanged(object sender, EventArgs e)
@@ -225,6 +228,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 
         private void txtAlternativaA_TextChanged(object sender, EventArgs e)
         {
+            if (visualizar) return;
             if (txtAlternativaA.Text != "")
             {
                 txtAlternativaB.Enabled = true;
@@ -245,6 +249,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 
         private void txtAlternativaB_TextChanged(object sender, EventArgs e)
         {
+            if (visualizar) return;
             if (txtAlternativaB.Text != "" && txtAlternativaB.Enabled)
             {
                 alternativaB.Enabled = true;
@@ -265,6 +270,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 
         private void txtAlternativaC_TextChanged(object sender, EventArgs e)
         {
+            if (visualizar) return;
             if (txtAlternativaC.Text != "" && txtAlternativaC.Enabled)
             {
                 alternativaC.Enabled = true;
@@ -283,6 +289,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 
         private void txtAlternativaD_TextChanged(object sender, EventArgs e)
         {
+            if (visualizar) return;
             if (txtAlternativaD.Text != "" && txtAlternativaD.Enabled)
                 alternativaD.Enabled = true;
             else

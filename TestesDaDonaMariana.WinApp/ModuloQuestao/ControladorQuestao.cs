@@ -1,6 +1,4 @@
-﻿using System.Drawing.Drawing2D;
-using TestesDaDonaMariana.Dominio.ModuloMateria;
-using TestesDaDonaMariana.Dominio.ModuloQuestao;
+﻿using TestesDaDonaMariana.Dominio.ModuloQuestao;
 using TestesDaDonaMariana.Dominio.ModuloTeste;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloAlternativa;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina;
@@ -8,7 +6,6 @@ using TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloTeste;
 using TestesDaDonaMariana.WinApp.Compartilhado;
-using TestesDaDonaMariana.WinApp.ModuloTeste;
 
 namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 {
@@ -42,7 +39,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 
         public override void Inserir()
         {
-            TelaQuestao telaQuestao = new TelaQuestao(repositorioDisciplina.SelecionarTodos(), repositorioMateria.SelecionarTodos(), repositorioAlternativa.SelecionarTodos());
+            TelaQuestao telaQuestao = new TelaQuestao(repositorioDisciplina.SelecionarTodos(), repositorioMateria.SelecionarTodos(), repositorioAlternativa.SelecionarTodos(), false);
             DialogResult opcaoEscolhida = telaQuestao.ShowDialog();
             while (opcaoEscolhida == DialogResult.OK)
             {
@@ -78,7 +75,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
                 return;
             }
 
-            TelaQuestao tela = new TelaQuestao(repositorioDisciplina.SelecionarTodos(), repositorioMateria.SelecionarTodos(), repositorioAlternativa.SelecionarTodos());
+            TelaQuestao tela = new TelaQuestao(repositorioDisciplina.SelecionarTodos(), repositorioMateria.SelecionarTodos(), repositorioAlternativa.SelecionarTodos(), false);
             tela.ConfigurarTela(questao);
 
             DialogResult opcaoEscolhida = tela.ShowDialog();
@@ -93,9 +90,14 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
                 }
                 repositorioQuestao.Editar(questaoAtualizada.id, questaoAtualizada);
 
+                foreach (Alternativa a in questao.alternativas)
+                {
+                    repositorioAlternativa.Excluir(a);
+                }
+
                 foreach (Alternativa a in questaoAtualizada.alternativas)
                 {
-                    repositorioAlternativa.Editar(a.id, a);
+                    repositorioAlternativa.Inserir(a);
                 }
                 break;
             }
@@ -161,7 +163,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
                 return;
             }
 
-            TelaQuestao tela = new TelaQuestao(repositorioDisciplina.SelecionarTodos(), repositorioMateria.SelecionarTodos(), repositorioAlternativa.SelecionarTodos());
+            TelaQuestao tela = new TelaQuestao(repositorioDisciplina.SelecionarTodos(), repositorioMateria.SelecionarTodos(), repositorioAlternativa.SelecionarTodos(), true);
             tela.ConfigurarTelaLeitura(questao);
 
             tela.ShowDialog();
