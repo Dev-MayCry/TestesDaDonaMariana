@@ -108,9 +108,6 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
             Teste testeSelecionado = ObterTesteSelecionada();
 
-            
-
-
             if (testeSelecionado == null) {
                 MessageBox.Show($"Nenhum teste selecionado!", "Duplicação de Testes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -119,10 +116,15 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
             TelaTeste tela = new TelaTeste(repositorioDisciplina.SelecionarTodos(), repositorioMateria.SelecionarTodos(), repositorioQuestao.SelecionarTodos());
             tela.ConfigurarTela(testeSelecionado);
 
-     
             DialogResult opcaoEscolhida = tela.ShowDialog();
-            if (opcaoEscolhida == DialogResult.OK) {
+
+            while (opcaoEscolhida == DialogResult.OK) {
                 Teste teste = tela.ObterTeste();
+                if (ValidarNome(teste)) {
+
+                    opcaoEscolhida = tela.ShowDialog();
+                    continue;
+                }
 
                 repositorioTeste.Inserir(teste);
 
@@ -131,6 +133,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
                     repositorioTeste.InserirQuestoes(teste.id, q.id);
 
                 }
+                break;
 
             }
             CarregarTestes();
