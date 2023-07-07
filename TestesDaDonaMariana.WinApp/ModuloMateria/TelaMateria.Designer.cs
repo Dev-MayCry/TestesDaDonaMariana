@@ -89,9 +89,9 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(395, 137);
+            btnCancelar.Location = new Point(395, 138);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 41);
+            btnCancelar.Size = new Size(75, 50);
             btnCancelar.TabIndex = 13;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -100,9 +100,9 @@
             // 
             btnGravar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(314, 137);
+            btnGravar.Location = new Point(314, 138);
             btnGravar.Name = "btnGravar";
-            btnGravar.Size = new Size(75, 41);
+            btnGravar.Size = new Size(75, 50);
             btnGravar.TabIndex = 12;
             btnGravar.Text = "OK";
             btnGravar.UseVisualStyleBackColor = true;
@@ -131,6 +131,7 @@
             txtSerie.Maximum = new decimal(new int[] { 9, 0, 0, 0 });
             txtSerie.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             txtSerie.Name = "txtSerie";
+            txtSerie.ReadOnly = true;
             txtSerie.Size = new Size(63, 23);
             txtSerie.TabIndex = 22;
             txtSerie.Value = new decimal(new int[] { 1, 0, 0, 0 });
@@ -150,8 +151,11 @@
             Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "TelaMateria";
-            Text = "TelaMateria";
+            ShowIcon = false;
+            Text = "Cadastro de Materia";
             ((System.ComponentModel.ISupportInitialize)txtSerie).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -189,7 +189,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
 
             txtListaMaterias.SelectedItem = questao.materia;
             txtListaMaterias.Enabled = false;
-            
+
             txtEnunciado.Text = questao.enunciado;
             txtEnunciado.Enabled = false;
 

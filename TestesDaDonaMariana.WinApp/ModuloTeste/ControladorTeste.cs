@@ -1,4 +1,5 @@
-﻿using TestesDaDonaMariana.Dominio.ModuloQuestao;
+﻿using TestesDaDonaMariana.Dominio.ModuloMateria;
+using TestesDaDonaMariana.Dominio.ModuloQuestao;
 using TestesDaDonaMariana.Dominio.ModuloTeste;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria;
@@ -31,7 +32,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
         public override string ToolTipImprimir => "Imprimir Teste Selecionado";
 
         public override string LabelTipoCadastro => "Cadastro de Testes";
-
+     
         public override bool VisualizarHabilitado { get { return true; } }
         public override bool DuplicarHabilitado { get { return true; } }
         public override bool ImprimirHabilitado { get { return true; } }
@@ -57,7 +58,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
             CarregarTestes();
         }
-
+       
         public override void Inserir() {
             TelaTeste telaTeste = new TelaTeste(repositorioDisciplina.SelecionarTodos(), repositorioMateria.SelecionarTodos(), repositorioQuestao.SelecionarTodos());
             DialogResult opcaoEscolhida = telaTeste.ShowDialog();
