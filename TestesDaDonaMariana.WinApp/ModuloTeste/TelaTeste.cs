@@ -5,13 +5,16 @@ using TestesDaDonaMariana.Dominio.ModuloQuestao;
 using TestesDaDonaMariana.Dominio.ModuloTeste;
 using TestesDaDonaMariana.WinApp.Compartilhado;
 
-namespace TestesDaDonaMariana.WinApp.ModuloTeste {
-    public partial class TelaTeste : Form {
+namespace TestesDaDonaMariana.WinApp.ModuloTeste
+{
+    public partial class TelaTeste : Form
+    {
 
         List<Materia> materias;
         List<Questao> questoes;
-        
-        public TelaTeste(List<Disciplina> disciplinas, List<Materia> materias, List<Questao> questoes) {
+
+        public TelaTeste(List<Disciplina> disciplinas, List<Materia> materias, List<Questao> questoes)
+        {
             InitializeComponent();
             this.ConfigurarDialog();
             this.materias = materias;
@@ -19,7 +22,8 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
             CarregarDisciplinas(disciplinas);
         }
 
-        public Teste ObterTeste() {
+        public Teste ObterTeste()
+        {
             int id = Convert.ToInt32(txtId.Text);
 
             string titulo = txtTitulo.Text;
@@ -32,18 +36,18 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
             bool recuperacao = false;
 
-            if (checkRecuperacao.Checked == true) 
+            if (checkRecuperacao.Checked == true)
                 recuperacao = true;
-            
+
             int numeroQuestoes = Convert.ToInt32(txtNumeroQuestoes.Text);
-            
+
             List<Questao> questoesSorteadas = ObterQuestoesSorteadas();
 
-            Teste teste = new Teste(id, numeroQuestoes, disciplina,materia, DateTime.Now, titulo,recuperacao,serie);
+            Teste teste = new Teste(id, numeroQuestoes, disciplina, materia, DateTime.Now, titulo, recuperacao, serie);
 
             teste.questoes = questoesSorteadas;
 
-            
+
 
             if (id > 0)
                 teste.id = id;
@@ -51,40 +55,45 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
             return teste;
         }
 
-        public void ConfigurarTela(Teste teste) {
-            
+        public void ConfigurarTela(Teste teste)
+        {
+
             txtTitulo.Text = teste.titulo.ToString();
 
             txtListaDisciplinas.SelectedItem = teste.disciplina;
 
             txtSerie.Text = Convert.ToString(teste.serie);
 
-            
+
 
             txtNumeroQuestoes.Text = Convert.ToString(teste.numeroQuestoes);
 
-            foreach (Questao q in teste.questoes) {
+            foreach (Questao q in teste.questoes)
+            {
                 listQuestoes.Items.Add(q);
             }
 
-            if (teste.recuperacao) {
+            if (teste.recuperacao)
+            {
 
                 checkRecuperacao.Checked = true;
                 txtListaMaterias.Enabled = false;
                 txtListaMaterias.Text = "Recuperação";
-            } 
-            else {
+            }
+            else
+            {
                 txtListaMaterias.SelectedItem = teste.materia;
             }
 
         }
 
-        public void ConfigurarTelaLeitura(Teste teste) {
+        public void ConfigurarTelaLeitura(Teste teste)
+        {
             txtTitulo.Text = teste.titulo.ToString();
             txtTitulo.Enabled = false;
 
             txtListaDisciplinas.SelectedItem = teste.disciplina;
-            txtListaDisciplinas.Enabled= false;
+            txtListaDisciplinas.Enabled = false;
 
             //txtSerie.Text = Convert.ToString(teste.serie);
 
@@ -100,27 +109,30 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
                 txtListaMaterias.SelectedItem = teste.materia;
             }
 
-            txtListaMaterias.Enabled= false;
+            txtListaMaterias.Enabled = false;
 
             txtNumeroQuestoes.Text = Convert.ToString(teste.numeroQuestoes);
             txtNumeroQuestoes.Enabled = false;
 
-            foreach (Questao q in teste.questoes) {
+            foreach (Questao q in teste.questoes)
+            {
                 listQuestoes.Items.Add(q);
             }
 
             listQuestoes.Enabled = false;
 
             btnSortear.Enabled = false;
-            
+
             checkRecuperacao.Enabled = false;
         }
 
 
-        private void CarregarDisciplinas(List<Disciplina> disciplinas) {
+        private void CarregarDisciplinas(List<Disciplina> disciplinas)
+        {
 
             txtListaDisciplinas.Items.Clear();
-            foreach (Disciplina d in disciplinas) {
+            foreach (Disciplina d in disciplinas)
+            {
                 txtListaDisciplinas.Items.Add(d);
             }
 
@@ -129,7 +141,8 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
         }
 
 
-        private void txtListaDisciplinas_SelectedValueChanged(object sender, EventArgs e) {
+        private void txtListaDisciplinas_SelectedValueChanged(object sender, EventArgs e)
+        {
 
             CarregarMaterias();
             List<Questao> listaSorteio = DefinirListaQuestoesSorteio();
@@ -137,40 +150,49 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
         }
 
 
-        private void txtSerie_ValueChanged(object sender, EventArgs e) { 
+        private void txtSerie_ValueChanged(object sender, EventArgs e)
+        {
             CarregarMaterias();
             DefinirListaQuestoesSorteio();
-  
+
         }
 
-        private void txtListaMaterias_SelectedValueChanged(object sender, EventArgs e) {
+        private void txtListaMaterias_SelectedValueChanged(object sender, EventArgs e)
+        {
             DefinirListaQuestoesSorteio();
-            
+
         }
 
-        private List<Questao> DefinirListaQuestoesSorteio() {
+        private List<Questao> DefinirListaQuestoesSorteio()
+        {
             int serieSelecionada = Convert.ToInt32(txtSerie.Value);
             Disciplina disciplina = (Disciplina)txtListaDisciplinas.SelectedItem;
             Materia materia = (Materia)txtListaMaterias.SelectedItem;
 
             List<Questao> listaSorteio = new List<Questao>();
 
-            if (txtListaMaterias.Text == "Recuperação") {
-                foreach (Questao q in questoes) {
-                    if(q.disciplina.nome == disciplina.nome && q.serie == serieSelecionada) {
+            if (txtListaMaterias.Text == "Recuperação")
+            {
+                foreach (Questao q in questoes)
+                {
+                    if (q.disciplina.nome == disciplina.nome && q.serie == serieSelecionada)
+                    {
                         listaSorteio.Add(q);
                     }
 
                 }
-            } 
+            }
 
-            else {
-                foreach (Questao q in questoes) {
-                    if (q.disciplina.nome == disciplina.nome && q.serie == serieSelecionada && q.materia.nome == materia.nome) {
+            else
+            {
+                foreach (Questao q in questoes)
+                {
+                    if (q.disciplina.nome == disciplina.nome && q.serie == serieSelecionada && q.materia.nome == materia.nome)
+                    {
                         listaSorteio.Add(q);
                     }
                 }
-                
+
             }
 
             txtNumeroQuestoes.Maximum = listaSorteio.Count();
@@ -178,7 +200,8 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
         }
 
-        private void CarregarMaterias() {
+        private void CarregarMaterias()
+        {
 
             int serieSelecionada = Convert.ToInt32(txtSerie.Value);
             Disciplina disciplina = (Disciplina)txtListaDisciplinas.SelectedItem;
@@ -188,74 +211,90 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
             List<Materia> listaMaterias = new List<Materia>();
 
-            foreach (Materia m in materias) {
-                if (m.disciplina.nome == disciplina.nome && m.serie == serieSelecionada) {
+            foreach (Materia m in materias)
+            {
+                if (m.disciplina.nome == disciplina.nome && m.serie == serieSelecionada)
+                {
                     listaMaterias.Add(m);
                 }
 
             }
             txtListaMaterias.Items.Clear();
 
-            if (listaMaterias.Count != 0) {
+            if (listaMaterias.Count != 0)
+            {
 
-                foreach (Materia m in listaMaterias) {
+                foreach (Materia m in listaMaterias)
+                {
                     txtListaMaterias.Items.Add(m);
                 }
 
                 txtListaMaterias.SelectedIndex = 0;
-            } else {
+            }
+            else
+            {
                 txtListaMaterias.Items.Clear();
                 txtListaMaterias.Text = "Nenhuma matéria cadastrada na série selecionada.";
                 txtListaMaterias.Enabled = false;
             }
 
 
-        }   
+        }
 
-        private void checkRecuperacao_CheckedChanged(object sender, EventArgs e) {
-            if(checkRecuperacao.Checked == true) {
+        private void checkRecuperacao_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkRecuperacao.Checked == true)
+            {
 
-                
+
                 txtListaMaterias.Enabled = false;
                 txtListaMaterias.Text = "Recuperação";
-            } else {
+            }
+            else
+            {
 
                 txtListaMaterias.Enabled = true;
 
                 CarregarMaterias();
                 DefinirListaQuestoesSorteio();
-                
+
             }
         }
 
-        private void btnSortear_Click(object sender, EventArgs e) {
+        private void btnSortear_Click(object sender, EventArgs e)
+        {
 
             listQuestoes.Items.Clear();
 
             List<Questao> ListaSorteio = DefinirListaQuestoesSorteio();
-            
+
             Random random = new Random();
             List<Questao> questoesSorteadas = new List<Questao>();
 
-            while (questoesSorteadas.Count < Convert.ToInt32(txtNumeroQuestoes.Value)) {
+            while (questoesSorteadas.Count < Convert.ToInt32(txtNumeroQuestoes.Value))
+            {
 
                 int index = random.Next(0, ListaSorteio.Count);
                 Questao questao = ListaSorteio[index];
-                if (!questoesSorteadas.Contains(questao)) {
+                if (!questoesSorteadas.Contains(questao))
+                {
                     questoesSorteadas.Add(questao);
                 }
             }
 
-            foreach (Questao q in questoesSorteadas) {
+            foreach (Questao q in questoesSorteadas)
+            {
                 listQuestoes.Items.Add(q);
 
             }
         }
 
-        private List<Questao> ObterQuestoesSorteadas() {
+        private List<Questao> ObterQuestoesSorteadas()
+        {
             List<Questao> listaQuestoes = new List<Questao>();
 
-            foreach (Questao q in listQuestoes.Items) {
+            foreach (Questao q in listQuestoes.Items)
+            {
                 listaQuestoes.Add(q);
             }
 

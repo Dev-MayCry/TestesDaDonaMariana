@@ -28,13 +28,9 @@ namespace e_Agenda.WinApp.ModuloContato
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "disciplina",
-                    HeaderText = "disciplina"
+                    HeaderText = "Disciplina"
                 },
-                new DataGridViewTextBoxColumn()
-                {
-
-                },
-
+               
             };
 
             grid.Columns.AddRange(colunas);

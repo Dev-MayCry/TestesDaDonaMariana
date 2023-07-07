@@ -95,6 +95,7 @@
             // 
             // txtListaDisciplinas
             // 
+            txtListaDisciplinas.DropDownStyle = ComboBoxStyle.DropDownList;
             txtListaDisciplinas.FormattingEnabled = true;
             txtListaDisciplinas.Location = new Point(109, 39);
             txtListaDisciplinas.Name = "txtListaDisciplinas";
@@ -104,6 +105,7 @@
             // 
             // txtListaMaterias
             // 
+            txtListaMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
             txtListaMaterias.FormattingEnabled = true;
             txtListaMaterias.Location = new Point(109, 68);
             txtListaMaterias.Name = "txtListaMaterias";
@@ -113,7 +115,10 @@
             // txtSerie
             // 
             txtSerie.Location = new Point(642, 39);
+            txtSerie.Maximum = new decimal(new int[] { 9, 0, 0, 0 });
+            txtSerie.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             txtSerie.Name = "txtSerie";
+            txtSerie.ReadOnly = true;
             txtSerie.Size = new Size(92, 23);
             txtSerie.TabIndex = 7;
             txtSerie.Value = new decimal(new int[] { 1, 0, 0, 0 });
