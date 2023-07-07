@@ -1,6 +1,9 @@
-﻿using TestesDaDonaMariana.Dominio.ModuloMateria;
+﻿using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System.Diagnostics;
 using TestesDaDonaMariana.Dominio.ModuloQuestao;
 using TestesDaDonaMariana.Dominio.ModuloTeste;
+using TestesDaDonaMariana.Infra.Dados.Sql.ModuloAlternativa;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloDisciplina;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloMateria;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloQuestao;
@@ -17,12 +20,14 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
         private RepositorioDisciplinaEmSql repositorioDisciplina;
         private RepositorioQuestaoEmSql repositorioQuestao;
         private RepositorioTesteEmSql repositorioTeste;
+        private RepositorioAlternativaEmSql repositorioAlternativa;
 
-        public ControladorTeste(RepositorioMateriaEmSql repositorioMateria, RepositorioDisciplinaEmSql repositorioDisciplina, RepositorioQuestaoEmSql repositorioQuestao, RepositorioTesteEmSql repositorioTeste) {
+        public ControladorTeste(RepositorioMateriaEmSql repositorioMateria, RepositorioDisciplinaEmSql repositorioDisciplina, RepositorioQuestaoEmSql repositorioQuestao, RepositorioTesteEmSql repositorioTeste, RepositorioAlternativaEmSql repositorioAlternativa) {
             this.repositorioMateria = repositorioMateria;
             this.repositorioDisciplina = repositorioDisciplina;
             this.repositorioQuestao = repositorioQuestao;
             this.repositorioTeste= repositorioTeste;
+            this.repositorioAlternativa= repositorioAlternativa;
         }
 
         public override string ToolTipInserir => "Gerar Novo Teste";
@@ -157,6 +162,99 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
             }
             CarregarTestes();
 
+        }
+
+        public override void Imprimir()
+        {
+            Teste teste = ObterTesteSelecionada();
+
+            repositorioTeste.CarregarQuestoes(teste);
+
+            foreach (Questao q in teste.questoes)
+            {
+                foreach (Alternativa a in repositorioAlternativa.SelecionarTodos())
+                {
+                    if (a.questao.id == q.id)
+                        q.alternativas.Add(a);
+                }
+            }
+
+            PdfDocument document;
+            PdfPage page;
+            XGraphics gfx;
+            XFont fonteTitulo, fonteTexto;
+
+            ImprimirInicioPDF(teste, out document, out page, out gfx, out fonteTitulo, out fonteTexto);
+            ImprimirQuestoes(teste, document, ref page, ref gfx, fonteTitulo, fonteTexto);
+            ConfirmarImpressao(document);
+
+        }
+
+        private static void ImprimirQuestoes(Teste teste, PdfDocument document, ref PdfPage page, ref XGraphics gfx, XFont fonteTitulo, XFont fonteTexto)
+        {
+            for (int i = 0; i < teste.questoes.Count; i++)
+            {
+                gfx.DrawString($"{i + 1}. {teste.questoes[0].enunciado}", fonteTitulo, XBrushes.Black, new XRect(-100, -200, page.Width, page.Height), XStringFormats.Center);
+
+                for (int j = 0; j < teste.questoes[i].alternativas.Count; j++)
+                {
+                    gfx.DrawString($"{Convert.ToChar(97 + j)}) {teste.questoes[i].alternativas[j].descricao}", fonteTexto, XBrushes.Black, new XRect(-100, -170 + (20 * j), page.Width, page.Height), XStringFormats.Center);
+                }
+
+                if(i < teste.questoes.Count - 1)
+                {
+                    page = document.AddPage();
+                    gfx = XGraphics.FromPdfPage(page);
+                }
+            }
+
+            //page = document.AddPage();
+            //gfx = XGraphics.FromPdfPage(page);
+
+            //gfx.DrawString($"a) {teste.questoes[0].alternativas[0].descricao}", fonteTexto, XBrushes.Black, new XRect(0, 150, page.Width, page.Height), XStringFormats.Center);
+            //gfx.DrawString($"b) {teste.questoes[0].alternativas[1].descricao}", fonteTexto, XBrushes.Black, new XRect(0, 200, page.Width, page.Height), XStringFormats.Center);
+            //gfx.DrawString($"c) {teste.questoes[0].alternativas[2].descricao}", fonteTexto, XBrushes.Black, new XRect(0, 250, page.Width, page.Height), XStringFormats.Center);
+
+        }
+
+        private static void ImprimirInicioPDF(Teste teste, out PdfDocument document, out PdfPage page, out XGraphics gfx, out XFont fonteTitulo, out XFont fonteTexto)
+        {
+            //Create PDF Document
+            document = new PdfDocument();
+
+            //You will have to add Page in PDF Document
+            page = document.AddPage();
+
+            //For drawing in PDF Page you will nedd XGraphics Object
+            gfx = XGraphics.FromPdfPage(page);
+
+            //For Test you will have to define font to be used
+            XFont fonteTituloPrincipal = new XFont("Verdana", 24, XFontStyle.Bold);
+            fonteTitulo = new XFont("Verdana", 20, XFontStyle.Bold);
+            fonteTexto = new XFont("Verdana", 14, XFontStyle.Regular);
+
+            //Finally use XGraphics & font object to draw text in PDF Page
+            gfx.DrawString($"{teste.titulo}", fonteTituloPrincipal, XBrushes.Black, new XRect(0, -380, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString($"Disciplina: {teste.disciplina}", fonteTitulo, XBrushes.Black, new XRect(0, -330, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString($"Matéria: {teste.materia}", fonteTitulo, XBrushes.Black, new XRect(0, -300, page.Width, page.Height), XStringFormats.Center);
+        }
+
+        private static void ConfirmarImpressao(PdfDocument document)
+        {
+            //Specify file name of the PDF file
+            string filename = "D:/Visual Studio Projects/TesteDaDonaMariana/TestesDaDonaMariana.pdf";
+
+            try
+            {
+                //Save PDF File
+                document.Save(filename);
+            }
+            catch
+            {
+                MessageBox.Show("PDF Impresso?");
+            }
+
+            MessageBox.Show("PDF Impresso!");
         }
 
         public override UserControl ObterListagem() {

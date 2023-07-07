@@ -39,7 +39,7 @@ namespace TestesDaDonaMariana.WinApp
         }
         private void testesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorTeste(repositorioMateria, repositorioDisciplina, repositorioQuestao, repositorioTeste);
+            controlador = new ControladorTeste(repositorioMateria, repositorioDisciplina, repositorioQuestao, repositorioTeste, repositorioAlternativa);
             ConfigurarTelaPrincipal(controlador);
         }
 
@@ -106,6 +106,11 @@ namespace TestesDaDonaMariana.WinApp
         private void btn_Visualizar_Click(object sender, EventArgs e)
         {
             controlador.Visualizar();
+        }
+
+        private void btn_Imprimir_Click(object sender, EventArgs e)
+        {
+            controlador.Imprimir();
         }
     }
 

@@ -27,7 +27,10 @@ namespace TestesDaDonaMariana.WinApp.Compartilhado {
         public virtual void Editar() { }
 
         public virtual void Duplicar() { }
+
         public virtual void Visualizar() { }
+
+        public virtual void Imprimir() { }
 
         public abstract void Excluir();
 

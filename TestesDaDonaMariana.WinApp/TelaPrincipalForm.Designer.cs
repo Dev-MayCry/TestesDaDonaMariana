@@ -177,6 +177,7 @@
             btn_Imprimir.ImageTransparentColor = Color.Magenta;
             btn_Imprimir.Name = "btn_Imprimir";
             btn_Imprimir.Size = new Size(44, 44);
+            btn_Imprimir.Click += btn_Imprimir_Click;
             // 
             // labelTipoCadastro
             // 
