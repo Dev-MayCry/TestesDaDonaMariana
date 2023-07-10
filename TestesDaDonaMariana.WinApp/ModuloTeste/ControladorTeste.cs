@@ -364,22 +364,24 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
         private static void ConfirmarImpressao(PdfDocument document, Teste teste)
         {
             //Specify file name of the PDF file
+            TelaPDF tela = new TelaPDF(teste.titulo);
+            
+            tela.ShowDialog();
+            
+            string directory = tela.AtualizarDiretorio();
 
-            string directory = "C:/Users/gabri/source/repos/TestesDaDonaMariana/";
             string filename = Path.Combine(directory, $"{teste.titulo}.pdf");
 
             try
             {
                 //Save PDF File
                 document.Save(filename);
+                MessageBox.Show($"PDF:\" {teste.titulo}\" gerado com sucesso!", "Impressão de Testes", MessageBoxButtons.OK);
             }
             catch
             {
-                MessageBox.Show("PDF Impresso?");
+                MessageBox.Show("PDF não Impresso!", "Impressão de Testes", MessageBoxButtons.OK);
             }
-
-            MessageBox.Show($"PDF:\" {teste.titulo}\" gerado com sucesso!", "Impressão de Testes", MessageBoxButtons.OK);
-            
         }
 
         public override UserControl ObterListagem() {

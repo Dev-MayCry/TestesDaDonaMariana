@@ -9,14 +9,12 @@ namespace TestesDaDonaMariana.WinApp.ModuloDisciplina
     {
         private RepositorioDisciplinaEmSql repositorioDisciplina;
 
-        public TelaDisciplinaForm(RepositorioDisciplinaEmSql disciplinas)
+        public TelaDisciplinaForm(RepositorioDisciplinaEmSql repositorioDisciplina)
         {
             InitializeComponent();
 
             this.ConfigurarDialog();
-            this.repositorioDisciplina = disciplinas;
-
-
+            this.repositorioDisciplina = repositorioDisciplina;
         }
 
 

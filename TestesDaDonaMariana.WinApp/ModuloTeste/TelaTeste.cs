@@ -64,27 +64,12 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste
 
             txtSerie.Text = Convert.ToString(teste.serie);
 
-
-
             txtNumeroQuestoes.Text = Convert.ToString(teste.numeroQuestoes);
 
             foreach (Questao q in teste.questoes)
-            {
                 listQuestoes.Items.Add(q);
-            }
-
-            if (teste.recuperacao)
-            {
-
-                checkRecuperacao.Checked = true;
-                txtListaMaterias.Enabled = false;
-                txtListaMaterias.Text = "Recuperação";
-            }
-            else
-            {
-                txtListaMaterias.SelectedItem = teste.materia;
-            }
-
+            
+            txtListaMaterias.SelectedItem = teste.materia;
         }
 
         public void ConfigurarTelaLeitura(Teste teste)
