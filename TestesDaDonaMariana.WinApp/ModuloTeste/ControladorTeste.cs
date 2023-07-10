@@ -366,7 +366,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
             //Specify file name of the PDF file
             TelaPDF tela = new TelaPDF(teste.titulo);
             
-            tela.ShowDialog();
+            if (tela.ShowDialog() == DialogResult.Cancel) return;
             
             string directory = tela.AtualizarDiretorio();
 
