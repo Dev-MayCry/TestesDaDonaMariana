@@ -191,7 +191,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
             ImprimirInicioPDF(teste, out document, out page, out gfx, out fonteTitulo, out fonteTexto);
             ImprimirQuestoes(teste, document, ref page, ref gfx, fonteTitulo, fonteTexto);
-            ConfirmarImpressao(document, teste);
+            ConfirmarImpressao(document, teste, false);
 
         }
 
@@ -223,7 +223,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
             ImprimirInicioPDF(teste, out document, out page, out gfx, out fonteTitulo, out fonteTexto);
             ImprimirQuestoesComGabarito(teste, document, ref page, ref gfx, fonteTitulo, fonteTexto);
-            ConfirmarImpressao(document,teste);
+            ConfirmarImpressao(document,teste, true);
 
         }
 
@@ -361,10 +361,13 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
             gfx.DrawString($"Aluno:_____________________________ Data: __ /__ /____", fonte2, XBrushes.Black, new XRect(0, -270, page.Width, page.Height), XStringFormats.Center);
         }
 
-        private static void ConfirmarImpressao(PdfDocument document, Teste teste)
+        private static void ConfirmarImpressao(PdfDocument document, Teste teste, bool gabarito)
         {
+            string titulo = teste.titulo;
+            if (gabarito) titulo += " - Gabarito";
+
             //Specify file name of the PDF file
-            TelaPDF tela = new TelaPDF(teste.titulo);
+            TelaPDF tela = new TelaPDF(titulo);
             
             if (tela.ShowDialog() == DialogResult.Cancel) return;
             
