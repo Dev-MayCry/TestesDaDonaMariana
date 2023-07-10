@@ -154,12 +154,16 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste
         {
             CarregarMaterias();
             DefinirListaQuestoesSorteio();
+            List<Questao> listaSorteio = DefinirListaQuestoesSorteio();
+            txtNumeroQuestoes.Maximum = listaSorteio.Count();
 
         }
 
         private void txtListaMaterias_SelectedValueChanged(object sender, EventArgs e)
         {
             DefinirListaQuestoesSorteio();
+            List<Questao> listaSorteio = DefinirListaQuestoesSorteio();
+            txtNumeroQuestoes.Maximum = listaSorteio.Count();
 
         }
 
@@ -245,10 +249,10 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste
         {
             if (checkRecuperacao.Checked == true)
             {
-
-
                 txtListaMaterias.Enabled = false;
                 txtListaMaterias.Text = "Recuperação";
+                List<Questao> listaSorteio = DefinirListaQuestoesSorteio();
+                txtNumeroQuestoes.Maximum = listaSorteio.Count();
             }
             else
             {

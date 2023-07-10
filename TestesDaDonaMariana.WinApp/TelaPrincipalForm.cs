@@ -67,6 +67,7 @@ namespace TestesDaDonaMariana.WinApp
             btn_Visualizar.ToolTipText = controlador.ToolTipVisualizar;
             btn_Duplicar.ToolTipText = controlador.ToolTipDuplicar;
             btn_Imprimir.ToolTipText = controlador.ToolTipImprimir;
+            btn_ImprimirGabarito.ToolTipText = controlador.ToolTipImprimirGabarito;
 
 
             btn_Adicionar.Enabled = controlador.InserirHabilitado;
@@ -75,6 +76,7 @@ namespace TestesDaDonaMariana.WinApp
             btn_Visualizar.Enabled = controlador.VisualizarHabilitado;
             btn_Duplicar.Enabled = controlador.DuplicarHabilitado;
             btn_Imprimir.Enabled = controlador.ImprimirHabilitado;
+            btn_ImprimirGabarito.Enabled = controlador.ImprimirGabaritoHabilitado;
         }
         private void DisciplinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -111,6 +113,10 @@ namespace TestesDaDonaMariana.WinApp
         private void btn_Imprimir_Click(object sender, EventArgs e)
         {
             controlador.Imprimir();
+        }
+
+        private void btn_ImprimirGabarito_Click(object sender, EventArgs e) {
+            controlador.ImprimirGabarito();
         }
     }
 

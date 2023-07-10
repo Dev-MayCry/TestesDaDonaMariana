@@ -9,6 +9,7 @@ namespace TestesDaDonaMariana.WinApp.Compartilhado {
         public virtual string ToolTipVisualizar { get; }
         public virtual string ToolTipDuplicar { get; }
         public virtual string ToolTipImprimir { get; }
+        public virtual string ToolTipImprimirGabarito { get; }
 
         public abstract string LabelTipoCadastro { get; }
 
@@ -18,6 +19,7 @@ namespace TestesDaDonaMariana.WinApp.Compartilhado {
         public virtual bool VisualizarHabilitado { get { return false; } }
         public virtual bool DuplicarHabilitado { get { return false; } }
         public virtual bool ImprimirHabilitado { get { return false; } }
+        public virtual bool ImprimirGabaritoHabilitado { get { return false; } }
 
 
 
@@ -31,6 +33,7 @@ namespace TestesDaDonaMariana.WinApp.Compartilhado {
         public virtual void Visualizar() { }
 
         public virtual void Imprimir() { }
+        public virtual void ImprimirGabarito() { }
 
         public abstract void Excluir();
 

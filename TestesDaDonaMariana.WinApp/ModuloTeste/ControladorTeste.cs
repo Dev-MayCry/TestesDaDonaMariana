@@ -1,5 +1,6 @@
 ﻿using PdfSharp.Drawing;
 using PdfSharp.Pdf;
+using System.Drawing;
 using TestesDaDonaMariana.Dominio.ModuloQuestao;
 using TestesDaDonaMariana.Dominio.ModuloTeste;
 using TestesDaDonaMariana.Infra.Dados.Sql.ModuloAlternativa;
@@ -34,12 +35,14 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
         public override string ToolTipDuplicar => "Duplicar Teste Existente";
         public override string ToolTipVisualizar => "Visualizar Teste Existente";
         public override string ToolTipImprimir => "Imprimir Teste Selecionado";
+        public override string ToolTipImprimirGabarito => "Imprimir Teste Selecionado com Gabarito";
 
         public override string LabelTipoCadastro => "Cadastro de Testes";
      
         public override bool VisualizarHabilitado { get { return true; } }
         public override bool DuplicarHabilitado { get { return true; } }
         public override bool ImprimirHabilitado { get { return true; } }
+        public override bool ImprimirGabaritoHabilitado { get { return true; } }
 
         
 
@@ -163,11 +166,45 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
         }
 
-        public override void Imprimir()
+        public override void Imprimir() {
+            Teste teste = ObterTesteSelecionada();
+
+            repositorioTeste.CarregarQuestoes(teste);
+
+            if (teste == null) {
+                MessageBox.Show($"Nenhum teste selecionado!", "Impressão de Testes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            foreach (Questao q in teste.questoes) {
+                foreach (Alternativa a in repositorioAlternativa.SelecionarTodos()) {
+                    if (a.questao.id == q.id)
+                        q.alternativas.Add(a);
+                }
+            }
+
+
+            PdfDocument document;
+            PdfPage page;
+            XGraphics gfx;
+            XFont fonteTitulo, fonteTexto;
+
+            ImprimirInicioPDF(teste, out document, out page, out gfx, out fonteTitulo, out fonteTexto);
+            ImprimirQuestoes(teste, document, ref page, ref gfx, fonteTitulo, fonteTexto);
+            ConfirmarImpressao(document, teste);
+
+        }
+
+        public override void ImprimirGabarito()
         {
             Teste teste = ObterTesteSelecionada();
 
             repositorioTeste.CarregarQuestoes(teste);
+
+            if (teste == null) {
+                MessageBox.Show($"Nenhum teste selecionado!", "Impressão de Testes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             foreach (Questao q in teste.questoes)
             {
@@ -178,35 +215,114 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
                 }
             }
 
+
             PdfDocument document;
             PdfPage page;
             XGraphics gfx;
             XFont fonteTitulo, fonteTexto;
 
             ImprimirInicioPDF(teste, out document, out page, out gfx, out fonteTitulo, out fonteTexto);
-            ImprimirQuestoes(teste, document, ref page, ref gfx, fonteTitulo, fonteTexto);
-            ConfirmarImpressao(document);
+            ImprimirQuestoesComGabarito(teste, document, ref page, ref gfx, fonteTitulo, fonteTexto);
+            ConfirmarImpressao(document,teste);
 
         }
 
-        private static void ImprimirQuestoes(Teste teste, PdfDocument document, ref PdfPage page, ref XGraphics gfx, XFont fonteTitulo, XFont fonteTexto)
-        {
-            for (int i = 0; i < teste.questoes.Count; i++)
-            {
-                gfx.DrawString($"{i + 1}. {teste.questoes[0].enunciado}", fonteTitulo, XBrushes.Black, new XRect(-100, -200, page.Width, page.Height), XStringFormats.Center);
+        
 
-                for (int j = 0; j < teste.questoes[i].alternativas.Count; j++)
-                {
-                    gfx.DrawString($"{Convert.ToChar(97 + j)}) {teste.questoes[i].alternativas[j].descricao}", fonteTexto, XBrushes.Black, new XRect(-100, -170 + (20 * j), page.Width, page.Height), XStringFormats.Center);
+        private static void ImprimirQuestoes(Teste teste, PdfDocument document, ref PdfPage page, ref XGraphics gfx, XFont fonteTitulo, XFont fonteTexto) {
+
+            int questoesPagina = 0;
+            int altura = 200;
+            bool primeiraPagina = true;
+            for (int i = 0; i < teste.questoes.Count; i++) {
+
+
+                gfx.DrawString($"{i + 1}. {teste.questoes[i].enunciado}", fonteTitulo, XBrushes.Black, new XRect(25, altura, 1, 1), XStringFormats.CenterLeft);
+
+
+                altura += 40;
+
+                for (int j = 0; j < teste.questoes[i].alternativas.Count; j++) {
+                    string gabarito = VerificarGabarito(teste, i, j);
+
+                    gfx.DrawString($" {Convert.ToChar(97 + j)}) {teste.questoes[i].alternativas[j].descricao}", fonteTexto, XBrushes.Black, new XRect(25, altura, 1, 1), XStringFormats.CenterLeft);
+                    altura += 20;
+
                 }
 
-                if(i < teste.questoes.Count - 1)
-                {
+                questoesPagina++;
+                altura += 25;
+
+
+                if (primeiraPagina && questoesPagina == 4) {
+                    questoesPagina = 0;
+                    altura = 25;
+                    primeiraPagina = false;
+                    page = document.AddPage();
+                    gfx = XGraphics.FromPdfPage(page);
+                }
+
+                if (!primeiraPagina && questoesPagina == 5) {
+                    questoesPagina = 0;
+                    altura = 25;
                     page = document.AddPage();
                     gfx = XGraphics.FromPdfPage(page);
                 }
             }
+        }
 
+        private static void ImprimirQuestoesComGabarito(Teste teste, PdfDocument document, ref PdfPage page, ref XGraphics gfx, XFont fonteTitulo, XFont fonteTexto) {
+
+            int questoesPagina = 0;
+            int altura = 200;
+            bool primeiraPagina = true;
+            for (int i = 0; i < teste.questoes.Count; i++) {
+
+
+                gfx.DrawString($"{i + 1}. {teste.questoes[i].enunciado}", fonteTitulo, XBrushes.Black, new XRect(25, altura, 1, 1), XStringFormats.CenterLeft);
+
+
+                altura += 40;
+
+                for (int j = 0; j < teste.questoes[i].alternativas.Count; j++) {
+                    string gabarito = VerificarGabarito(teste, i, j);
+
+                    gfx.DrawString($" {gabarito} {Convert.ToChar(97 + j)}) {teste.questoes[i].alternativas[j].descricao}", fonteTexto, XBrushes.Black, new XRect(25, altura, 1, 1), XStringFormats.CenterLeft);
+                    altura += 20;
+
+                }
+
+                questoesPagina++;
+                altura += 25;
+
+
+                if (primeiraPagina && questoesPagina == 4) {
+                    questoesPagina = 0;
+                    altura = 25;
+                    primeiraPagina = false;
+                    page = document.AddPage();
+                    gfx = XGraphics.FromPdfPage(page);
+                }
+
+                if (!primeiraPagina && questoesPagina == 5) {
+                    questoesPagina = 0;
+                    altura = 25;
+                    page = document.AddPage();
+                    gfx = XGraphics.FromPdfPage(page);
+                }
+            }
+        }
+
+
+
+        private static string VerificarGabarito(Teste teste, int i, int j) {
+            string gabarito = "[  ]";
+
+            if (teste.questoes[i].alternativas[j].gabarito) {
+                gabarito = "[X]";
+                    }
+
+            return gabarito;
         }
 
         private static void ImprimirInicioPDF(Teste teste, out PdfDocument document, out PdfPage page, out XGraphics gfx, out XFont fonteTitulo, out XFont fonteTexto)
@@ -217,24 +333,42 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
             //You will have to add Page in PDF Document
             page = document.AddPage();
 
+
             //For drawing in PDF Page you will nedd XGraphics Object
             gfx = XGraphics.FromPdfPage(page);
 
             //For Test you will have to define font to be used
             XFont fonteTituloPrincipal = new XFont("Verdana", 24, XFontStyle.Bold);
-            fonteTitulo = new XFont("Verdana", 20, XFontStyle.Bold);
+            XFont fonte2 = new XFont("Verdana", 16, XFontStyle.Bold);
+            fonteTitulo = new XFont("Verdana", 16, XFontStyle.Bold);
+            
             fonteTexto = new XFont("Verdana", 14, XFontStyle.Regular);
+
+            string nomeMateria;
+
+            if (teste.recuperacao) {
+                nomeMateria = "Recuperação";
+
+            }
+            else {
+                nomeMateria = teste.materia.nome;
+            }
 
             //Finally use XGraphics & font object to draw text in PDF Page
             gfx.DrawString($"{teste.titulo}", fonteTituloPrincipal, XBrushes.Black, new XRect(0, -380, page.Width, page.Height), XStringFormats.Center);
             gfx.DrawString($"Disciplina: {teste.disciplina}", fonteTitulo, XBrushes.Black, new XRect(0, -330, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString($"Matéria: {teste.materia}", fonteTitulo, XBrushes.Black, new XRect(0, -300, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString($"Matéria: {nomeMateria}", fonteTitulo, XBrushes.Black, new XRect(0, -300, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString($"Aluno:_____________________________ Data: __ /__ /____", fonte2, XBrushes.Black, new XRect(0, -270, page.Width, page.Height), XStringFormats.Center);
         }
 
-        private static void ConfirmarImpressao(PdfDocument document)
+        private static void ConfirmarImpressao(PdfDocument document, Teste teste)
         {
             //Specify file name of the PDF file
-            string filename = "D:/Visual Studio Projects/TesteDaDonaMariana/TestesDaDonaMariana.pdf";
+
+            string directory = "C:/Users/gabri/source/repos/TestesDaDonaMariana/";
+            string filename = Path.Combine(directory, $"{teste.titulo}.pdf");
+
+
 
             try
             {
@@ -246,7 +380,8 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
                 MessageBox.Show("PDF Impresso?");
             }
 
-            MessageBox.Show("PDF Impresso!");
+            MessageBox.Show($"PDF:\" {teste.titulo}\" gerado com sucesso!", "Impressão de Testes", MessageBoxButtons.OK);
+            
         }
 
         public override UserControl ObterListagem() {
