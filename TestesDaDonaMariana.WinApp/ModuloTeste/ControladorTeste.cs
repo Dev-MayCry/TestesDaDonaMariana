@@ -373,13 +373,13 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
             
             string directory = tela.AtualizarDiretorio();
 
-            string filename = Path.Combine(directory, $"{teste.titulo}.pdf");
+            string filename = Path.Combine(directory, $"{titulo}.pdf");
 
             try
             {
                 //Save PDF File
                 document.Save(filename);
-                MessageBox.Show($"PDF:\" {teste.titulo}\" gerado com sucesso!", "Impressão de Testes", MessageBoxButtons.OK);
+                MessageBox.Show($"PDF:\" {titulo}\" gerado com sucesso!", "Impressão de Testes", MessageBoxButtons.OK);
             }
             catch
             {
