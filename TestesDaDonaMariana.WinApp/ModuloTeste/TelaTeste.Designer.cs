@@ -28,235 +28,255 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtId = new TextBox();
-            label6 = new Label();
-            txtSerie = new NumericUpDown();
-            txtListaMaterias = new ComboBox();
-            txtListaDisciplinas = new ComboBox();
-            label5 = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            checkRecuperacao = new CheckBox();
-            label4 = new Label();
-            txtTitulo = new TextBox();
-            label3 = new Label();
-            txtNumeroQuestoes = new NumericUpDown();
-            btnCancelar = new Button();
-            btnOK = new Button();
-            btnSortear = new Button();
-            label7 = new Label();
-            listQuestoes = new ListBox();
-            ((System.ComponentModel.ISupportInitialize)txtSerie).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtNumeroQuestoes).BeginInit();
-            SuspendLayout();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtSerie = new System.Windows.Forms.NumericUpDown();
+            this.txtListaDisciplinas = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkRecuperacao = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNumeroQuestoes = new System.Windows.Forms.NumericUpDown();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnSortear = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.listQuestoes = new System.Windows.Forms.ListBox();
+            this.txtListaMaterias = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSerie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroQuestoes)).BeginInit();
+            this.SuspendLayout();
             // 
             // txtId
             // 
-            txtId.Enabled = false;
-            txtId.Location = new Point(515, 25);
-            txtId.Name = "txtId";
-            txtId.ReadOnly = true;
-            txtId.Size = new Size(53, 23);
-            txtId.TabIndex = 27;
-            txtId.Text = "0";
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(515, 25);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(53, 23);
+            this.txtId.TabIndex = 27;
+            this.txtId.Text = "0";
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(474, 28);
-            label6.Name = "label6";
-            label6.Size = new Size(20, 15);
-            label6.TabIndex = 26;
-            label6.Text = "Id:";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(474, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(20, 15);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Id:";
             // 
             // txtSerie
             // 
-            txtSerie.Location = new Point(515, 54);
-            txtSerie.Maximum = new decimal(new int[] { 9, 0, 0, 0 });
-            txtSerie.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            txtSerie.Name = "txtSerie";
-            txtSerie.ReadOnly = true;
-            txtSerie.Size = new Size(53, 23);
-            txtSerie.TabIndex = 24;
-            txtSerie.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            txtSerie.ValueChanged += txtSerie_ValueChanged;
-            // 
-            // txtListaMaterias
-            // 
-            txtListaMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
-            txtListaMaterias.FormattingEnabled = true;
-            txtListaMaterias.Location = new Point(123, 83);
-            txtListaMaterias.Name = "txtListaMaterias";
-            txtListaMaterias.Size = new Size(332, 23);
-            txtListaMaterias.TabIndex = 23;
-            txtListaMaterias.SelectedValueChanged += txtListaMaterias_SelectedValueChanged;
+            this.txtSerie.Location = new System.Drawing.Point(515, 54);
+            this.txtSerie.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.txtSerie.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtSerie.Name = "txtSerie";
+            this.txtSerie.ReadOnly = true;
+            this.txtSerie.Size = new System.Drawing.Size(53, 23);
+            this.txtSerie.TabIndex = 24;
+            this.txtSerie.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtSerie.ValueChanged += new System.EventHandler(this.txtSerie_ValueChanged);
             // 
             // txtListaDisciplinas
             // 
-            txtListaDisciplinas.DropDownStyle = ComboBoxStyle.DropDownList;
-            txtListaDisciplinas.FormattingEnabled = true;
-            txtListaDisciplinas.Location = new Point(123, 54);
-            txtListaDisciplinas.Name = "txtListaDisciplinas";
-            txtListaDisciplinas.Size = new Size(332, 23);
-            txtListaDisciplinas.TabIndex = 22;
-            txtListaDisciplinas.SelectedValueChanged += txtListaDisciplinas_SelectedValueChanged;
+            this.txtListaDisciplinas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtListaDisciplinas.FormattingEnabled = true;
+            this.txtListaDisciplinas.Location = new System.Drawing.Point(123, 54);
+            this.txtListaDisciplinas.Name = "txtListaDisciplinas";
+            this.txtListaDisciplinas.Size = new System.Drawing.Size(332, 23);
+            this.txtListaDisciplinas.TabIndex = 22;
+            this.txtListaDisciplinas.SelectedIndexChanged += new System.EventHandler(this.txtListaDisciplinas_SelectedValueChanged);
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(474, 56);
-            label5.Name = "label5";
-            label5.Size = new Size(35, 15);
-            label5.TabIndex = 21;
-            label5.Text = "Série:";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(474, 56);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 15);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Série:";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(26, 86);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 15);
-            label2.TabIndex = 19;
-            label2.Text = "Matéria:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(26, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 15);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Matéria:";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(26, 56);
-            label1.Name = "label1";
-            label1.Size = new Size(61, 15);
-            label1.TabIndex = 18;
-            label1.Text = "Disciplina:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 15);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Disciplina:";
             // 
             // checkRecuperacao
             // 
-            checkRecuperacao.AutoSize = true;
-            checkRecuperacao.Location = new Point(474, 83);
-            checkRecuperacao.Name = "checkRecuperacao";
-            checkRecuperacao.Size = new Size(94, 19);
-            checkRecuperacao.TabIndex = 28;
-            checkRecuperacao.Text = "Recuperação";
-            checkRecuperacao.UseVisualStyleBackColor = true;
-            checkRecuperacao.CheckedChanged += checkRecuperacao_CheckedChanged;
+            this.checkRecuperacao.AutoSize = true;
+            this.checkRecuperacao.Location = new System.Drawing.Point(474, 83);
+            this.checkRecuperacao.Name = "checkRecuperacao";
+            this.checkRecuperacao.Size = new System.Drawing.Size(94, 19);
+            this.checkRecuperacao.TabIndex = 28;
+            this.checkRecuperacao.Text = "Recuperação";
+            this.checkRecuperacao.UseVisualStyleBackColor = true;
+            this.checkRecuperacao.CheckedChanged += new System.EventHandler(this.checkRecuperacao_CheckedChanged);
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(26, 28);
-            label4.Name = "label4";
-            label4.Size = new Size(40, 15);
-            label4.TabIndex = 29;
-            label4.Text = "Título:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(26, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 15);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Título:";
             // 
             // txtTitulo
             // 
-            txtTitulo.Location = new Point(123, 24);
-            txtTitulo.Multiline = true;
-            txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(332, 24);
-            txtTitulo.TabIndex = 30;
+            this.txtTitulo.Location = new System.Drawing.Point(123, 24);
+            this.txtTitulo.Multiline = true;
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(332, 24);
+            this.txtTitulo.TabIndex = 30;
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(26, 141);
-            label3.Name = "label3";
-            label3.Size = new Size(125, 15);
-            label3.TabIndex = 31;
-            label3.Text = "Número de Questões: ";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(26, 141);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 15);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "Número de Questões: ";
             // 
             // txtNumeroQuestoes
             // 
-            txtNumeroQuestoes.Location = new Point(157, 139);
-            txtNumeroQuestoes.Name = "txtNumeroQuestoes";
-            txtNumeroQuestoes.ReadOnly = true;
-            txtNumeroQuestoes.Size = new Size(53, 23);
-            txtNumeroQuestoes.TabIndex = 32;
-            txtNumeroQuestoes.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.txtNumeroQuestoes.Location = new System.Drawing.Point(157, 139);
+            this.txtNumeroQuestoes.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtNumeroQuestoes.Name = "txtNumeroQuestoes";
+            this.txtNumeroQuestoes.ReadOnly = true;
+            this.txtNumeroQuestoes.Size = new System.Drawing.Size(53, 23);
+            this.txtNumeroQuestoes.TabIndex = 32;
+            this.txtNumeroQuestoes.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // btnCancelar
             // 
-            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(512, 529);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 50);
-            btnCancelar.TabIndex = 34;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(512, 529);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 50);
+            this.btnCancelar.TabIndex = 34;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnOK
             // 
-            btnOK.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnOK.DialogResult = DialogResult.OK;
-            btnOK.Location = new Point(426, 529);
-            btnOK.Name = "btnOK";
-            btnOK.Size = new Size(75, 50);
-            btnOK.TabIndex = 33;
-            btnOK.Text = "OK";
-            btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOK.Location = new System.Drawing.Point(426, 529);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 50);
+            this.btnOK.TabIndex = 33;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
             // 
             // btnSortear
             // 
-            btnSortear.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSortear.Location = new Point(236, 123);
-            btnSortear.Name = "btnSortear";
-            btnSortear.Size = new Size(359, 50);
-            btnSortear.TabIndex = 35;
-            btnSortear.Text = "Sortear Questões";
-            btnSortear.UseVisualStyleBackColor = true;
-            btnSortear.Click += btnSortear_Click;
+            this.btnSortear.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSortear.Location = new System.Drawing.Point(236, 123);
+            this.btnSortear.Name = "btnSortear";
+            this.btnSortear.Size = new System.Drawing.Size(359, 50);
+            this.btnSortear.TabIndex = 35;
+            this.btnSortear.Text = "Sortear Questões";
+            this.btnSortear.UseVisualStyleBackColor = true;
+            this.btnSortear.Click += new System.EventHandler(this.btnSortear_Click);
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(26, 192);
-            label7.Name = "label7";
-            label7.Size = new Size(113, 15);
-            label7.TabIndex = 37;
-            label7.Text = "Questões Sorteadas:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(26, 192);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(113, 15);
+            this.label7.TabIndex = 37;
+            this.label7.Text = "Questões Sorteadas:";
             // 
             // listQuestoes
             // 
-            listQuestoes.FormattingEnabled = true;
-            listQuestoes.ItemHeight = 15;
-            listQuestoes.Location = new Point(30, 210);
-            listQuestoes.Name = "listQuestoes";
-            listQuestoes.Size = new Size(565, 304);
-            listQuestoes.TabIndex = 38;
+            this.listQuestoes.FormattingEnabled = true;
+            this.listQuestoes.ItemHeight = 15;
+            this.listQuestoes.Location = new System.Drawing.Point(30, 210);
+            this.listQuestoes.Name = "listQuestoes";
+            this.listQuestoes.Size = new System.Drawing.Size(565, 304);
+            this.listQuestoes.TabIndex = 38;
+            // 
+            // txtListaMaterias
+            // 
+            this.txtListaMaterias.FormattingEnabled = true;
+            this.txtListaMaterias.Location = new System.Drawing.Point(123, 86);
+            this.txtListaMaterias.Name = "txtListaMaterias";
+            this.txtListaMaterias.Size = new System.Drawing.Size(332, 23);
+            this.txtListaMaterias.TabIndex = 39;
             // 
             // TelaTeste
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(614, 591);
-            Controls.Add(listQuestoes);
-            Controls.Add(label7);
-            Controls.Add(btnSortear);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnOK);
-            Controls.Add(txtNumeroQuestoes);
-            Controls.Add(label3);
-            Controls.Add(txtTitulo);
-            Controls.Add(label4);
-            Controls.Add(checkRecuperacao);
-            Controls.Add(txtId);
-            Controls.Add(label6);
-            Controls.Add(txtSerie);
-            Controls.Add(txtListaMaterias);
-            Controls.Add(txtListaDisciplinas);
-            Controls.Add(label5);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            MaximumSize = new Size(630, 630);
-            MinimumSize = new Size(630, 630);
-            Name = "TelaTeste";
-            ShowIcon = false;
-            Text = "Cadastro de Testes";
-            ((System.ComponentModel.ISupportInitialize)txtSerie).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtNumeroQuestoes).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(614, 591);
+            this.Controls.Add(this.txtListaMaterias);
+            this.Controls.Add(this.listQuestoes);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btnSortear);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnOK);
+            this.Controls.Add(this.txtNumeroQuestoes);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtTitulo);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.checkRecuperacao);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtSerie);
+            this.Controls.Add(this.txtListaDisciplinas);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(630, 630);
+            this.MinimumSize = new System.Drawing.Size(630, 630);
+            this.Name = "TelaTeste";
+            this.ShowIcon = false;
+            this.Text = "Cadastro de Testes";
+            ((System.ComponentModel.ISupportInitialize)(this.txtSerie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroQuestoes)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -264,7 +284,6 @@
         private TextBox txtId;
         private Label label6;
         private NumericUpDown txtSerie;
-        private ComboBox txtListaMaterias;
         private ComboBox txtListaDisciplinas;
         private Label label5;
         private Label label2;
@@ -279,5 +298,6 @@
         private Button btnSortear;
         private Label label7;
         private ListBox listQuestoes;
+        private ComboBox txtListaMaterias;
     }
 }

@@ -44,6 +44,11 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             while (opcaoEscolhida == DialogResult.OK)
             {
                 Questao questao = telaQuestao.ObterQuestao();
+                if (questao == null) {
+                    MessageBox.Show($"Não é possível salvar uma questão sem uma matéria", "Inserir Questão", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    opcaoEscolhida = telaQuestao.ShowDialog();
+                    continue; 
+                }
                 if (ValidarAtributos(questao))
                 {
                     opcaoEscolhida = telaQuestao.ShowDialog();
@@ -83,6 +88,12 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             while (opcaoEscolhida == DialogResult.OK)
             {
                 Questao questaoAtualizada = tela.ObterQuestao();
+
+                if (questao == null) {
+                    MessageBox.Show($"Não é possível salvar uma questão sem uma matéria", "Inserir Questão", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    opcaoEscolhida = tela.ShowDialog();
+                    continue;
+                }
                 if (ValidarAtributos(questaoAtualizada))
                 {
                     opcaoEscolhida = tela.ShowDialog();
@@ -196,8 +207,11 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             {
                 MessageBox.Show($"É necessário ao menos 2 alternativas para salvar a questão!", "Nova Questão", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return true;
+            
             }
-            for(int i = 1; i < questao.alternativas.Count; i++)
+
+
+            for (int i = 1; i < questao.alternativas.Count; i++)
             {
                 if (questao.alternativas[i].descricao == questao.alternativas[i - 1].descricao)
                 {

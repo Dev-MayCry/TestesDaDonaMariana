@@ -28,311 +28,320 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label5 = new Label();
-            txtListaDisciplinas = new ComboBox();
-            txtListaMaterias = new ComboBox();
-            txtSerie = new NumericUpDown();
-            txtEnunciado = new TextBox();
-            btnOK = new Button();
-            btnCancelar = new Button();
-            txtId = new TextBox();
-            label6 = new Label();
-            groupBox1 = new GroupBox();
-            alternativaD = new RadioButton();
-            alternativaA = new RadioButton();
-            alternativaB = new RadioButton();
-            alternativaC = new RadioButton();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            label4 = new Label();
-            txtAlternativaD = new TextBox();
-            txtAlternativaC = new TextBox();
-            txtAlternativaB = new TextBox();
-            txtAlternativaA = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)txtSerie).BeginInit();
-            groupBox1.SuspendLayout();
-            SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtListaDisciplinas = new System.Windows.Forms.ComboBox();
+            this.txtSerie = new System.Windows.Forms.NumericUpDown();
+            this.txtEnunciado = new System.Windows.Forms.TextBox();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.alternativaD = new System.Windows.Forms.RadioButton();
+            this.alternativaA = new System.Windows.Forms.RadioButton();
+            this.alternativaB = new System.Windows.Forms.RadioButton();
+            this.alternativaC = new System.Windows.Forms.RadioButton();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtAlternativaD = new System.Windows.Forms.TextBox();
+            this.txtAlternativaC = new System.Windows.Forms.TextBox();
+            this.txtAlternativaB = new System.Windows.Forms.TextBox();
+            this.txtAlternativaA = new System.Windows.Forms.TextBox();
+            this.txtListaMaterias = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSerie)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 41);
-            label1.Name = "label1";
-            label1.Size = new Size(61, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Disciplina:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Disciplina:";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 71);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Matéria:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Matéria:";
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 97);
-            label3.Name = "label3";
-            label3.Size = new Size(66, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Enunciado:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 15);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Enunciado:";
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(601, 41);
-            label5.Name = "label5";
-            label5.Size = new Size(35, 15);
-            label5.TabIndex = 4;
-            label5.Text = "Série:";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(601, 41);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 15);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Série:";
             // 
             // txtListaDisciplinas
             // 
-            txtListaDisciplinas.DropDownStyle = ComboBoxStyle.DropDownList;
-            txtListaDisciplinas.FormattingEnabled = true;
-            txtListaDisciplinas.Location = new Point(109, 39);
-            txtListaDisciplinas.Name = "txtListaDisciplinas";
-            txtListaDisciplinas.Size = new Size(486, 23);
-            txtListaDisciplinas.TabIndex = 5;
-            txtListaDisciplinas.SelectedIndexChanged += txtListaDisciplinas_SelectedIndexChanged;
-            // 
-            // txtListaMaterias
-            // 
-            txtListaMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
-            txtListaMaterias.FormattingEnabled = true;
-            txtListaMaterias.Location = new Point(109, 68);
-            txtListaMaterias.Name = "txtListaMaterias";
-            txtListaMaterias.Size = new Size(625, 23);
-            txtListaMaterias.TabIndex = 6;
+            this.txtListaDisciplinas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtListaDisciplinas.FormattingEnabled = true;
+            this.txtListaDisciplinas.Location = new System.Drawing.Point(109, 39);
+            this.txtListaDisciplinas.Name = "txtListaDisciplinas";
+            this.txtListaDisciplinas.Size = new System.Drawing.Size(486, 23);
+            this.txtListaDisciplinas.TabIndex = 5;
+            this.txtListaDisciplinas.SelectedIndexChanged += new System.EventHandler(this.txtListaDisciplinas_SelectedIndexChanged);
             // 
             // txtSerie
             // 
-            txtSerie.Location = new Point(642, 39);
-            txtSerie.Maximum = new decimal(new int[] { 9, 0, 0, 0 });
-            txtSerie.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            txtSerie.Name = "txtSerie";
-            txtSerie.ReadOnly = true;
-            txtSerie.Size = new Size(92, 23);
-            txtSerie.TabIndex = 7;
-            txtSerie.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            txtSerie.ValueChanged += txtSerie_ValueChanged;
+            this.txtSerie.Location = new System.Drawing.Point(642, 39);
+            this.txtSerie.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.txtSerie.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtSerie.Name = "txtSerie";
+            this.txtSerie.ReadOnly = true;
+            this.txtSerie.Size = new System.Drawing.Size(92, 23);
+            this.txtSerie.TabIndex = 7;
+            this.txtSerie.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtSerie.ValueChanged += new System.EventHandler(this.txtSerie_ValueChanged);
             // 
             // txtEnunciado
             // 
-            txtEnunciado.Location = new Point(109, 97);
-            txtEnunciado.Multiline = true;
-            txtEnunciado.Name = "txtEnunciado";
-            txtEnunciado.Size = new Size(625, 178);
-            txtEnunciado.TabIndex = 8;
+            this.txtEnunciado.Location = new System.Drawing.Point(109, 97);
+            this.txtEnunciado.Multiline = true;
+            this.txtEnunciado.Name = "txtEnunciado";
+            this.txtEnunciado.Size = new System.Drawing.Size(625, 178);
+            this.txtEnunciado.TabIndex = 8;
             // 
             // btnOK
             // 
-            btnOK.DialogResult = DialogResult.OK;
-            btnOK.Location = new Point(578, 430);
-            btnOK.Name = "btnOK";
-            btnOK.Size = new Size(75, 50);
-            btnOK.TabIndex = 13;
-            btnOK.Text = "OK";
-            btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOK.Location = new System.Drawing.Point(578, 430);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 50);
+            this.btnOK.TabIndex = 13;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
-            btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(659, 430);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 50);
-            btnCancelar.TabIndex = 14;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(659, 430);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 50);
+            this.btnCancelar.TabIndex = 14;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // txtId
             // 
-            txtId.Enabled = false;
-            txtId.Location = new Point(109, 10);
-            txtId.Name = "txtId";
-            txtId.ReadOnly = true;
-            txtId.Size = new Size(63, 23);
-            txtId.TabIndex = 17;
-            txtId.Text = "0";
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(109, 10);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(63, 23);
+            this.txtId.TabIndex = 17;
+            this.txtId.Text = "0";
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(12, 13);
-            label6.Name = "label6";
-            label6.Size = new Size(20, 15);
-            label6.TabIndex = 16;
-            label6.Text = "Id:";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(20, 15);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Id:";
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(alternativaD);
-            groupBox1.Controls.Add(alternativaA);
-            groupBox1.Controls.Add(alternativaB);
-            groupBox1.Controls.Add(alternativaC);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(txtAlternativaD);
-            groupBox1.Controls.Add(txtAlternativaC);
-            groupBox1.Controls.Add(txtAlternativaB);
-            groupBox1.Controls.Add(txtAlternativaA);
-            groupBox1.Location = new Point(111, 281);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(623, 143);
-            groupBox1.TabIndex = 18;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Alternativas";
+            this.groupBox1.Controls.Add(this.alternativaD);
+            this.groupBox1.Controls.Add(this.alternativaA);
+            this.groupBox1.Controls.Add(this.alternativaB);
+            this.groupBox1.Controls.Add(this.alternativaC);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtAlternativaD);
+            this.groupBox1.Controls.Add(this.txtAlternativaC);
+            this.groupBox1.Controls.Add(this.txtAlternativaB);
+            this.groupBox1.Controls.Add(this.txtAlternativaA);
+            this.groupBox1.Location = new System.Drawing.Point(111, 281);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(623, 143);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Alternativas";
             // 
             // alternativaD
             // 
-            alternativaD.AutoSize = true;
-            alternativaD.Location = new Point(602, 114);
-            alternativaD.Name = "alternativaD";
-            alternativaD.Size = new Size(14, 13);
-            alternativaD.TabIndex = 20;
-            alternativaD.TabStop = true;
-            alternativaD.UseVisualStyleBackColor = true;
+            this.alternativaD.AutoSize = true;
+            this.alternativaD.Location = new System.Drawing.Point(602, 114);
+            this.alternativaD.Name = "alternativaD";
+            this.alternativaD.Size = new System.Drawing.Size(14, 13);
+            this.alternativaD.TabIndex = 20;
+            this.alternativaD.TabStop = true;
+            this.alternativaD.UseVisualStyleBackColor = true;
             // 
             // alternativaA
             // 
-            alternativaA.AutoSize = true;
-            alternativaA.Location = new Point(602, 27);
-            alternativaA.Name = "alternativaA";
-            alternativaA.Size = new Size(14, 13);
-            alternativaA.TabIndex = 8;
-            alternativaA.TabStop = true;
-            alternativaA.UseVisualStyleBackColor = true;
+            this.alternativaA.AutoSize = true;
+            this.alternativaA.Location = new System.Drawing.Point(602, 27);
+            this.alternativaA.Name = "alternativaA";
+            this.alternativaA.Size = new System.Drawing.Size(14, 13);
+            this.alternativaA.TabIndex = 8;
+            this.alternativaA.TabStop = true;
+            this.alternativaA.UseVisualStyleBackColor = true;
             // 
             // alternativaB
             // 
-            alternativaB.AutoSize = true;
-            alternativaB.Location = new Point(602, 56);
-            alternativaB.Name = "alternativaB";
-            alternativaB.Size = new Size(14, 13);
-            alternativaB.TabIndex = 9;
-            alternativaB.TabStop = true;
-            alternativaB.UseVisualStyleBackColor = true;
+            this.alternativaB.AutoSize = true;
+            this.alternativaB.Location = new System.Drawing.Point(602, 56);
+            this.alternativaB.Name = "alternativaB";
+            this.alternativaB.Size = new System.Drawing.Size(14, 13);
+            this.alternativaB.TabIndex = 9;
+            this.alternativaB.TabStop = true;
+            this.alternativaB.UseVisualStyleBackColor = true;
             // 
             // alternativaC
             // 
-            alternativaC.AutoSize = true;
-            alternativaC.Location = new Point(602, 85);
-            alternativaC.Name = "alternativaC";
-            alternativaC.Size = new Size(14, 13);
-            alternativaC.TabIndex = 19;
-            alternativaC.TabStop = true;
-            alternativaC.UseVisualStyleBackColor = true;
+            this.alternativaC.AutoSize = true;
+            this.alternativaC.Location = new System.Drawing.Point(602, 85);
+            this.alternativaC.Name = "alternativaC";
+            this.alternativaC.Size = new System.Drawing.Size(14, 13);
+            this.alternativaC.TabIndex = 19;
+            this.alternativaC.TabStop = true;
+            this.alternativaC.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(6, 112);
-            label9.Name = "label9";
-            label9.Size = new Size(18, 15);
-            label9.TabIndex = 7;
-            label9.Text = "d)";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 112);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(18, 15);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "d)";
             // 
             // label8
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(6, 83);
-            label8.Name = "label8";
-            label8.Size = new Size(17, 15);
-            label8.TabIndex = 6;
-            label8.Text = "c)";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 83);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(17, 15);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "c)";
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(6, 54);
-            label7.Name = "label7";
-            label7.Size = new Size(18, 15);
-            label7.TabIndex = 5;
-            label7.Text = "b)";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 54);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(18, 15);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "b)";
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(6, 25);
-            label4.Name = "label4";
-            label4.Size = new Size(17, 15);
-            label4.TabIndex = 4;
-            label4.Text = "a)";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(17, 15);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "a)";
             // 
             // txtAlternativaD
             // 
-            txtAlternativaD.Location = new Point(30, 109);
-            txtAlternativaD.Name = "txtAlternativaD";
-            txtAlternativaD.Size = new Size(566, 23);
-            txtAlternativaD.TabIndex = 3;
-            txtAlternativaD.EnabledChanged += txtAlternativaD_TextChanged;
-            txtAlternativaD.TextChanged += txtAlternativaD_TextChanged;
+            this.txtAlternativaD.Location = new System.Drawing.Point(30, 109);
+            this.txtAlternativaD.Name = "txtAlternativaD";
+            this.txtAlternativaD.Size = new System.Drawing.Size(566, 23);
+            this.txtAlternativaD.TabIndex = 3;
+            this.txtAlternativaD.TextChanged += new System.EventHandler(this.txtAlternativaD_TextChanged);
             // 
             // txtAlternativaC
             // 
-            txtAlternativaC.Location = new Point(30, 80);
-            txtAlternativaC.Name = "txtAlternativaC";
-            txtAlternativaC.Size = new Size(566, 23);
-            txtAlternativaC.TabIndex = 2;
-            txtAlternativaC.EnabledChanged += txtAlternativaC_TextChanged;
-            txtAlternativaC.TextChanged += txtAlternativaC_TextChanged;
+            this.txtAlternativaC.Location = new System.Drawing.Point(30, 80);
+            this.txtAlternativaC.Name = "txtAlternativaC";
+            this.txtAlternativaC.Size = new System.Drawing.Size(566, 23);
+            this.txtAlternativaC.TabIndex = 2;
+            this.txtAlternativaC.TextChanged += new System.EventHandler(this.txtAlternativaC_TextChanged);
             // 
             // txtAlternativaB
             // 
-            txtAlternativaB.Location = new Point(30, 51);
-            txtAlternativaB.Name = "txtAlternativaB";
-            txtAlternativaB.Size = new Size(566, 23);
-            txtAlternativaB.TabIndex = 1;
-            txtAlternativaB.EnabledChanged += txtAlternativaB_TextChanged;
-            txtAlternativaB.TextChanged += txtAlternativaB_TextChanged;
+            this.txtAlternativaB.Location = new System.Drawing.Point(30, 51);
+            this.txtAlternativaB.Name = "txtAlternativaB";
+            this.txtAlternativaB.Size = new System.Drawing.Size(566, 23);
+            this.txtAlternativaB.TabIndex = 1;
+            this.txtAlternativaB.TextChanged += new System.EventHandler(this.txtAlternativaB_TextChanged);
             // 
             // txtAlternativaA
             // 
-            txtAlternativaA.Location = new Point(30, 22);
-            txtAlternativaA.Name = "txtAlternativaA";
-            txtAlternativaA.Size = new Size(566, 23);
-            txtAlternativaA.TabIndex = 0;
-            txtAlternativaA.TextChanged += txtAlternativaA_TextChanged;
+            this.txtAlternativaA.Location = new System.Drawing.Point(30, 22);
+            this.txtAlternativaA.Name = "txtAlternativaA";
+            this.txtAlternativaA.Size = new System.Drawing.Size(566, 23);
+            this.txtAlternativaA.TabIndex = 0;
+            this.txtAlternativaA.TextChanged += new System.EventHandler(this.txtAlternativaA_TextChanged);
+            // 
+            // txtListaMaterias
+            // 
+            this.txtListaMaterias.FormattingEnabled = true;
+            this.txtListaMaterias.Location = new System.Drawing.Point(109, 68);
+            this.txtListaMaterias.Name = "txtListaMaterias";
+            this.txtListaMaterias.Size = new System.Drawing.Size(625, 23);
+            this.txtListaMaterias.TabIndex = 19;
             // 
             // TelaQuestao
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(754, 491);
-            Controls.Add(groupBox1);
-            Controls.Add(txtId);
-            Controls.Add(label6);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnOK);
-            Controls.Add(txtEnunciado);
-            Controls.Add(txtSerie);
-            Controls.Add(txtListaMaterias);
-            Controls.Add(txtListaDisciplinas);
-            Controls.Add(label5);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            MaximizeBox = false;
-            MaximumSize = new Size(770, 530);
-            MinimizeBox = false;
-            MinimumSize = new Size(770, 530);
-            Name = "TelaQuestao";
-            ShowIcon = false;
-            Text = "Cadastro de Questão";
-            ((System.ComponentModel.ISupportInitialize)txtSerie).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(754, 491);
+            this.Controls.Add(this.txtListaMaterias);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnOK);
+            this.Controls.Add(this.txtEnunciado);
+            this.Controls.Add(this.txtSerie);
+            this.Controls.Add(this.txtListaDisciplinas);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(770, 530);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(770, 530);
+            this.Name = "TelaQuestao";
+            this.ShowIcon = false;
+            this.Text = "Cadastro de Questão";
+            ((System.ComponentModel.ISupportInitialize)(this.txtSerie)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -342,7 +351,6 @@
         private Label label3;
         private Label label5;
         private ComboBox txtListaDisciplinas;
-        private ComboBox txtListaMaterias;
         private NumericUpDown txtSerie;
         private TextBox txtEnunciado;
         private Button btnOK;
@@ -362,5 +370,6 @@
         private RadioButton alternativaA;
         private RadioButton alternativaB;
         private RadioButton alternativaC;
+        private ComboBox txtListaMaterias;
     }
 }

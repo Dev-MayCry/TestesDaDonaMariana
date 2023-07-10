@@ -227,7 +227,7 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
         }
 
-        
+ 
 
         private static void ImprimirQuestoes(Teste teste, PdfDocument document, ref PdfPage page, ref XGraphics gfx, XFont fonteTitulo, XFont fonteTexto) {
 
@@ -367,8 +367,6 @@ namespace TestesDaDonaMariana.WinApp.ModuloTeste {
 
             string directory = "C:/Users/gabri/source/repos/TestesDaDonaMariana/";
             string filename = Path.Combine(directory, $"{teste.titulo}.pdf");
-
-
 
             try
             {

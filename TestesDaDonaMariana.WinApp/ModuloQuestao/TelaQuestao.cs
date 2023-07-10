@@ -90,8 +90,12 @@ namespace TestesDaDonaMariana.WinApp.ModuloQuestao
             Disciplina disciplina = (Disciplina)txtListaDisciplinas.SelectedItem;
 
             int serie = Convert.ToInt32(txtSerie.Text);
-
+            
             Materia materia = (Materia)txtListaMaterias.SelectedItem;
+
+            if(txtListaMaterias.Text == "Nenhuma matéria cadastrada na série selecionada.") {
+                return null  ;
+            }
 
             string enunciado = txtEnunciado.Text;
 
